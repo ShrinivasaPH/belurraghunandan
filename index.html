@@ -59,6 +59,14 @@ header nav a{padding:.5rem 0}
 @media (max-height:500px) and (orientation:landscape){.hero{min-height:auto;padding:3.5rem 1rem 2rem}header{position:static}}
 @media (min-width:1920px){.hero .in{max-width:70rem}.grid{gap:2rem}}
 @media print{header,.curtain,.valance{display:none}.hero{min-height:auto;color:#000;background:none}.hero h1,.hero p,.hero .roles{color:#000;text-shadow:none}}
+.portrait{float:left;width:min(17rem,38%);margin:.6rem 2.4rem 1.4rem .6rem;shape-outside:margin-box}
+.arch{position:relative;aspect-ratio:4/5;border-radius:999px 999px .4rem .4rem;overflow:hidden;border:3px solid var(--brass);box-shadow:0 0 0 8px var(--paper),0 0 0 10px var(--brass),0 24px 50px #1d142655;background:linear-gradient(#6A1B34,#1d1426)}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.arch::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0,#ffe9b844,#0000 60%);pointer-events:none}
+.mono{display:none}.arch.noimg .mono{display:grid;place-items:center;height:100%;color:var(--brass);font:700 5rem var(--serif)}
+.portrait figcaption{text-align:center;margin-top:1.4rem;font:600 1.1rem var(--serif);color:var(--mute)}
+#about::after{content:"";display:block;clear:both}
+@media (max-width:640px){.portrait{float:none;width:min(15rem,70%);margin:.5rem auto 2rem}}
 </style>
 </head>
 <body>
@@ -86,6 +94,7 @@ header nav a{padding:.5rem 0}
 
 <section id="about">
   <h2 data-kn="ಪರಿಚಯ" data-en="About">ಪರಿಚಯ</h2>
+  <figure class="portrait"><div class="arch"><img src="images/beluru-raghunandan.jpg" alt="ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ (Dr. Beluru Raghunandan)" loading="lazy" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="mono" aria-hidden="true">ರ</span></div><figcaption data-kn="ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್" data-en="Dr. Beluru Raghunandan">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್</figcaption></figure>
   <p class="lead" data-kn="ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ ಅವರು ತಮ್ಮದೇ ಆದ ವಿಶಿಷ್ಟ ಶೈಲಿ ಮತ್ತು ಅಭಿವ್ಯಕ್ತಿಗೆ ಹೆಸರಾದ ಕನ್ನಡದ ನಾಟಕಕಾರರು. ಬೆಂಗಳೂರಿನ ‘ಕಾಜಾಣ’ ರಂಗ ತಂಡದ ನಿರ್ದೇಶಕರಾಗಿ ಅವರು ನಾಟಕಗಳನ್ನು ಬರೆಯುತ್ತಾರೆ, ನಿರ್ದೇಶಿಸುತ್ತಾರೆ ಮತ್ತು ತಂಡವನ್ನು ಮುನ್ನಡೆಸುತ್ತಾರೆ." data-en="Dr. Beluru Raghunandan is a Kannada playwright known for a distinctive voice and style of expression. As director of the Kaajana theatre team in Bengaluru, he writes the plays, directs them and leads the company.">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ ಅವರು ತಮ್ಮದೇ ಆದ ವಿಶಿಷ್ಟ ಶೈಲಿ ಮತ್ತು ಅಭಿವ್ಯಕ್ತಿಗೆ ಹೆಸರಾದ ಕನ್ನಡದ ನಾಟಕಕಾರರು. ಬೆಂಗಳೂರಿನ ‘ಕಾಜಾಣ’ ರಂಗ ತಂಡದ ನಿರ್ದೇಶಕರಾಗಿ ಅವರು ನಾಟಕಗಳನ್ನು ಬರೆಯುತ್ತಾರೆ, ನಿರ್ದೇಶಿಸುತ್ತಾರೆ ಮತ್ತು ತಂಡವನ್ನು ಮುನ್ನಡೆಸುತ್ತಾರೆ.</p>
   <p data-kn="ಅವರು ಬೆಂಗಳೂರು ಬುಕ್‌ಬ್ರಹ್ಮ ಸಾಹಿತ್ಯೋತ್ಸವ 2024ರಲ್ಲಿ ಭಾಷಣಕಾರರಾಗಿ ಭಾಗವಹಿಸಿದ್ದರು." data-en="He was among the speakers at the Bookbrahma Literature Festival in 2024.">ಅವರು ಬೆಂಗಳೂರು ಬುಕ್‌ಬ್ರಹ್ಮ ಸಾಹಿತ್ಯೋತ್ಸವ 2024ರಲ್ಲಿ ಭಾಷಣಕಾರರಾಗಿ ಭಾಗವಹಿಸಿದ್ದರು.</p>
   <div class="note" data-kn="ಜೀವನ ಚರಿತ್ರೆ, ಶಿಕ್ಷಣ ಮತ್ತು ಕೃತಿಗಳ ಸಂಪೂರ್ಣ ವಿವರಗಳು ಕನ್ನಡ ವಿಕಿಪೀಡಿಯದ ಮಾಹಿತಿಯೊಂದಿಗೆ ಇಲ್ಲಿ ಸೇರಲಿವೆ." data-en="Full biography, education and bibliography will be added here from the Kannada Wikipedia entry.">ಜೀವನ ಚರಿತ್ರೆ, ಶಿಕ್ಷಣ ಮತ್ತು ಕೃತಿಗಳ ಸಂಪೂರ್ಣ ವಿವರಗಳು ಕನ್ನಡ ವಿಕಿಪೀಡಿಯದ ಮಾಹಿತಿಯೊಂದಿಗೆ ಇಲ್ಲಿ ಸೇರಲಿವೆ.</div>
