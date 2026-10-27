@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ | Dr. Beluru Raghunandan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+Kannada:wght@400;500&family=Noto+Serif+Kannada:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F5F3F8;--ink:#1D1A2B;--wine:#6A1B34;--wine2:#4A1124;--brass:#B38A3C;--mute:#5E5A70;--line:#D9D4E3;
+--serif:'Noto Serif Kannada','Cormorant Garamond',Georgia,serif;--sans:'Noto Sans Kannada',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#17141F;--ink:#EDE9F5;--mute:#A9A3BD;--line:#332E44;--wine:#C2506F}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px;font-size:clamp(16px,.5vw + 12px,28px);-webkit-text-size-adjust:100%}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.05rem/1.8 var(--sans)}
+body.en{--serif:'Cormorant Garamond',Georgia,serif;--sans:system-ui,'Segoe UI',sans-serif}
+body.en h1,body.en h2{letter-spacing:.01em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+header{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.6rem 1.2rem;background:var(--paper);border-bottom:1px solid var(--line)}
+header nav{display:flex;gap:1.3rem;flex-wrap:wrap;font-size:.95rem}
+header nav a{text-decoration:none;color:var(--mute)}header nav a:hover{color:var(--wine)}
+.tog{display:flex;border:1px solid var(--brass);border-radius:99px;overflow:hidden}
+.tog button{border:0;background:none;color:var(--ink);padding:.3rem 1rem;min-height:2.75rem;font:inherit;font-size:.9rem;cursor:pointer}
+.tog button[aria-pressed="true"]{background:var(--wine);color:#fff}
+/* hero: proscenium + curtain */
+.hero{position:relative;min-height:88vh;min-height:88svh;display:grid;place-items:center;text-align:center;padding:4rem 1.2rem;overflow:hidden;background:radial-gradient(ellipse at 50% 30%,#7a5a52 0,#3a2a3d 50%,#1d1426 95%);color:#fff}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(#0000 55%,#0008)}
+.hero .in{position:relative;max-width:820px}
+.hero .mask{width:clamp(56px,8vw,110px);height:auto;margin:0 auto 1rem;display:block;color:var(--brass)}
+.hero h1{overflow-wrap:break-word;font:700 clamp(2.4rem,7vw,4.6rem)/1.25 var(--serif);margin:.2rem 0;text-shadow:0 2px 18px #0008}
+.hero p{margin:.4rem auto;font-size:1.2rem;max-width:34ch;color:#f1e8d8}
+.hero .roles{font-family:var(--serif);color:#f3d99a;font-size:1.25rem}
+.curtain{position:absolute;top:0;bottom:0;width:50.5%;z-index:5;background:repeating-linear-gradient(90deg,var(--wine2) 0 26px,var(--wine) 26px 54px,#82284a 54px 66px);box-shadow:0 0 40px #000a;animation:part 2.6s .5s cubic-bezier(.7,0,.2,1) forwards}
+.curtain.l{left:0;transform-origin:left}.curtain.r{right:0;transform-origin:right;animation-name:partR}
+@keyframes part{to{transform:translateX(-100%)}}@keyframes partR{to{transform:translateX(100%)}}
+.valance{position:absolute;top:0;left:0;right:0;height:34px;z-index:6;background:var(--wine2);border-bottom:3px solid var(--brass)}
+@media (prefers-reduced-motion:reduce){.curtain{animation-duration:.01s;animation-delay:0s}}
+section{max-width:60rem;margin:0 auto;padding:clamp(2.5rem,6vw,5rem) clamp(1rem,4vw,2rem)}
+h2{font:700 clamp(1.7rem,4vw,2.4rem)/1.3 var(--serif);color:var(--wine);margin:0 0 1.2rem}
+h2::after{content:"";display:block;width:64px;height:3px;background:var(--brass);margin-top:.6rem}
+p{max-width:68ch}
+.lead{font-size:1.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:1.4rem}
+.play{border-top:4px solid var(--wine);padding:1rem 0 0}
+.play h3{font:700 1.35rem/1.4 var(--serif);margin:0}
+.play span{color:var(--mute);font-size:.95rem}
+.honours{list-style:none;padding:0;margin:0;border-left:3px solid var(--brass)}
+.honours li{padding:.7rem 0 .7rem 1.2rem;border-bottom:1px solid var(--line)}
+.note{margin-top:1.6rem;padding:1rem 1.2rem;border:1px dashed var(--brass);color:var(--mute);font-size:.95rem;max-width:68ch}
+.band{background:var(--wine2);color:#f1e8d8}
+.band h2{color:#f3d99a}.band a{color:#f3d99a}
+footer{text-align:center;padding:2rem 1rem calc(2rem + env(safe-area-inset-bottom,0px));color:var(--mute);font-size:.9rem}
+header nav a{padding:.5rem 0}
+.hero .in{width:100%}
+@media (max-width:640px){header{flex-direction:column;align-items:stretch;gap:.3rem;padding:.4rem .8rem}header nav{justify-content:space-between;gap:.4rem;font-size:.9rem}.tog{align-self:center}html{scroll-padding-top:120px}.grid{grid-template-columns:1fr}}
+@media (max-height:500px) and (orientation:landscape){.hero{min-height:auto;padding:3.5rem 1rem 2rem}header{position:static}}
+@media (min-width:1920px){.hero .in{max-width:70rem}.grid{gap:2rem}}
+@media print{header,.curtain,.valance{display:none}.hero{min-height:auto;color:#000;background:none}.hero h1,.hero p,.hero .roles{color:#000;text-shadow:none}}
+</style>
+</head>
+<body>
+<header>
+  <nav aria-label="Sections">
+    <a href="#about" data-kn="ಪರಿಚಯ" data-en="About">ಪರಿಚಯ</a>
+    <a href="#works" data-kn="ನಾಟಕಗಳು" data-en="Plays">ನಾಟಕಗಳು</a>
+    <a href="#honours" data-kn="ಗೌರವಗಳು" data-en="Honours">ಗೌರವಗಳು</a>
+    <a href="#kaajana" data-kn="ಕಾಜಾಣ" data-en="Kaajana">ಕಾಜಾಣ</a>
+  </nav>
+  <div class="tog" role="group" aria-label="Language">
+    <button id="bk" aria-pressed="true">ಕನ್ನಡ</button><button id="be" aria-pressed="false">English</button>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="valance"></div><div class="curtain l"></div><div class="curtain r"></div>
+  <div class="in">
+    <svg class="mask" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M8 10c10 4 38 4 48 0 2 24-6 44-24 46C14 54 6 34 8 10z"/><path d="M19 26c3-2 7-2 9 1M36 27c2-3 6-3 9-1M22 40c6 6 14 6 20 0"/></svg>
+    <h1 id="name" data-kn="ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್" data-en="Dr. Beluru Raghunandan">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್</h1>
+    <div class="roles" data-kn="ನಾಟಕಕಾರ, ನಿರ್ದೇಶಕ, ರಂಗಕರ್ಮಿ" data-en="Playwright, Director, Man of the Theatre">ನಾಟಕಕಾರ, ನಿರ್ದೇಶಕ, ರಂಗಕರ್ಮಿ</div>
+    <p data-kn="ಕನ್ನಡ ರಂಗಭೂಮಿಗೆ ಮಾತು, ಮೌನ ಮತ್ತು ಬೆಳಕನ್ನು ನೀಡಿದ ಸೃಜನಶೀಲ ಕಲಾವಿದ." data-en="A Kannada dramatist who gives the stage its words, its silences and its light.">ಕನ್ನಡ ರಂಗಭೂಮಿಗೆ ಮಾತು, ಮೌನ ಮತ್ತು ಬೆಳಕನ್ನು ನೀಡಿದ ಸೃಜನಶೀಲ ಕಲಾವಿದ.</p>
+  </div>
+</div>
+
+<section id="about">
+  <h2 data-kn="ಪರಿಚಯ" data-en="About">ಪರಿಚಯ</h2>
+  <p class="lead" data-kn="ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ ಅವರು ತಮ್ಮದೇ ಆದ ವಿಶಿಷ್ಟ ಶೈಲಿ ಮತ್ತು ಅಭಿವ್ಯಕ್ತಿಗೆ ಹೆಸರಾದ ಕನ್ನಡದ ನಾಟಕಕಾರರು. ಬೆಂಗಳೂರಿನ ‘ಕಾಜಾಣ’ ರಂಗ ತಂಡದ ನಿರ್ದೇಶಕರಾಗಿ ಅವರು ನಾಟಕಗಳನ್ನು ಬರೆಯುತ್ತಾರೆ, ನಿರ್ದೇಶಿಸುತ್ತಾರೆ ಮತ್ತು ತಂಡವನ್ನು ಮುನ್ನಡೆಸುತ್ತಾರೆ." data-en="Dr. Beluru Raghunandan is a Kannada playwright known for a distinctive voice and style of expression. As director of the Kaajana theatre team in Bengaluru, he writes the plays, directs them and leads the company.">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ ಅವರು ತಮ್ಮದೇ ಆದ ವಿಶಿಷ್ಟ ಶೈಲಿ ಮತ್ತು ಅಭಿವ್ಯಕ್ತಿಗೆ ಹೆಸರಾದ ಕನ್ನಡದ ನಾಟಕಕಾರರು. ಬೆಂಗಳೂರಿನ ‘ಕಾಜಾಣ’ ರಂಗ ತಂಡದ ನಿರ್ದೇಶಕರಾಗಿ ಅವರು ನಾಟಕಗಳನ್ನು ಬರೆಯುತ್ತಾರೆ, ನಿರ್ದೇಶಿಸುತ್ತಾರೆ ಮತ್ತು ತಂಡವನ್ನು ಮುನ್ನಡೆಸುತ್ತಾರೆ.</p>
+  <p data-kn="ಅವರು ಬೆಂಗಳೂರು ಬುಕ್‌ಬ್ರಹ್ಮ ಸಾಹಿತ್ಯೋತ್ಸವ 2024ರಲ್ಲಿ ಭಾಷಣಕಾರರಾಗಿ ಭಾಗವಹಿಸಿದ್ದರು." data-en="He was among the speakers at the Bookbrahma Literature Festival in 2024.">ಅವರು ಬೆಂಗಳೂರು ಬುಕ್‌ಬ್ರಹ್ಮ ಸಾಹಿತ್ಯೋತ್ಸವ 2024ರಲ್ಲಿ ಭಾಷಣಕಾರರಾಗಿ ಭಾಗವಹಿಸಿದ್ದರು.</p>
+  <div class="note" data-kn="ಜೀವನ ಚರಿತ್ರೆ, ಶಿಕ್ಷಣ ಮತ್ತು ಕೃತಿಗಳ ಸಂಪೂರ್ಣ ವಿವರಗಳು ಕನ್ನಡ ವಿಕಿಪೀಡಿಯದ ಮಾಹಿತಿಯೊಂದಿಗೆ ಇಲ್ಲಿ ಸೇರಲಿವೆ." data-en="Full biography, education and bibliography will be added here from the Kannada Wikipedia entry.">ಜೀವನ ಚರಿತ್ರೆ, ಶಿಕ್ಷಣ ಮತ್ತು ಕೃತಿಗಳ ಸಂಪೂರ್ಣ ವಿವರಗಳು ಕನ್ನಡ ವಿಕಿಪೀಡಿಯದ ಮಾಹಿತಿಯೊಂದಿಗೆ ಇಲ್ಲಿ ಸೇರಲಿವೆ.</div>
+</section>
+
+<section id="works" style="padding-top:1rem">
+  <h2 data-kn="ರಂಗ ಕೃತಿಗಳು" data-en="Plays">ರಂಗ ಕೃತಿಗಳು</h2>
+  <div class="grid">
+    <div class="play"><h3 data-kn="ಚಿಟ್ಟೆ" data-en="Chitte (The Butterfly)">ಚಿಟ್ಟೆ</h3><p data-kn="ಪ್ರೀತಿಯನ್ನು ಹುಡುಕುವ ಹದಿಹರೆಯದ ಪಾಪಾಣಿಯ ಒಂದು ಗಂಟೆಯ ಏಕವ್ಯಕ್ತಿ ನಾಟಕ. ನೂರಕ್ಕೂ ಹೆಚ್ಚು ಪ್ರದರ್ಶನಗಳನ್ನು ಕಂಡಿದೆ." data-en="A one-hour solo play about Paapani, a teenager searching for love. It has crossed a hundred performances.">ಪ್ರೀತಿಯನ್ನು ಹುಡುಕುವ ಹದಿಹರೆಯದ ಪಾಪಾಣಿಯ ಒಂದು ಗಂಟೆಯ ಏಕವ್ಯಕ್ತಿ ನಾಟಕ. ನೂರಕ್ಕೂ ಹೆಚ್ಚು ಪ್ರದರ್ಶನಗಳನ್ನು ಕಂಡಿದೆ.</p></div>
+    <div class="play"><h3 data-kn="ಜೆಂಟ್ಸ್ ಟಾಯ್ಲೆಟ್" data-en="Gents Toilet">ಜೆಂಟ್ಸ್ ಟಾಯ್ಲೆಟ್</h3><p data-kn="ಅವರ ಮೂಲ ಕನ್ನಡ ನಾಟಕ." data-en="An original Kannada play from his pen.">ಅವರ ಮೂಲ ಕನ್ನಡ ನಾಟಕ.</p></div>
+    <div class="play"><h3 data-kn="ಮತ್ತಷ್ಟು ಕೃತಿಗಳು" data-en="More to come">ಮತ್ತಷ್ಟು ಕೃತಿಗಳು</h3><p data-kn="ಪೂರ್ಣ ಪಟ್ಟಿ ಶೀಘ್ರದಲ್ಲಿ." data-en="The complete list will follow.">ಪೂರ್ಣ ಪಟ್ಟಿ ಶೀಘ್ರದಲ್ಲಿ.</p></div>
+  </div>
+</section>
+
+<section id="honours" style="padding-top:1rem">
+  <h2 data-kn="ಗೌರವ ಮತ್ತು ಪುರಸ್ಕಾರಗಳು" data-en="Honours and Recognition">ಗೌರವ ಮತ್ತು ಪುರಸ್ಕಾರಗಳು</h2>
+  <ul class="honours">
+    <li data-kn="ಕುವೆಂಪು ಯುವಕವಿ ಸನ್ಮಾನ" data-en="Kuvempu Yuvakavi felicitation">ಕುವೆಂಪು ಯುವಕವಿ ಸನ್ಮಾನ</li>
+    <li data-kn="ಜ್ಯೋತಿ ಸನ್ಮಾನ" data-en="Jyothi felicitation">ಜ್ಯೋತಿ ಸನ್ಮಾನ</li>
+    <li data-kn="ಬೇಂದ್ರೆ ಗ್ರಂಥ ಬಹುಮಾನ" data-en="Bendre Grantha prize">ಬೇಂದ್ರೆ ಗ್ರಂಥ ಬಹುಮಾನ</li>
+    <li data-kn="ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಹಸಿರು ಪ್ರಶಸ್ತಿ" data-en="Salumarada Thimmakka Hasiru award">ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಹಸಿರು ಪ್ರಶಸ್ತಿ</li>
+  </ul>
+  <p style="color:var(--mute)" data-kn="ಇವು ಕೆಲವು ಮಾತ್ರ; ಇನ್ನಷ್ಟು ಗೌರವಗಳನ್ನು ಸೇರಿಸಲಾಗುವುದು." data-en="These are a selection; further honours will be added.">ಇವು ಕೆಲವು ಮಾತ್ರ; ಇನ್ನಷ್ಟು ಗೌರವಗಳನ್ನು ಸೇರಿಸಲಾಗುವುದು.</p>
+</section>
+
+<div class="band"><section id="kaajana">
+  <h2 data-kn="ಕಾಜಾಣ ರಂಗ ತಂಡ" data-en="The Kaajana Theatre Team">ಕಾಜಾಣ ರಂಗ ತಂಡ</h2>
+  <p data-kn="ಬೆಂಗಳೂರಿನ ಕನ್ನಡ ನಾಟಕ ತಂಡ ‘ಕಾಜಾಣ’ದ ನಿರ್ದೇಶಕರಾಗಿ ಡಾ. ರಘುನಂದನ್ ಅವರು ನಾಟಕ ರಚನೆ, ನಿರ್ದೇಶನ ಮತ್ತು ತಂಡದ ಮಾರ್ಗದರ್ಶನವನ್ನು ನಿರ್ವಹಿಸುತ್ತಾರೆ." data-en="As director of Kaajana, the Kannada drama team of Bengaluru, Dr. Raghunandan writes, directs and guides the company.">ಬೆಂಗಳೂರಿನ ಕನ್ನಡ ನಾಟಕ ತಂಡ ‘ಕಾಜಾಣ’ದ ನಿರ್ದೇಶಕರಾಗಿ ಡಾ. ರಘುನಂದನ್ ಅವರು ನಾಟಕ ರಚನೆ, ನಿರ್ದೇಶನ ಮತ್ತು ತಂಡದ ಮಾರ್ಗದರ್ಶನವನ್ನು ನಿರ್ವಹಿಸುತ್ತಾರೆ.</p>
+  <p><a href="https://shrinivasaph.github.io/kaajana/" data-kn="ಕಾಜಾಣ ತಂಡದ ಜಾಲತಾಣ" data-en="Visit the Kaajana team site">ಕಾಜಾಣ ತಂಡದ ಜಾಲತಾಣ</a></p>
+</section></div>
+
+<footer data-kn="ಸಂಪರ್ಕ ವಿವರಗಳು ಶೀಘ್ರದಲ್ಲಿ ಸೇರಲಿವೆ." data-en="Contact details will be added soon.">ಸಂಪರ್ಕ ವಿವರಗಳು ಶೀಘ್ರದಲ್ಲಿ ಸೇರಲಿವೆ.</footer>
+
+<script>
+(function(){
+  var bk=document.getElementById('bk'),be=document.getElementById('be');
+  function set(l){
+    document.documentElement.lang=l;
+    document.body.classList.toggle('en',l==='en');
+    document.querySelectorAll('[data-kn]').forEach(function(e){e.textContent=e.getAttribute('data-'+l);});
+    document.title=l==='kn'?'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್':'Dr. Beluru Raghunandan';
+    bk.setAttribute('aria-pressed',l==='kn');be.setAttribute('aria-pressed',l==='en');
+  }
+  bk.onclick=function(){set('kn')};be.onclick=function(){set('en')};
+})();
+</script>
+</body>
+</html>
