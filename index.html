@@ -67,16 +67,19 @@ header nav a{padding:.5rem 0}
 .portrait figcaption{text-align:center;margin-top:1.4rem;font:600 1.1rem var(--serif);color:var(--mute)}
 #about::after{content:"";display:block;clear:both}
 @media (max-width:640px){.portrait{float:none;width:min(15rem,70%);margin:.5rem auto 2rem}}
+.glance{display:grid;grid-template-columns:max-content 1fr;gap:.5rem 1.4rem;margin:1.6rem 0 0;padding-top:1rem;border-top:1px solid var(--line)}.glance dt{font-weight:500;color:var(--wine)}.glance dd{margin:0}
+.tl{list-style:none;margin:0;padding:0 0 0 1.4rem;border-left:3px solid var(--brass)}.tl li{position:relative;padding:0 0 1.6rem}.tl li::before{content:"";position:absolute;left:calc(-1.4rem - 8px);top:.55rem;width:13px;height:13px;border-radius:50%;background:var(--paper);border:3px solid var(--wine)}.tl b{display:block;font:700 1.15rem var(--serif);color:var(--wine)}
+details{border-bottom:1px solid var(--line);padding:.4rem 0}summary{cursor:pointer;font:700 1.25rem/1.5 var(--serif);padding:.7rem 0;color:var(--ink)}summary:hover{color:var(--wine)}
+.chips{list-style:none;margin:.2rem 0 1rem;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}.chips li{padding:.3rem .9rem;border:1px solid var(--line);border-radius:99px;font-size:.95rem;line-height:1.6}
+.small{font-size:.95rem;color:var(--mute);margin-top:1.4rem}
+@media (max-width:640px){.glance{grid-template-columns:1fr}.glance dd{margin-bottom:.6rem}}
+.tl{list-style:none;padding:0;margin:0;border-left:3px solid var(--brass)}.tl li{display:grid;grid-template-columns:4.2rem 1fr;gap:1rem;padding:.6rem 0 .6rem 1.2rem}.tl b{font:700 1.25rem var(--serif);color:var(--wine)}
+details{border-top:1px solid var(--line);padding:.5rem 0}details:last-child{border-bottom:1px solid var(--line)}summary{cursor:pointer;font:700 1.15rem var(--serif);color:var(--wine);padding:.4rem 0;min-height:2.75rem}summary small{color:var(--mute);font:400 .9rem var(--sans);margin-left:.5rem}.wl{columns:2 16rem;column-gap:2rem;margin:.6rem 0 1rem;padding-left:1.2rem}.wl li{break-inside:avoid;padding:.15rem 0}.wn{color:var(--mute);font-size:.95rem}
 </style>
 </head>
 <body>
 <header>
-  <nav aria-label="Sections">
-    <a href="#about" data-kn="ಪರಿಚಯ" data-en="About">ಪರಿಚಯ</a>
-    <a href="#works" data-kn="ನಾಟಕಗಳು" data-en="Plays">ನಾಟಕಗಳು</a>
-    <a href="#honours" data-kn="ಗೌರವಗಳು" data-en="Honours">ಗೌರವಗಳು</a>
-    <a href="#kaajana" data-kn="ಕಾಜಾಣ" data-en="Kaajana">ಕಾಜಾಣ</a>
-  </nav>
+  <nav aria-label="Sections"><a href="#about" data-kn="ಪರಿಚಯ" data-en="About">ಪರಿಚಯ</a><a href="#journey" data-kn="ಪಯಣ" data-en="Journey">ಪಯಣ</a><a href="#works" data-kn="ಕೃತಿಗಳು" data-en="Works">ಕೃತಿಗಳು</a><a href="#stage" data-kn="ರಂಗಭೂಮಿ" data-en="Stage">ರಂಗಭೂಮಿ</a><a href="#honours" data-kn="ಗೌರವಗಳು" data-en="Honours">ಗೌರವಗಳು</a><a href="#kaajana" data-kn="ಕಾಜಾಣ" data-en="Kaajana">ಕಾಜಾಣ</a></nav>
   <div class="tog" role="group" aria-label="Language">
     <button id="bk" aria-pressed="true">ಕನ್ನಡ</button><button id="be" aria-pressed="false">English</button>
   </div>
@@ -87,54 +90,86 @@ header nav a{padding:.5rem 0}
   <div class="in">
     <svg class="mask" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M8 10c10 4 38 4 48 0 2 24-6 44-24 46C14 54 6 34 8 10z"/><path d="M19 26c3-2 7-2 9 1M36 27c2-3 6-3 9-1M22 40c6 6 14 6 20 0"/></svg>
     <h1 id="name" data-kn="ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್" data-en="Dr. Beluru Raghunandan">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್</h1>
-    <div class="roles" data-kn="ನಾಟಕಕಾರ, ನಿರ್ದೇಶಕ, ರಂಗಕರ್ಮಿ" data-en="Playwright, Director, Man of the Theatre">ನಾಟಕಕಾರ, ನಿರ್ದೇಶಕ, ರಂಗಕರ್ಮಿ</div>
+    <div class="roles" data-kn="ಕವಿ, ನಾಟಕಕಾರ, ರಂಗ ನಿರ್ದೇಶಕ" data-en="Poet, Playwright, Theatre Director">ಕವಿ, ನಾಟಕಕಾರ, ರಂಗ ನಿರ್ದೇಶಕ</div>
     <p data-kn="ಕನ್ನಡ ರಂಗಭೂಮಿಗೆ ಮಾತು, ಮೌನ ಮತ್ತು ಬೆಳಕನ್ನು ನೀಡಿದ ಸೃಜನಶೀಲ ಕಲಾವಿದ." data-en="A Kannada dramatist who gives the stage its words, its silences and its light.">ಕನ್ನಡ ರಂಗಭೂಮಿಗೆ ಮಾತು, ಮೌನ ಮತ್ತು ಬೆಳಕನ್ನು ನೀಡಿದ ಸೃಜನಶೀಲ ಕಲಾವಿದ.</p>
   </div>
 </div>
 
 <section id="about">
-  <h2 data-kn="ಪರಿಚಯ" data-en="About">ಪರಿಚಯ</h2>
-  <figure class="portrait"><div class="arch"><img src="images/beluru-raghunandan.jpg" alt="ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ (Dr. Beluru Raghunandan)" loading="lazy" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="mono" aria-hidden="true">ರ</span></div><figcaption data-kn="ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್" data-en="Dr. Beluru Raghunandan">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್</figcaption></figure>
-  <p class="lead" data-kn="ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ ಅವರು ತಮ್ಮದೇ ಆದ ವಿಶಿಷ್ಟ ಶೈಲಿ ಮತ್ತು ಅಭಿವ್ಯಕ್ತಿಗೆ ಹೆಸರಾದ ಕನ್ನಡದ ನಾಟಕಕಾರರು. ಬೆಂಗಳೂರಿನ ‘ಕಾಜಾಣ’ ರಂಗ ತಂಡದ ನಿರ್ದೇಶಕರಾಗಿ ಅವರು ನಾಟಕಗಳನ್ನು ಬರೆಯುತ್ತಾರೆ, ನಿರ್ದೇಶಿಸುತ್ತಾರೆ ಮತ್ತು ತಂಡವನ್ನು ಮುನ್ನಡೆಸುತ್ತಾರೆ." data-en="Dr. Beluru Raghunandan is a Kannada playwright known for a distinctive voice and style of expression. As director of the Kaajana theatre team in Bengaluru, he writes the plays, directs them and leads the company.">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ ಅವರು ತಮ್ಮದೇ ಆದ ವಿಶಿಷ್ಟ ಶೈಲಿ ಮತ್ತು ಅಭಿವ್ಯಕ್ತಿಗೆ ಹೆಸರಾದ ಕನ್ನಡದ ನಾಟಕಕಾರರು. ಬೆಂಗಳೂರಿನ ‘ಕಾಜಾಣ’ ರಂಗ ತಂಡದ ನಿರ್ದೇಶಕರಾಗಿ ಅವರು ನಾಟಕಗಳನ್ನು ಬರೆಯುತ್ತಾರೆ, ನಿರ್ದೇಶಿಸುತ್ತಾರೆ ಮತ್ತು ತಂಡವನ್ನು ಮುನ್ನಡೆಸುತ್ತಾರೆ.</p>
+  <h2 data-en="About">ಪರಿಚಯ</h2>
+  <figure class="portrait"><div class="arch"><img src="images/beluru-raghunandan.jpg" alt="ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ (Dr. Beluru Raghunandan)" loading="lazy" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="mono" aria-hidden="true">ರ</span></div><figcaption data-en="Dr. Beluru Raghunandan">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್</figcaption></figure>
+  <p class="lead" data-en="Dr. Beluru Raghunandan is a poet and playwright. He writes poetry, children’s literature, plays, stories, columns, travel writing and research. His plays have been translated into Tamil, Konkani, English and Hindi.">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ ಅವರು ಕವಿ ಮತ್ತು ನಾಟಕಕಾರರು. ಕಾವ್ಯ, ಮಕ್ಕಳ ಸಾಹಿತ್ಯ, ನಾಟಕ, ಕಥೆ, ಅಂಕಣ ಬರಹ, ಪ್ರವಾಸ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಶೋಧನಾ ಬರಹಗಳನ್ನು ಬರೆಯುತ್ತಾರೆ. ಅವರ ನಾಟಕಗಳು ತಮಿಳು, ಕೊಂಕಣಿ, ಇಂಗ್ಲಿಷ್ ಮತ್ತು ಹಿಂದಿ ಭಾಷೆಗಳಿಗೆ ಅನುವಾದಗೊಂಡಿವೆ.</p>
+  <p data-en="Born in Beluru, Hassan district, he has composed over four hundred kattupada verses under the signature ‘Shwetapriya Guruve’. His childhood experiences found voice in the play Chitte.">ಹಾಸನ ಜಿಲ್ಲೆಯ ಬೇಲೂರಿನಲ್ಲಿ ಜನಿಸಿದ ಅವರು, ‘ಶ್ವೇತಪ್ರಿಯ ಗುರುವೆ’ ಅಂಕಿತದಲ್ಲಿ ನಾನೂರಕ್ಕೂ ಹೆಚ್ಚು ಕಟ್ಟುಪದಗಳನ್ನು ರಚಿಸಿದ್ದಾರೆ. ಅವರ ಬಾಲ್ಯದ ಅನುಭವಗಳು ‘ಚಿಟ್ಟೆ’ ನಾಟಕದಲ್ಲಿ ಪ್ರಕಟಗೊಂಡಿವೆ.</p>
+  <p data-en="He graduated from YDD First Grade College, Beluru, and took his master’s in Kannada from the University of Mysore with four gold medals, including those named for Rashtrakavi K.V. Puttappa and Dr. Chaduranga. At Kannada University, Hampi, he earned his M.Phil on Dejagow’s plays Anala and Dushtabuddhi, and his Ph.D. on Kannada theatre and cinema.">ಬೇಲೂರಿನ ವೈ.ಡಿ.ಡಿ ಪ್ರಥಮ ದರ್ಜೆ ಕಾಲೇಜಿನಲ್ಲಿ ಪದವಿ ಪೂರೈಸಿದ ಅವರು, ರಾಷ್ಟ್ರಕವಿ ಕೆ.ವಿ. ಪುಟ್ಟಪ್ಪ ಮತ್ತು ಡಾ. ಚದುರಂಗ ಸೇರಿದಂತೆ ನಾಲ್ಕು ಚಿನ್ನದ ಪದಕಗಳೊಂದಿಗೆ ಮೈಸೂರು ವಿಶ್ವವಿದ್ಯಾನಿಲಯದಿಂದ ಕನ್ನಡ ಸ್ನಾತಕೋತ್ತರ ಪದವಿ ಪಡೆದರು. ಹಂಪಿಯ ಕನ್ನಡ ವಿಶ್ವವಿದ್ಯಾಲಯದಿಂದ ದೇಜಗೌ ಅವರ ‘ಅನಲಾ’ ಮತ್ತು ‘ದುಷ್ಟಬುದ್ಧಿ’ ನಾಟಕಗಳ ಅಧ್ಯಯನಕ್ಕೆ ಎಂ.ಫಿಲ್, ಹಾಗೂ ‘ಕನ್ನಡ ರಂಗಭೂಮಿ ಮತ್ತು ಸಿನೆಮಾ: ವ್ಯಕ್ತಿ ನೆಲೆಯ ತಾತ್ವಿಕ ಚಿಂತನೆಗಳು’ ವಿಷಯದಲ್ಲಿ ಪಿಎಚ್.ಡಿ ಪಡೆದಿದ್ದಾರೆ.</p>
+  <p data-en="After teaching at colleges in Beluru, he joined Karnataka’s Collegiate Education Department in 2009. He is now a professor at the Government First Grade College, Vijayanagar, Bengaluru, and coordinator of its Kannada postgraduate and research centre.">ಬೇಲೂರಿನ ಕಾಲೇಜುಗಳಲ್ಲಿ ಅಧ್ಯಾಪನ ನಡೆಸಿ, 2009ರಲ್ಲಿ ಕರ್ನಾಟಕ ಸರ್ಕಾರದ ಕಾಲೇಜು ಶಿಕ್ಷಣ ಇಲಾಖೆಗೆ ಸೇರಿದರು. ಪ್ರಸ್ತುತ ಬೆಂಗಳೂರಿನ ವಿಜಯನಗರದ ಸರ್ಕಾರಿ ಪ್ರಥಮ ದರ್ಜೆ ಕಾಲೇಜಿನಲ್ಲಿ ಪ್ರಾಧ್ಯಾಪಕರಾಗಿ ಹಾಗೂ ಕನ್ನಡ ಸ್ನಾತಕೋತ್ತರ ಮತ್ತು ಸಂಶೋಧನಾ ಕೇಂದ್ರದ ಸಂಯೋಜಕರಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿದ್ದಾರೆ.</p>
+</section>
+
+<section id="journey" style="padding-top:1rem">
+  <h2 data-en="The Journey">ಹೆಜ್ಜೆ ಗುರುತುಗಳು</h2>
+  <ul class="tl">
+    <li><b>1982</b><span data-en="Born in Beluru, Hassan district.">ಹಾಸನ ಜಿಲ್ಲೆಯ ಬೇಲೂರಿನಲ್ಲಿ ಜನನ.</span></li>
+    <li><b>2009</b><span data-en="Joined Karnataka’s Collegiate Education Department as Assistant Professor of Kannada, and founded Kaajana.">ಕಾಲೇಜು ಶಿಕ್ಷಣ ಇಲಾಖೆಯಲ್ಲಿ ಕನ್ನಡ ಸಹಾಯಕ ಪ್ರಾಧ್ಯಾಪಕರಾಗಿ ಸೇರ್ಪಡೆ; ಕಾಜಾಣ ಬಳಗದ ಆರಂಭ.</span></li>
+    <li><b>2017</b><span data-en="Nominated by the Government of Karnataka as a member of the Karnataka Nataka Academy.">ಕರ್ನಾಟಕ ಸರ್ಕಾರದಿಂದ ಕರ್ನಾಟಕ ನಾಟಕ ಅಕಾಡೆಮಿ ಸದಸ್ಯರಾಗಿ ನಾಮನಿರ್ದೇಶನ.</span></li>
+    <li><b>2022</b><span data-en="Received the Ustad Bismillah Khan Yuva Puraskar and the Karnataka Nataka Academy Award.">ಉಸ್ತಾದ್ ಬಿಸ್ಮಿಲ್ಲಾ ಖಾನ್ ಯುವ ಪುರಸ್ಕಾರ ಮತ್ತು ಕರ್ನಾಟಕ ನಾಟಕ ಅಕಾಡೆಮಿ ಪ್ರಶಸ್ತಿ.</span></li>
+    <li><b>2026</b><span data-en="Honoured with the Sahitya Shri award at the All India Bhasha Sahitya Sammelan, Bhopal.">ಭೋಪಾಲ್‌ನ ಅಖಿಲ ಭಾರತೀಯ ಭಾಷಾ ಸಾಹಿತ್ಯ ಸಮ್ಮೇಳನದಿಂದ ‘ಸಾಹಿತ್ಯ ಶ್ರೀ’ ಪ್ರಶಸ್ತಿ.</span></li>
+  </ul>
 </section>
 
 <section id="works" style="padding-top:1rem">
-  <h2 data-kn="ರಂಗ ಕೃತಿಗಳು" data-en="Plays">ರಂಗ ಕೃತಿಗಳು</h2>
-  <div class="grid">
-    <div class="play"><h3 data-kn="ಚಿಟ್ಟೆ" data-en="Chitte (The Butterfly)">ಚಿಟ್ಟೆ</h3><p data-kn="ಪ್ರೀತಿಯನ್ನು ಹುಡುಕುವ ಹದಿಹರೆಯದ ಪಾಪಾಣಿಯ ಒಂದು ಗಂಟೆಯ ಏಕವ್ಯಕ್ತಿ ನಾಟಕ. ನೂರಕ್ಕೂ ಹೆಚ್ಚು ಪ್ರದರ್ಶನಗಳನ್ನು ಕಂಡಿದೆ." data-en="A one-hour solo play about Paapani, a teenager searching for love. It has crossed a hundred performances.">ಪ್ರೀತಿಯನ್ನು ಹುಡುಕುವ ಹದಿಹರೆಯದ ಪಾಪಾಣಿಯ ಒಂದು ಗಂಟೆಯ ಏಕವ್ಯಕ್ತಿ ನಾಟಕ. ನೂರಕ್ಕೂ ಹೆಚ್ಚು ಪ್ರದರ್ಶನಗಳನ್ನು ಕಂಡಿದೆ.</p></div>
-    <div class="play"><h3 data-kn="ಜೆಂಟ್ಸ್ ಟಾಯ್ಲೆಟ್" data-en="Gents Toilet">ಜೆಂಟ್ಸ್ ಟಾಯ್ಲೆಟ್</h3><p data-kn="ಅವರ ಮೂಲ ಕನ್ನಡ ನಾಟಕ." data-en="An original Kannada play from his pen.">ಅವರ ಮೂಲ ಕನ್ನಡ ನಾಟಕ.</p></div>
-  </div>
+  <h2 data-en="Works">ಕೃತಿಗಳು</h2>
+  <div id="wl"></div>
 </section>
 
 <section id="honours" style="padding-top:1rem">
-  <h2 data-kn="ಗೌರವ ಮತ್ತು ಪುರಸ್ಕಾರಗಳು" data-en="Honours and Recognition">ಗೌರವ ಮತ್ತು ಪುರಸ್ಕಾರಗಳು</h2>
+  <h2 data-en="Honours and Recognition">ಗೌರವ ಮತ್ತು ಪುರಸ್ಕಾರಗಳು</h2>
   <ul class="honours">
-    <li data-kn="ಕುವೆಂಪು ಯುವಕವಿ ಸನ್ಮಾನ" data-en="Kuvempu Yuvakavi felicitation">ಕುವೆಂಪು ಯುವಕವಿ ಸನ್ಮಾನ</li>
-    <li data-kn="ಜ್ಯೋತಿ ಸನ್ಮಾನ" data-en="Jyothi felicitation">ಜ್ಯೋತಿ ಸನ್ಮಾನ</li>
-    <li data-kn="ಬೇಂದ್ರೆ ಗ್ರಂಥ ಬಹುಮಾನ" data-en="Bendre Grantha prize">ಬೇಂದ್ರೆ ಗ್ರಂಥ ಬಹುಮಾನ</li>
-    <li data-kn="ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಹಸಿರು ಪ್ರಶಸ್ತಿ" data-en="Salumarada Thimmakka Hasiru award">ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಹಸಿರು ಪ್ರಶಸ್ತಿ</li>
+    <li data-en="Sahitya Shri award, All India Bhasha Sahitya Sammelan, Bhopal (2026)">ಸಾಹಿತ್ಯ ಶ್ರೀ ಪ್ರಶಸ್ತಿ, ಅಖಿಲ ಭಾರತೀಯ ಭಾಷಾ ಸಾಹಿತ್ಯ ಸಮ್ಮೇಳನ, ಭೋಪಾಲ್ (2026)</li>
+    <li data-en="Ustad Bismillah Khan Yuva Puraskar, Sangeet Natak Akademi, Government of India (2022)">ಉಸ್ತಾದ್ ಬಿಸ್ಮಿಲ್ಲಾ ಖಾನ್ ಯುವ ಪುರಸ್ಕಾರ, ಕೇಂದ್ರ ಸಂಗೀತ ನಾಟಕ ಅಕಾಡೆಮಿ, ಭಾರತ ಸರ್ಕಾರ (2022)</li>
+    <li data-en="Karnataka Nataka Academy Award (2022)">ಕರ್ನಾಟಕ ನಾಟಕ ಅಕಾಡೆಮಿ ಪ್ರಶಸ್ತಿ (2022)</li>
+    <li data-en="Mayuravarma Award, Kannada Sahitya Parishat (2022)">ಮಯೂರವರ್ಮ ಪ್ರಶಸ್ತಿ, ಕನ್ನಡ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು (2022)</li>
+    <li data-en="Aryabhata Award (2018)">ಆರ್ಯಭಟ ಪ್ರಶಸ್ತಿ (2018)</li>
+    <li data-en="Sahitya Akademi prize in the Karnataka Sahitya Akademi children’s play competition, for Bombay Mithai (2016)">ಕರ್ನಾಟಕ ಸಾಹಿತ್ಯ ಅಕಾಡೆಮಿಯ ಮಕ್ಕಳ ನಾಟಕ ರಚನಾ ಸ್ಪರ್ಧೆಯಲ್ಲಿ ‘ಬೊಂಬಾಯ್ ಮಿಠಾಯಿ’ ನಾಟಕಕ್ಕೆ ಬಹುಮಾನ (2016)</li>
   </ul>
 </section>
 
 <div class="band"><section id="kaajana">
-  <h2 data-kn="ಕಾಜಾಣ ರಂಗ ತಂಡ" data-en="The Kaajana Theatre Team">ಕಾಜಾಣ ರಂಗ ತಂಡ</h2>
-  <p data-kn="ಬೆಂಗಳೂರಿನ ಕನ್ನಡ ನಾಟಕ ತಂಡ ‘ಕಾಜಾಣ’ದ ನಿರ್ದೇಶಕರಾಗಿ ಡಾ. ರಘುನಂದನ್ ಅವರು ನಾಟಕ ರಚನೆ, ನಿರ್ದೇಶನ ಮತ್ತು ತಂಡದ ಮಾರ್ಗದರ್ಶನವನ್ನು ನಿರ್ವಹಿಸುತ್ತಾರೆ." data-en="As director of Kaajana, the Kannada drama team of Bengaluru, Dr. Raghunandan writes, directs and guides the company.">ಬೆಂಗಳೂರಿನ ಕನ್ನಡ ನಾಟಕ ತಂಡ ‘ಕಾಜಾಣ’ದ ನಿರ್ದೇಶಕರಾಗಿ ಡಾ. ರಘುನಂದನ್ ಅವರು ನಾಟಕ ರಚನೆ, ನಿರ್ದೇಶನ ಮತ್ತು ತಂಡದ ಮಾರ್ಗದರ್ಶನವನ್ನು ನಿರ್ವಹಿಸುತ್ತಾರೆ.</p>
-  <p><a href="https://shrinivasaph.github.io/kaajana/" data-kn="ಕಾಜಾಣ ತಂಡದ ಜಾಲತಾಣ" data-en="Visit the Kaajana team site">ಕಾಜಾಣ ತಂಡದ ಜಾಲತಾಣ</a></p>
+  <h2 data-en="Kaajana">ಕಾಜಾಣ</h2>
+  <p data-en="In 2009 he founded Kaajana to work across literature, theatre and cinema. It runs poetry and theatre workshops, book publishing, and programmes such as Chinnara Kaajana, Sasya Kaajana and Cini Kaajana. Kaajana Prakashana has published books of poetry, autobiography, criticism, research and edited volumes.">೨೦೦೯ರಲ್ಲಿ ಸಾಹಿತ್ಯ, ರಂಗಭೂಮಿ ಮತ್ತು ಸಿನೆಮಾ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ ಕೆಲಸ ಮಾಡಲು ಅವರು ಕಾಜಾಣ ಬಳಗವನ್ನು ಆರಂಭಿಸಿದರು. ಕಾವ್ಯ ಮತ್ತು ರಂಗ ಕಮ್ಮಟ, ಪುಸ್ತಕ ಪ್ರಕಟಣೆ, ಚಿಣ್ಣರ ಕಾಜಾಣ, ಸಸ್ಯ ಕಾಜಾಣ, ಸಿನಿ ಕಾಜಾಣ ಮುಂತಾದ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಇದು ನಡೆಸುತ್ತದೆ. ಕಾಜಾಣ ಪ್ರಕಾಶನವು ಕವಿತೆ, ಆತ್ಮಕತೆ, ವಿಮರ್ಶೆ, ಸಂಶೋಧನೆ, ಸಂಪಾದನೆ ಮುಂತಾದ ಪ್ರಕಾರಗಳಲ್ಲಿ ಪುಸ್ತಕಗಳನ್ನು ಹೊರತಂದಿದೆ.</p>
+  <p><a href="https://shrinivasaph.github.io/kaajana/" data-en="Visit the Kaajana team site">ಕಾಜಾಣ ತಂಡದ ಜಾಲತಾಣ</a></p>
 </section></div>
 
-<footer data-kn="ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್" data-en="Dr. Beluru Raghunandan">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್</footer>
+<footer data-en="Dr. Beluru Raghunandan">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್</footer>
 
 <script>
 (function(){
+  var W=[
+  ["ನಾಟಕ ರಚನೆ","Plays written",["ರಕ್ತವರ್ಣೆ (2016)","ಸಾಲುಮರಗಳ ತಾಯಿ ತಿಮ್ಮಕ್ಕ (2016)","ತಿಪ್ಪೇರುದ್ರ (2016)","ಭೂಮಿ","ರೂಪ ರೂಪಗಳನು ದಾಟಿ (2019)","ಬೊಂಬಾಯ್ ಮಿಠಾಯಿ","ಬೆಳಕಿನ ಅಂಗಡಿ (2019)","ಮೋಹನ ತರಂಗಿಣಿ","ಶರ್ಮಿಷ್ಠೆ (2025)","ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್","ದಹನಾಗ್ನಿ","ತೊರೆದು ಜೀವಿಸಬಹುದೇ (2024)","ಆಯಾಮ","ಉಧೋ ಉಧೋ ಎಲ್ಲವ್ವ (2023)","ಚಿಟ್ಟೆ (2022)","ಗರ್ಭ","ಕ್ಲೀನ್ ಆಂಡ್ ಕ್ಲಿಯರ್ ಪಾಯಖಾನೆ","ಸಾಕುಮಗಳು","ವಿಧುರಾಶ್ವತ್ಥದ ವೀರಗಾಥೆ (2024)","ಗಾರ್ಗಿ (2024)","ವಿದಗ್ಧೆ","ನಗರ ಪೂಜೆ","ನಮ್ ಸ್ಕೂಲು","ಅಧಿನಾಯಕಿ (2023)","ಅಲೆಮಾರಿ ಭಾರತ","ಆ ಈ ಫ್ಯಾಮಿಲಿ","ಥೆರೇಸಮ್ಮ","ಪ್ರೇಮಮಯಿ ಹಿಡಿಂಬೆ","ಪಂಚವರ್ಣೆ","ಮೂಲ","ಪ್ರಾಣಿ ಪ್ರಪಂಚ","ಭೂಮಿ ಹುಳ","ತೆರೆ ಮರೆಯಾದ ಕಥೆ","ಅಕ್ಕ","ಪ್ರೇಮಲೋಕ","ಶಾಶ್ವತ ಪರಿಹಾರ","ಆಟ","ಇಷ್ಟು ಕಾಲ","ಯು ಆರ್ ಆಲ್ಸೋ ಆನ್ ಅನಿಮಲ್ ಲೈಕ್ ಮಿ"]],
+  ["ರಂಗಪಠ್ಯ (ಕೃತಿ ಆಧಾರಿತ)","Stage adaptations",["ಮುದ್ದು ಮಗಳೇ","ಲೆಟರ್ಸ್ ಟು ಡೆಥ್","ಅಕ್ಕಯ್ (2022)","ಮಾತಾ","ನಾಗಸಂಪಿಗೆ","ಅಮೀರ್ ಬಾಯಿ ಕರ್ನಾಟಕಿ"]],
+  ["ನಿರ್ದೇಶಿಸಿದ ನಾಟಕಗಳು","Plays directed",["1996 – ಹಕ್ಕಿಯ ಹಾಡು","2012 – ಕ್ರಾಂತಿ ಬಂತು ಕ್ರಾಂತಿ","2019 – ದಾಳ","2021 – ಸಾಕುಮಗಳು","2022 – ಅಕ್ಕಯ್","2022 – ಲೆಟರ್ಸ್ ಟು ಡೆಥ್","2022 – ನಗರಪೂಜೆ","2022 – ನಮ್ ಸ್ಕೂಲು","2023 – ಮಾತಾ","2023 – ಅಧಿನಾಯಕಿ","2023 – ಗರ್ಭ","2024 – ಅಲೆಮಾರಿ ಭಾರತ","2024 – ಥೆರೇಸಮ್ಮ","2024 – ಸಾಲುಮರಗಳ ತಾಯಿ ತಿಮ್ಮಕ್ಕ","2024 – ಆದಿಶಕ್ತಿ","2024 – ಪ್ರೇಮಮಯಿ ಹಿಡಿಂಬೆ","2024 – ಪಂಚವರ್ಣೆ","2024 – ಬೆಂಕಿರೂಟು","2024 – ಪ್ರಾಣಿ ಪ್ರಪಂಚ","2025 – ಅಕ್ಕ","2025 – ಎಚ್.ಎಸ್.ವಿ ಕಾವ್ಯರಂಗ","2025 – ಶಾಶ್ವತ ಪರಿಹಾರ","2025 – ತಿಪ್ಪೇರುದ್ರ","2025 – ಆಟ","2025 – ಅಮೀರ್ ಬಾಯಿ ಕರ್ನಾಟಕಿ","2025 – ವೃಷಾಲಿ","2026 – ನಾಗಸಂಪಿಗೆ","2026 – ಯು ಆರ್ ಆಲ್ಸೋ ಆನ್ ಅನಿಮಲ್ ಲೈಕ್ ಮಿ"]],
+  ["ಕವನ ಸಂಕಲನಗಳು","Poetry",["ಶ್ವೇತಪ್ರಿಯ (2011)","ಕನ್ನಡಿ ಮುಂದೆ ನಿಂತಾಗ (2011)","ಕವಿಶೈಲದ ಕವಿತೆಗಳು (2012)","ಹಸುರು (2012)","ಸೊನ್ನೆಯಾಗುವ ಕಾಯ (2018)","ಮಗ್ಗದ ಮನೆ (2025)","ರಾಗರಂಗ (ರಂಗಗೀತೆಗಳು)"]],
+  ["ಕಟ್ಟುಪದ","Kattupada",["ನೂರೊಂದು ವಚನಗಳು (2012)","ಅರಿವು ತೊರೆ (2013)","ಬೆತ್ತಲು (2014)","ಅಮ್ಮ (2014)","ಪದ ಪದ ಕಟ್ಟುಪದ (2021)"]],
+  ["ಮಕ್ಕಳ ಸಾಹಿತ್ಯ","Children’s literature",["ಚಿನ್ನಾರಿಯ ಚಿತ್ರ (2012)","ನಿಸರ್ಗ ಮತ್ತು ಗುಬ್ಬಚ್ಚಿ (2014)","ಹಾರುವ ಆನೆ (2018)","ಚಿಟ್ಟೆ – ಮಕ್ಕಳ ನಾಟಕ (2022)"]],
+  ["ಕಥೆ ಮತ್ತು ಪ್ರವಾಸ ಸಾಹಿತ್ಯ","Stories and travel",["ಅಪ್ಪ ಕಾಣೆಯಾಗಿದ್ದಾನೆ (2022)","ಜೀವನ್ಮುಖಿ ತೀಸ್ತಾ (2016)"]],
+  ["ಅಂಕಣ, ಸಂಪಾದನೆ ಮತ್ತು ವ್ಯಕ್ತಿಚಿತ್ರ","Columns, editing and biography",["ಉಮಾ ಸಿರಿ (2015)","ಚಿಣ್ಣರ ಅಂಗಳ","ಬೇಂದ್ರೆ ನಾಟಕಗಳು","ಕಿರಂ ಹೊಸಕವಿತೆ ಸಂಪುಟ 1 (2012)","ಕಿರಂ ಹೊಸಕವಿತೆ ಸಂಪುಟ 2 (2018)","ಕಾವ್ಯಯಾನ","ಹಸಿರ ಬನಿ – ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ವ್ಯಕ್ತಿಚಿತ್ರ (2025)","ಕ್ರಿಯೆ ಪ್ರತಿಕ್ರಿಯೆ (2025)"]]
+  ];
+  var h='<p class="wn" data-en="He has also written about 700 stage songs for many different companies and plays.">ವಿವಿಧ ತಂಡಗಳಿಗೆ, ಬೇರೆ ಬೇರೆ ನಾಟಕಗಳಿಗೆ ಅವರು ಸುಮಾರು 700ಕ್ಕೂ ಹೆಚ್ಚು ರಂಗಗೀತೆಗಳನ್ನು ಬರೆದಿದ್ದಾರೆ.</p>';
+  W.forEach(function(g,i){
+    h+='<details'+(i==0?' open':'')+'><summary><span data-kn="'+g[0]+'" data-en="'+g[1]+'">'+g[0]+'</span><small>'+g[2].length+'</small></summary><ul class="wl">'+g[2].map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul></details>';
+  });
+  document.getElementById('wl').innerHTML=h;
   var bk=document.getElementById('bk'),be=document.getElementById('be');
   function set(l){
     document.documentElement.lang=l;
     document.body.classList.toggle('en',l==='en');
-    document.querySelectorAll('[data-kn]').forEach(function(e){e.textContent=e.getAttribute('data-'+l);});
+    document.querySelectorAll('[data-en]').forEach(function(e){
+      if(!e.hasAttribute('data-kn'))e.setAttribute('data-kn',e.textContent);
+      e.textContent=e.getAttribute('data-'+l);
+    });
     document.title=l==='kn'?'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್':'Dr. Beluru Raghunandan';
     bk.setAttribute('aria-pressed',l==='kn');be.setAttribute('aria-pressed',l==='en');
   }
   bk.onclick=function(){set('kn')};be.onclick=function(){set('en')};
+  document.querySelectorAll('[data-en]').forEach(function(e){if(!e.hasAttribute('data-kn'))e.setAttribute('data-kn',e.textContent)});
 })();
 </script>
 </body>
