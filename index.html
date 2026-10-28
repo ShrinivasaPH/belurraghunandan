@@ -91,14 +91,35 @@ details{border-bottom:1px solid var(--line);padding:.4rem 0}summary{cursor:point
 @media (max-width:640px){.glance{grid-template-columns:1fr}.glance dd{margin-bottom:.6rem}}
 .tl{list-style:none;padding:0;margin:0;border-left:3px solid var(--brass)}.tl li{display:grid;grid-template-columns:4.2rem 1fr;gap:1rem;padding:.6rem 0 .6rem 1.2rem}.tl b{font:700 1.25rem var(--serif);color:var(--wine)}
 details{border-top:1px solid var(--line);padding:.5rem 0}details:last-child{border-bottom:1px solid var(--line)}summary{cursor:pointer;font:700 1.15rem var(--serif);color:var(--wine);padding:.4rem 0;min-height:2.75rem}summary small{color:var(--mute);font:400 .9rem var(--sans);margin-left:.5rem}.wl{columns:2 16rem;column-gap:2rem;margin:.6rem 0 1rem;padding-left:1.2rem}.wl li{break-inside:avoid;padding:.15rem 0}.wn{color:var(--mute);font-size:.95rem}
+.hr{display:flex;align-items:center;gap:.7rem}
+.cta{background:#6A1B34;color:#fff!important;text-decoration:none;padding:.4rem 1.1rem;border-radius:99px;font-size:.9rem;min-height:2.75rem;display:inline-flex;align-items:center;border:1px solid var(--brass)}
+.cta:hover{background:#4A1124}
+.soc{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:1.6rem}
+.soc a{display:flex;align-items:center;gap:.7rem;padding:.7rem 1.4rem;min-height:3rem;border:1px solid var(--brass);border-radius:.6rem;text-decoration:none;font-weight:500}
+.soc a:hover{background:#6A1B34;color:#fff}
+.soc svg{width:1.5rem;height:1.5rem}
+@media (max-width:640px){.hr{justify-content:center}}
+.cta{background:linear-gradient(135deg,#6A1B34,#4A1124);box-shadow:inset 0 0 0 1px #B38A3C66,0 4px 14px #4A112444;font-weight:500;letter-spacing:.02em;transition:transform .2s,box-shadow .2s}
+.cta::before{content:"\2726";color:#f3d99a;margin-right:.55rem;font-size:.8rem}
+.cta:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 1px #B38A3C,0 8px 20px #4A112466}
+#connect h2::after{margin:.6rem auto 0}
+.soc{gap:1.2rem;margin-top:2rem}
+.soc a{flex-direction:column;justify-content:center;gap:.9rem;width:min(9.5rem,calc((100% - 2.4rem)/3));aspect-ratio:3/4;padding:1rem .4rem;border:2px solid var(--brass);border-radius:999px 999px .6rem .6rem;background:var(--paper);box-shadow:0 0 0 6px var(--paper),0 0 0 7px var(--line);font:600 1.05rem var(--serif);transition:transform .25s,box-shadow .25s,background .25s,color .25s}
+.soc a svg{width:2.4rem;height:2.4rem;color:var(--brass);transition:color .25s}
+.soc a::after{content:"\2197";font:400 .95rem var(--sans);color:var(--mute);transition:color .25s}
+.soc a:hover,.soc a:focus-visible{background:linear-gradient(#6A1B34,#4A1124);color:#fff;transform:translateY(-5px);box-shadow:0 0 0 6px var(--paper),0 0 0 7px var(--brass),0 14px 28px #4A112455}
+.soc a:hover svg,.soc a:hover::after,.soc a:focus-visible svg{color:#f3d99a}
+@media (max-width:480px){.soc{gap:1.1rem}.soc a{width:calc((100% - 2.2rem)/3);font-size:.85rem;box-shadow:0 0 0 4px var(--paper),0 0 0 5px var(--line)}.soc a svg{width:1.9rem;height:1.9rem}}
+@media (prefers-reduced-motion:reduce){.soc a,.cta{transition:none}.soc a:hover,.cta:hover{transform:none}}
 </style>
 </head>
 <body>
 <header>
   <nav aria-label="Sections"><a href="#about" data-kn="ಪರಿಚಯ" data-en="About">ಪರಿಚಯ</a><a href="#journey" data-kn="ಪಯಣ" data-en="Journey">ಪಯಣ</a><a href="#works" data-kn="ಕೃತಿಗಳು" data-en="Works">ಕೃತಿಗಳು</a><a href="#stage" data-kn="ರಂಗಭೂಮಿ" data-en="Stage">ರಂಗಭೂಮಿ</a><a href="#honours" data-kn="ಗೌರವಗಳು" data-en="Honours">ಗೌರವಗಳು</a><a href="#kaajana" data-kn="ಕಾಜಾಣ" data-en="Kaajana">ಕಾಜಾಣ</a></nav>
+  <div class="hr"><a class="cta" href="#connect" data-kn="ಸಂಪರ್ಕಿಸಿ" data-en="Connect">ಸಂಪರ್ಕಿಸಿ</a>
   <div class="tog" role="group" aria-label="Language">
     <button id="bk" aria-pressed="true">ಕನ್ನಡ</button><button id="be" aria-pressed="false">English</button>
-  </div>
+  </div></div>
 </header>
 
 <div class="hero" id="top">
@@ -155,6 +176,16 @@ details{border-top:1px solid var(--line);padding:.5rem 0}details:last-child{bord
   <p data-en="In 2009 he founded Kaajana to work across literature, theatre and cinema. It runs poetry and theatre workshops, book publishing, and programmes such as Chinnara Kaajana, Sasya Kaajana and Cini Kaajana. Kaajana Prakashana has published books of poetry, autobiography, criticism, research and edited volumes.">೨೦೦೯ರಲ್ಲಿ ಸಾಹಿತ್ಯ, ರಂಗಭೂಮಿ ಮತ್ತು ಸಿನೆಮಾ ಕ್ಷೇತ್ರಗಳಲ್ಲಿ ಕೆಲಸ ಮಾಡಲು ಅವರು ಕಾಜಾಣ ಬಳಗವನ್ನು ಆರಂಭಿಸಿದರು. ಕಾವ್ಯ ಮತ್ತು ರಂಗ ಕಮ್ಮಟ, ಪುಸ್ತಕ ಪ್ರಕಟಣೆ, ಚಿಣ್ಣರ ಕಾಜಾಣ, ಸಸ್ಯ ಕಾಜಾಣ, ಸಿನಿ ಕಾಜಾಣ ಮುಂತಾದ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಇದು ನಡೆಸುತ್ತದೆ. ಕಾಜಾಣ ಪ್ರಕಾಶನವು ಕವಿತೆ, ಆತ್ಮಕತೆ, ವಿಮರ್ಶೆ, ಸಂಶೋಧನೆ, ಸಂಪಾದನೆ ಮುಂತಾದ ಪ್ರಕಾರಗಳಲ್ಲಿ ಪುಸ್ತಕಗಳನ್ನು ಹೊರತಂದಿದೆ.</p>
   <p><a href="https://shrinivasaph.github.io/kaajana/" data-en="Visit the Kaajana team site">ಕಾಜಾಣ ತಂಡದ ಜಾಲತಾಣ</a></p>
 </section></div>
+
+<section id="connect" style="text-align:center">
+  <h2 data-en="Connect" style="display:inline-block">ಸಂಪರ್ಕಿಸಿ</h2>
+  <p style="margin:0 auto" data-en="Follow him on social media.">ಸಾಮಾಜಿಕ ಜಾಲತಾಣಗಳಲ್ಲಿ ಅವರನ್ನು ಅನುಸರಿಸಿ.</p>
+  <div class="soc">
+    <a href="https://www.instagram.com/belururaghunandan/" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/></svg>Instagram</a>
+    <a href="https://www.facebook.com/beluru.raghunandan.2025" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M13.5 21v-7h2.4l.4-2.8h-2.8V9.5c0-.8.3-1.3 1.4-1.3h1.5V5.7c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.600v2H8.5V14h2.3v7"/></svg>Facebook</a>
+    <a href="https://www.youtube.com/@raghunandanb.r1996" target="_blank" rel="noopener noreferrer" aria-label="YouTube (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l5-2.8z" fill="currentColor"/></svg>YouTube</a>
+  </div>
+</section>
 
 <footer data-en="Dr. Beluru Raghunandan">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್</footer>
 
