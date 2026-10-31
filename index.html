@@ -120,6 +120,14 @@ details{border-top:1px solid var(--line);padding:.5rem 0}details:last-child{bord
 .kt small{font-size:.8rem;letter-spacing:.1em;color:#5E5A70}
 .band .kcard .ka{font-size:1.3rem;color:#B38A3C;margin-left:.5rem}
 @media (prefers-reduced-motion:reduce){.band .kcard{transition:none}.band .kcard:hover{transform:none}}
+.soc a svg{width:3rem;height:3rem;color:initial;filter:drop-shadow(0 4px 8px #1d142633)}
+.soc a:hover svg,.soc a:focus-visible svg{color:initial;filter:drop-shadow(0 4px 10px #0008)}
+@media (max-width:480px){.soc a svg{width:2.3rem;height:2.3rem}}
+#top-btn{position:fixed;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));z-index:30;width:3rem;height:3rem;border-radius:50%;border:2px solid #B38A3C;background:linear-gradient(150deg,#6A1B34,#4A1124);color:#f3d99a;cursor:pointer;display:grid;place-items:center;box-shadow:0 0 0 4px var(--paper),0 8px 20px #4A112466;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .25s,transform .25s,visibility .25s}
+#top-btn.show{opacity:1;visibility:visible;transform:none}
+#top-btn:hover{transform:translateY(-3px)}
+#top-btn svg{width:1.4rem;height:1.4rem}
+@media (prefers-reduced-motion:reduce){#top-btn{transition:none}#top-btn:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -190,9 +198,9 @@ details{border-top:1px solid var(--line);padding:.5rem 0}details:last-child{bord
   <h2 data-en="Connect" style="display:inline-block">ಸಂಪರ್ಕಿಸಿ</h2>
   <p style="margin:0 auto" data-en="Follow him on social media.">ಸಾಮಾಜಿಕ ಜಾಲತಾಣಗಳಲ್ಲಿ ಅವರನ್ನು ಅನುಸರಿಸಿ.</p>
   <div class="soc">
-    <a href="https://www.instagram.com/belururaghunandan/" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/></svg>Instagram</a>
-    <a href="https://www.facebook.com/beluru.raghunandan.2025" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M13.5 21v-7h2.4l.4-2.8h-2.8V9.5c0-.8.3-1.3 1.4-1.3h1.5V5.7c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.600v2H8.5V14h2.3v7"/></svg>Facebook</a>
-    <a href="https://www.youtube.com/@raghunandanb.r1996" target="_blank" rel="noopener noreferrer" aria-label="YouTube (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l5-2.8z" fill="currentColor"/></svg>YouTube</a>
+    <a href="https://www.instagram.com/belururaghunandan/" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in a new tab)"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><radialGradient id="ig" cx="30%" cy="107%" r="140%"><stop offset="0" stop-color="#FED576"/><stop offset=".26" stop-color="#F47133"/><stop offset=".61" stop-color="#BC3081"/><stop offset="1" stop-color="#4C63D2"/></radialGradient></defs><rect width="48" height="48" rx="12" fill="url(#ig)"/><rect x="11" y="11" width="26" height="26" rx="7.5" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="24" cy="24" r="6.2" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="31.6" cy="16.4" r="1.7" fill="#fff"/></svg>Instagram</a>
+    <a href="https://www.facebook.com/beluru.raghunandan.2025" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in a new tab)"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#1877F2"/><path fill="#fff" d="M26.6 48V30h6l1-7.2h-7v-4.6c0-2 .9-3.6 3.700-3.600h3.600V8.300c-.6-.1-2.900-.3-5.400-.3-5.400 0-9 3.300-9 9.300v5.500h-6V30h6v18z"/></svg>Facebook</a>
+    <a href="https://www.youtube.com/@raghunandanb.r1996" target="_blank" rel="noopener noreferrer" aria-label="YouTube (opens in a new tab)"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="0" y="6" width="48" height="36" rx="11" fill="#FF0000"/><path d="M19.500 17.300v13.400L31.300 24z" fill="#fff"/></svg>YouTube</a>
   </div>
 </section>
 
@@ -344,6 +352,10 @@ details{border-top:1px solid var(--line);padding:.5rem 0}details:last-child{bord
   bk.onclick=function(){set('kn')};be.onclick=function(){set('en')};
   document.querySelectorAll('[data-en]').forEach(function(e){if(!e.hasAttribute('data-kn'))e.setAttribute('data-kn',e.textContent)});
 })();
+</script>
+<button id="top-btn" type="button" aria-label="ಮೇಲಕ್ಕೆ / Back to top" title="ಮೇಲಕ್ಕೆ / Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<script>
+(function(){var b=document.getElementById("top-btn"),rm=window.matchMedia("(prefers-reduced-motion: reduce)");function t(){b.classList.toggle("show",(window.scrollY||document.documentElement.scrollTop)>500)}window.addEventListener("scroll",t,{passive:true});t();b.addEventListener("click",function(){window.scrollTo({top:0,behavior:rm.matches?"auto":"smooth"});var h=document.getElementById("top");if(h){h.setAttribute("tabindex","-1");h.focus({preventScroll:true})}})})();
 </script>
 </body>
 </html>
