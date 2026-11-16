@@ -439,6 +439,45 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 .hub .hc:hover .fr1{transform:rotate(-2.5deg)}.hub .hc:hover .fr2{transform:rotate(3deg)}.hub .hc:hover .fr3{transform:rotate(2deg)}.hub .hc:hover .fr4{transform:rotate(-2deg)}
 @media (max-width:760px){.hub .hc{aspect-ratio:3/4.3}.hub .hc b{font-size:1.1rem}}
 @media (prefers-reduced-motion:reduce){.hub .hc:hover .vn,.hub .hc:hover [class^="eb"]{animation:none}.hub *{transition:none!important}}
+
+/* ---- live slideshow thumbnails ---- */
+.hub .hs{position:relative;overflow:hidden;flex:1 1 auto;min-height:0;background:#150d1c}
+.hub .sl{position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease}
+.hub .sl.on{opacity:1}
+.hub .kb{position:absolute;inset:0;transform-origin:50% 40%}
+.hub .sl.on .kb{animation:kbz 7s ease-out forwards}
+@keyframes kbz{from{transform:scale(1)}to{transform:scale(1.1)}}
+.hub .kb svg,.hub .kb img{display:block;width:100%;height:100%;object-fit:cover}
+.hub .kb img.ov{position:absolute;inset:0}
+.hub .kb .cv{position:absolute;inset:0}
+.hub .sl::after{content:"";position:absolute;inset:0;background:linear-gradient(#0000 45%,#0c0711d9 88%);pointer-events:none}
+.hub .sc{position:absolute;left:.7rem;right:.7rem;bottom:2.1rem;z-index:2;text-align:center;display:flex;flex-direction:column;gap:.1rem;opacity:0;transform:translateY(8px);transition:opacity .8s .35s,transform .8s .35s}
+.hub .sl.on .sc{opacity:1;transform:none}
+.hub .sc b{font:700 1.02rem/1.35 var(--serif);color:#fff;text-shadow:0 2px 10px #000a;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hub .sc small{font-size:.74rem;letter-spacing:.14em;color:#F3D99A;text-transform:uppercase}
+.hub .sd{position:absolute;left:0;right:0;top:34%;z-index:3;display:none}
+.hub .dots{position:absolute;left:0;right:0;bottom:1.45rem;z-index:3;display:flex;justify-content:center;gap:.3rem}
+.hub .dots i{width:.36rem;height:.36rem;border-radius:50%;background:#ffffff55;transition:background .4s,transform .4s}
+.hub .dots i.on{background:#F3D99A;transform:scale(1.35)}
+.hub .hc{aspect-ratio:3/5.1}@media (max-width:760px){.hub .hc{aspect-ratio:3/5.3}}
+.hub .bg{position:absolute;inset:-10%;filter:blur(16px) saturate(1.25);opacity:.6;transform:scale(1.25)}
+.hub .bg svg,.hub .bg img,.hub .bg .cv{display:block;width:100%;height:100%;object-fit:cover}.hub .bg .cv{position:absolute;inset:0}.hub .bg img.ov{position:absolute;inset:0}
+.hub .kb.fr{inset:auto;left:0;right:0;margin:0 auto;top:15%;overflow:hidden;border:2px solid #B38A3C;border-radius:.2rem;box-shadow:0 14px 30px #000c;background:#241a31;transform-origin:50% 50%}
+.hub .fr-plays,.hub .fr-books{height:60%;aspect-ratio:2/3}
+.hub .fr-music{width:58%;aspect-ratio:1/1}
+.hub .fr-gallery{width:74%;aspect-ratio:4/3;top:22%}
+.hub .sl.on .kb.fr{animation:kbf 7s ease-out forwards}
+@keyframes kbf{from{transform:scale(.97)}to{transform:scale(1.04)}}
+.hub .hc{position:relative}
+.hub .hs{position:absolute;inset:0;flex:none}
+.hub .ht{position:absolute;left:0;right:0;bottom:0;margin:0;padding-top:2.4rem;background:linear-gradient(#0000,#0c0711 42%)}
+.hub .sc{bottom:7.4rem}.hub .dots{bottom:6.8rem}
+.hub .sl::after{background:linear-gradient(#0000 40%,#0c0711e6 78%)}
+.hub .kb.fr{top:9%}
+.hub .fr-plays,.hub .fr-books{height:44%}
+.hub .fr-music{width:48%}.hub .fr-gallery{width:70%;top:14%}
+.hub .sl.on .kb.fr{animation:none}
+@media (prefers-reduced-motion:reduce){.hub .sl,.hub .sc{transition:none}.hub .sl.on .kb{animation:none}}
 </style>
 </head>
 <body>
@@ -486,28 +525,10 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
   <h2 data-kn="ಅವರ ಕಲಾ ಲೋಕ" data-en="His World of Art" style="display:inline-block">ಅವರ ಕಲಾ ಲೋಕ</h2>
   <p style="margin:0 auto" data-kn="ರಂಗಭೂಮಿ, ಸಾಹಿತ್ಯ, ಸಂಗೀತ ಮತ್ತು ಕ್ಷಣಗಳ ಒಳಗೆ ಇಣುಕಿ ನೋಡಿ." data-en="Step inside his theatre, his books, his songs and his moments.">ರಂಗಭೂಮಿ, ಸಾಹಿತ್ಯ, ಸಂಗೀತ ಮತ್ತು ಕ್ಷಣಗಳ ಒಳಗೆ ಇಣುಕಿ ನೋಡಿ.</p>
   <div class="hub">
-    <a class="hc c-plays" href="#plays"><svg class="hs" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="hp1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a1228"/><stop offset="1" stop-color="#150d1c"/></linearGradient><linearGradient id="hp2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".42"/><stop offset="1" stop-color="#fff" stop-opacity=".04"/></linearGradient><pattern id="hp3" width="12" height="200" patternUnits="userSpaceOnUse"><rect width="6" height="200" fill="#000" opacity=".16"/></pattern></defs>
-<rect width="200" height="200" fill="url(#hp1)"/><path d="M100 14 52 176h96z" fill="url(#hp2)"/>
-<rect y="164" width="200" height="36" fill="#3b2418"/><path d="M0 176h200M0 188h200" stroke="#000" stroke-opacity=".3"/><ellipse cx="100" cy="174" rx="46" ry="7" fill="#F3D99A" opacity=".4"/>
-<g class="hl"><path d="M-4 0h62c-16 44-22 110-20 200H-4z" fill="#82284a"/><path d="M-4 0h62c-16 44-22 110-20 200H-4z" fill="url(#hp3)"/></g>
-<g class="hr2"><path d="M204 0h-62c16 44 22 110 20 200h42z" fill="#82284a"/><path d="M204 0h-62c16 44 22 110 20 200h42z" fill="url(#hp3)"/></g>
-<g fill="none" stroke="#F3D99A" stroke-width="3" stroke-linecap="round" transform="translate(78 78) scale(.62)"><path d="M8 10c10 4 38 4 48 0 2 24-6 44-24 46C14 54 6 34 8 10z" fill="#F3D99A" fill-opacity=".14"/><path d="M19 26c3-2 7-2 9 1M36 27c2-3 6-3 9-1M22 40c6 6 14 6 20 0"/></g>
-<path d="M0 0h200v18H0z" fill="#6A1B34"/><path d="M0 18h200" stroke="#B38A3C" stroke-width="3"/><path d="M0 18q12 12 25 0t25 0 25 0 25 0 25 0 25 0 25 0 25 0" fill="#6A1B34" stroke="#B38A3C" stroke-width="1.5"/></svg><div class="ht"><b data-kn="ನಾಟಕಗಳು" data-en="Plays">ನಾಟಕಗಳು</b><span data-kn="ಪೋಸ್ಟರ್ ಮತ್ತು ವಿವರ" data-en="Posters and details">ಪೋಸ್ಟರ್ ಮತ್ತು ವಿವರ</span><i aria-hidden="true">→</i></div></a>
-    <a class="hc c-books" href="#books"><svg class="hs" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><radialGradient id="hb1" cx=".5" cy="0" r=".9"><stop offset="0" stop-color="#ffd98a" stop-opacity=".5"/><stop offset="1" stop-color="#ffd98a" stop-opacity="0"/></radialGradient><pattern id="hb2" width="26" height="200" patternUnits="userSpaceOnUse"><rect width="13" height="200" fill="#000" opacity=".16"/></pattern><linearGradient id="hb3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9a6c40"/><stop offset="1" stop-color="#432c1c"/></linearGradient></defs>
-<rect width="200" height="200" fill="#431529"/><rect width="200" height="200" fill="url(#hb2)"/><rect width="200" height="200" fill="url(#hb1)"/>
-<g class="bk0"><rect x="10" y="28" width="13" height="64" rx="1.5" fill="#8a3a1c"/><rect x="10" y="36" width="13" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="10" y="42" width="13" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk1"><rect x="24" y="40" width="11" height="52" rx="1.5" fill="#1f6a78"/><rect x="24" y="48" width="11" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="24" y="54" width="11" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk2"><rect x="37" y="34" width="11" height="58" rx="1.5" fill="#2f6b4a"/><rect x="37" y="42" width="11" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="37" y="48" width="11" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk0"><rect x="49" y="34" width="17" height="58" rx="1.5" fill="#4a3a6b"/><rect x="49" y="42" width="17" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="49" y="48" width="17" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk1"><rect x="68" y="46" width="17" height="46" rx="1.5" fill="#7a2a4f"/><rect x="68" y="54" width="17" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="68" y="60" width="17" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk2"><rect x="86" y="34" width="11" height="58" rx="1.5" fill="#B38A3C"/><rect x="86" y="42" width="11" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="86" y="48" width="11" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk0"><rect x="99" y="34" width="11" height="58" rx="1.5" fill="#34507a"/><rect x="99" y="42" width="11" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="99" y="48" width="11" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk1"><rect x="111" y="28" width="17" height="64" rx="1.5" fill="#8a3a1c"/><rect x="111" y="36" width="17" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="111" y="42" width="17" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk2"><rect x="130" y="34" width="11" height="58" rx="1.5" fill="#1f6a78"/><rect x="130" y="42" width="11" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="130" y="48" width="11" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk0"><rect x="142" y="46" width="15" height="46" rx="1.5" fill="#2f6b4a"/><rect x="142" y="54" width="15" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="142" y="60" width="15" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk1"><rect x="159" y="40" width="11" height="52" rx="1.5" fill="#4a3a6b"/><rect x="159" y="48" width="11" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="159" y="54" width="11" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk2"><rect x="171" y="52" width="11" height="40" rx="1.5" fill="#7a2a4f"/><rect x="171" y="60" width="11" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="171" y="66" width="11" height="2.5" fill="#F3D99A" opacity=".45"/></g><rect x="0" y="92" width="200" height="9" fill="url(#hb3)"/><path d="M0 92h200" stroke="#c99a4a" stroke-width="2"/>
-<g class="bk0"><rect x="10" y="116" width="13" height="52" rx="1.5" fill="#4a3a6b"/><rect x="10" y="124" width="13" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="10" y="130" width="13" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk1"><rect x="24" y="110" width="11" height="58" rx="1.5" fill="#7a2a4f"/><rect x="24" y="118" width="11" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="24" y="124" width="11" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk2"><rect x="37" y="122" width="17" height="46" rx="1.5" fill="#B38A3C"/><rect x="37" y="130" width="17" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="37" y="136" width="17" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk0"><rect x="55" y="128" width="11" height="40" rx="1.5" fill="#34507a"/><rect x="55" y="136" width="11" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="55" y="142" width="11" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk1"><rect x="68" y="110" width="11" height="58" rx="1.5" fill="#8a3a1c"/><rect x="68" y="118" width="11" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="68" y="124" width="11" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk2"><rect x="80" y="128" width="15" height="40" rx="1.5" fill="#1f6a78"/><rect x="80" y="136" width="15" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="80" y="142" width="15" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk0"><rect x="97" y="104" width="13" height="64" rx="1.5" fill="#2f6b4a"/><rect x="97" y="112" width="13" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="97" y="118" width="13" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk1"><rect x="111" y="116" width="15" height="52" rx="1.5" fill="#4a3a6b"/><rect x="111" y="124" width="15" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="111" y="130" width="15" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk2"><rect x="128" y="128" width="13" height="40" rx="1.5" fill="#7a2a4f"/><rect x="128" y="136" width="13" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="128" y="142" width="13" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk0"><rect x="142" y="122" width="15" height="46" rx="1.5" fill="#B38A3C"/><rect x="142" y="130" width="15" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="142" y="136" width="15" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk1"><rect x="159" y="116" width="11" height="52" rx="1.5" fill="#34507a"/><rect x="159" y="124" width="11" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="159" y="130" width="11" height="2.5" fill="#F3D99A" opacity=".45"/></g><g class="bk2"><rect x="171" y="122" width="15" height="46" rx="1.5" fill="#8a3a1c"/><rect x="171" y="130" width="15" height="2.5" fill="#F3D99A" opacity=".7"/><rect x="171" y="136" width="15" height="2.5" fill="#F3D99A" opacity=".45"/></g><rect x="0" y="168" width="200" height="10" fill="url(#hb3)"/><path d="M0 168h200" stroke="#c99a4a" stroke-width="2"/><rect y="178" width="200" height="22" fill="#2a1219"/></svg><div class="ht"><b data-kn="ಪುಸ್ತಕಗಳು" data-en="Books">ಪುಸ್ತಕಗಳು</b><span data-kn="ಗ್ರಂಥಾಲಯ" data-en="The library">ಗ್ರಂಥಾಲಯ</span><i aria-hidden="true">→</i></div></a>
-    <a class="hc c-music" href="#playlist" id="hub-playlist"><svg class="hs" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="hm1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b2260"/><stop offset="1" stop-color="#0f0a1c"/></linearGradient><radialGradient id="hm2"><stop offset="0" stop-color="#8f2447"/><stop offset="1" stop-color="#4A1124"/></radialGradient></defs>
-<rect width="200" height="200" fill="url(#hm1)"/><circle cx="100" cy="92" r="84" fill="#E0668A" opacity=".08"/>
-<g class="vn"><circle cx="100" cy="92" r="66" fill="#0d0814" stroke="#ffffff22"/><g fill="none" stroke="#fff" stroke-opacity=".08"><circle cx="100" cy="92" r="58"/><circle cx="100" cy="92" r="50"/><circle cx="100" cy="92" r="42"/><circle cx="100" cy="92" r="34"/></g><path d="M100 26a66 66 0 0 1 50 24" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="3"/><circle cx="100" cy="92" r="25" fill="url(#hm2)" stroke="#B38A3C" stroke-width="2"/><g fill="none" stroke="#F3D99A" stroke-width="1.6" stroke-linecap="round" transform="translate(88 80) scale(.38)"><path d="M8 10c10 4 38 4 48 0 2 24-6 44-24 46C14 54 6 34 8 10z"/><path d="M19 26c3-2 7-2 9 1M36 27c2-3 6-3 9-1M22 40c6 6 14 6 20 0"/></g><circle cx="100" cy="92" r="3" fill="#0d0814"/></g>
-<g class="arm"><path d="M178 14 150 70" stroke="#F3D99A" stroke-width="3" stroke-linecap="round"/><circle cx="180" cy="12" r="6" fill="#B38A3C"/><rect x="142" y="66" width="14" height="8" rx="2" fill="#F3D99A" transform="rotate(-30 149 70)"/></g>
-<rect class="eb0" x="12" y="178" width="7" height="22" rx="2" fill="#44BD8A" opacity="0.50"/><rect class="eb1" x="24" y="162" width="7" height="38" rx="2" fill="#44BD8A" opacity="0.65"/><rect class="eb2" x="36" y="172" width="7" height="28" rx="2" fill="#44BD8A" opacity="0.80"/><rect class="eb3" x="49" y="150" width="7" height="50" rx="2" fill="#44BD8A" opacity="0.50"/><rect class="eb0" x="61" y="166" width="7" height="34" rx="2" fill="#44BD8A" opacity="0.65"/><rect class="eb1" x="74" y="142" width="7" height="58" rx="2" fill="#44BD8A" opacity="0.80"/><rect class="eb2" x="86" y="170" width="7" height="30" rx="2" fill="#44BD8A" opacity="0.50"/><rect class="eb3" x="98" y="154" width="7" height="46" rx="2" fill="#44BD8A" opacity="0.65"/><rect class="eb0" x="111" y="176" width="7" height="24" rx="2" fill="#44BD8A" opacity="0.80"/><rect class="eb1" x="123" y="148" width="7" height="52" rx="2" fill="#44BD8A" opacity="0.50"/><rect class="eb2" x="136" y="164" width="7" height="36" rx="2" fill="#44BD8A" opacity="0.65"/><rect class="eb3" x="148" y="156" width="7" height="44" rx="2" fill="#44BD8A" opacity="0.80"/><rect class="eb0" x="160" y="174" width="7" height="26" rx="2" fill="#44BD8A" opacity="0.50"/><rect class="eb1" x="173" y="160" width="7" height="40" rx="2" fill="#44BD8A" opacity="0.65"/><rect class="eb2" x="185" y="180" width="7" height="20" rx="2" fill="#44BD8A" opacity="0.80"/><g fill="#F3D99A" opacity=".85"><path class="nt" d="M26 40v-16l10-3v14" fill="none" stroke="#F3D99A" stroke-width="2.4" stroke-linecap="round"/><circle cx="23" cy="40" r="4"/><circle cx="33" cy="35" r="4"/></g></svg><div class="ht"><b data-kn="ಹಾಡುಗಳು" data-en="Playlist">ಹಾಡುಗಳು</b><span data-kn="ಸಂಗೀತ ಲೋಕ" data-en="Music world">ಸಂಗೀತ ಲೋಕ</span><i aria-hidden="true">→</i></div></a>
-    <a class="hc c-gal" href="#gallery"><svg class="hs" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="hg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2230"/><stop offset="1" stop-color="#150d12"/></linearGradient><linearGradient id="hg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6b25c"/><stop offset="1" stop-color="#7a2a4f"/></linearGradient><radialGradient id="hg3" cx=".5" cy="0" r=".8"><stop offset="0" stop-color="#ffd98a" stop-opacity=".35"/><stop offset="1" stop-color="#ffd98a" stop-opacity="0"/></radialGradient></defs>
-<rect width="200" height="200" fill="url(#hg1)"/><rect width="200" height="200" fill="url(#hg3)"/><rect y="176" width="200" height="24" fill="#120a10"/>
-<g class="fr1"><path d="M60 8 62 36M118 8 114 36" stroke="#B38A3C" stroke-width="1.2"/><rect x="30" y="34" width="110" height="74" fill="#F4ECD8" stroke="#B38A3C" stroke-width="5"/><rect x="38" y="42" width="94" height="58" fill="url(#hg2)"/><circle cx="104" cy="62" r="9" fill="#fff3c8"/><path d="M38 100 62 72 82 92 100 78 132 100z" fill="#3a1228"/><path d="M38 100 56 84 74 100z" fill="#5a1830"/></g>
-<g class="fr2"><path d="M154 20 156 44M170 20 168 44" stroke="#B38A3C" stroke-width="1.2"/><rect x="146" y="44" width="40" height="58" fill="#F4ECD8" stroke="#B38A3C" stroke-width="4"/><rect x="151" y="49" width="30" height="48" fill="#2c2a6b"/><circle cx="166" cy="66" r="7" fill="#F3D99A"/><path d="M152 97c2-14 8-20 14-20s12 6 14 20z" fill="#F3D99A"/></g>
-<g class="fr3"><path d="M58 112 60 122M92 112 90 122" stroke="#B38A3C" stroke-width="1.2"/><rect x="34" y="122" width="76" height="48" fill="#F4ECD8" stroke="#B38A3C" stroke-width="4"/><rect x="39" y="127" width="66" height="38" fill="#1f6a78"/><path d="M64 135v22l20-11z" fill="#F3D99A"/></g>
-<g class="fr4"><rect x="126" y="116" width="58" height="54" fill="#F4ECD8" stroke="#B38A3C" stroke-width="4"/><rect x="131" y="121" width="48" height="44" fill="#6A1B34"/><g fill="none" stroke="#F3D99A" stroke-width="2.2" stroke-linecap="round"><path d="M147 128h16v12a8 8 0 0 1-16 0zM147 131h-5a5 5 0 0 0 5 8M163 131h5a5 5 0 0 1-5 8M155 148v8M147 158h16"/></g></g></svg><div class="ht"><b data-kn="ಚಿತ್ರಗಳು" data-en="Gallery">ಚಿತ್ರಗಳು</b><span data-kn="ಕ್ಷಣಗಳು ಮತ್ತು ವಿಡಿಯೋಗಳು" data-en="Moments and videos">ಕ್ಷಣಗಳು ಮತ್ತು ವಿಡಿಯೋಗಳು</span><i aria-hidden="true">→</i></div></a>
+    <a class="hc c-plays" href="#plays"><div class="hs" data-s="plays"></div><div class="ht"><b data-kn="ನಾಟಕಗಳು" data-en="Plays">ನಾಟಕಗಳು</b><span data-kn="ಪೋಸ್ಟರ್ ಮತ್ತು ವಿವರ" data-en="Posters and details">ಪೋಸ್ಟರ್ ಮತ್ತು ವಿವರ</span><i aria-hidden="true">→</i></div></a>
+    <a class="hc c-books" href="#books"><div class="hs" data-s="books"></div><div class="ht"><b data-kn="ಪುಸ್ತಕಗಳು" data-en="Books">ಪುಸ್ತಕಗಳು</b><span data-kn="ಗ್ರಂಥಾಲಯ" data-en="The library">ಗ್ರಂಥಾಲಯ</span><i aria-hidden="true">→</i></div></a>
+    <a class="hc c-music" href="#playlist" id="hub-playlist"><div class="hs" data-s="music"></div><div class="ht"><b data-kn="ಹಾಡುಗಳು" data-en="Playlist">ಹಾಡುಗಳು</b><span data-kn="ಸಂಗೀತ ಲೋಕ" data-en="Music world">ಸಂಗೀತ ಲೋಕ</span><i aria-hidden="true">→</i></div></a>
+    <a class="hc c-gal" href="#gallery"><div class="hs" data-s="gallery"></div><div class="ht"><b data-kn="ಚಿತ್ರಗಳು" data-en="Gallery">ಚಿತ್ರಗಳು</b><span data-kn="ಕ್ಷಣಗಳು ಮತ್ತು ವಿಡಿಯೋಗಳು" data-en="Moments and videos">ಕ್ಷಣಗಳು ಮತ್ತು ವಿಡಿಯೋಗಳು</span><i aria-hidden="true">→</i></div></a>
   </div>
 </section>
 
@@ -1193,11 +1214,36 @@ $('#glb').addEventListener('click',function(e){if(e.target.id==='glb'||e.target.
 document.addEventListener('keydown',function(e){if(!$('#glb').classList.contains('on'))return;if(e.key==='Escape')gClose();else if(e.key==='ArrowLeft')gStep(-1);else if(e.key==='ArrowRight')gStep(1);else if(e.key==='Tab'){var f=[$('#glx'),$('#glp'),$('#gln')].filter(function(x){return x.style.display!=='none'});var i=f.indexOf(document.activeElement);e.preventDefault();f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus()}});
 (function(){var sx=null,b=$('#glb');b.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});b.addEventListener('touchend',function(e){if(sx==null)return;var d=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(d)>60)gStep(d<0?1:-1)},{passive:true})})();
 
+
+/* ---------- homepage slideshow thumbnails ---------- */
+var HUBS={
+ plays:{get:function(){return PLAYS},img:function(it){return visual(it,'play')},cap:function(it){return T(it.t)},sub:function(it){return it.chips&&it.chips[0]?T(it.chips[0]):''}},
+ books:{get:function(){return BOOKS},img:function(it){return visual(it,'book')},cap:function(it){return T(it.t)},sub:function(it){return it.chips&&it.chips[0]?T(it.chips[0]):''}},
+ music:{get:function(){return SONGS},img:function(s){return cover(s)},cap:function(s){return T(s.t)},sub:function(s){return T(TYPES[s.type])}},
+ gallery:{get:function(){return GALLERY.filter(function(g){return g.cat==='award'||g.cat==='stage'})},img:function(g){return gart(g)+'<img class="ov" src="'+esc(gimg(g))+'" alt="" onerror="this.remove()">'},cap:function(g){return T(g.t)},sub:function(g){return T(g.s)}}
+};
+var HSTATE={},HT={};
+function hubBuild(key){
+ var el=document.querySelector('.hs[data-s="'+key+'"]'),H=HUBS[key];if(!el)return;
+ var items=H.get().slice(0,8),n=HSTATE[key]||0;if(n>=items.length)n=0;HSTATE[key]=n;
+ var h='';items.forEach(function(it,i){h+='<div class="sl'+(i===n?' on':'')+'"><div class="bg">'+H.img(it)+'</div><div class="kb fr fr-'+key+'">'+H.img(it)+'</div><div class="sc"><b>'+esc(H.cap(it))+'</b><small>'+esc(H.sub(it))+'</small></div></div>'});
+ h+='<div class="dots">'+items.map(function(_,i){return '<i'+(i===n?' class="on"':'')+'></i>'}).join('')+'</div>';
+ el.innerHTML=h;
+}
+function hubStep(key){
+ var el=document.querySelector('.hs[data-s="'+key+'"]');if(!el||document.hidden||document.body.classList.contains('view'))return;
+ var sl=el.querySelectorAll('.sl'),ds=el.querySelectorAll('.dots i');if(sl.length<2)return;
+ var n=HSTATE[key]||0;sl[n].classList.remove('on');ds[n].classList.remove('on');n=(n+1)%sl.length;HSTATE[key]=n;sl[n].classList.add('on');ds[n].classList.add('on');
+}
+function hubCaps(){Object.keys(HUBS).forEach(hubBuild)}
+(function(){var keys=Object.keys(HUBS);keys.forEach(hubBuild);
+ if(!rm.matches)keys.forEach(function(k,i){setTimeout(function(){HT[k]=setInterval(function(){hubStep(k)},3600)},i*900)});
+})();
 /* ---------- language (static text is switched by the page's own toggle) ---------- */
 function setLang(l){
  lang=l;
  document.querySelectorAll('[data-al-kn]').forEach(function(e){e.setAttribute('aria-label',e.getAttribute('data-al-'+l))});
- shelfP.render();shelfB.render();gRender();
+ shelfP.render();shelfB.render();gRender();hubCaps();
  if(SONGS.length)mwLang();
 }
 $('#bk').addEventListener('click',function(){setLang('kn')});$('#be').addEventListener('click',function(){setLang('en')});
