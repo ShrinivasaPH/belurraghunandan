@@ -128,11 +128,126 @@ details{border-top:1px solid var(--line);padding:.5rem 0}details:last-child{bord
 #top-btn:hover{transform:translateY(-3px)}
 #top-btn svg{width:1.4rem;height:1.4rem}
 @media (prefers-reduced-motion:reduce){#top-btn{transition:none}#top-btn:hover{transform:none}}
+/* ---- works shelves + playlist (merged) ---- */
+[hidden]{display:none!important}
+:root{--bg:var(--paper);--accent:var(--wine);--bg2:#ECE8F2;--card:#FFFFFF;--brass-ink:#7D5A17;--curtain:#4A1124;--curtain2:#6A1B34;--gold:#F3D99A;--c-play:#6A1B34;--c-film:#3B3A8A;--c-album:#2F6B4A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg2:#1F1B2A;--card:#252032;--brass-ink:#E2BE72;--c-play:#E07A98;--c-film:#9A98F0;--c-album:#7FD0A2}}
+.card,.xbtn,.ib,.row,.seg button{font:inherit;color:inherit}
+.sub{margin:-.4rem 0 0;color:var(--mute);max-width:60ch}
+.poster img.ov{position:absolute;inset:0}
+@media (max-width:640px){header nav{min-width:0;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;gap:1.1rem;scrollbar-width:none}header nav::-webkit-scrollbar{display:none}header nav a{white-space:nowrap;flex:none}}
+/* shelf */
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.6rem,1fr));gap:1.8rem 1.3rem;margin-top:1.8rem;align-items:start}
+@media (max-width:480px){.shelf{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem .9rem}}
+.card{display:flex;flex-direction:column;gap:.7rem;background:none;border:0;padding:0;text-align:left;cursor:pointer;min-width:0}
+.poster{position:relative;aspect-ratio:2/3;width:100%;border-radius:.35rem;overflow:hidden;border:1.5px solid var(--brass);box-shadow:0 10px 24px #1d142633;transition:transform .25s,box-shadow .25s;background:var(--bg2)}
+.poster svg,.poster img{display:block;width:100%;height:100%;object-fit:cover}
+.card:hover .poster{transform:translateY(-4px);box-shadow:0 16px 30px #1d142655}
+.card[aria-expanded="true"] .poster{outline:3px solid var(--brass);outline-offset:3px}
+.card h3{font:700 1.1rem/1.4 var(--serif);margin:0;color:var(--ink)}
+.card .brief{font-size:.88rem;line-height:1.55;color:var(--mute);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card .more{display:inline-flex;align-items:center;gap:.3rem;font-size:.85rem;color:var(--accent);font-weight:500}
+.card .more svg{width:.9rem;height:.9rem;transition:transform .25s}
+.card[aria-expanded="true"] .more svg{transform:rotate(180deg)}
+.panel{grid-column:1/-1;display:none;scroll-margin-top:7rem}
+.panel.show{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.panel.show.open{grid-template-rows:1fr}
+.pin{overflow:hidden;min-height:0}
+.pbody{position:relative;display:grid;grid-template-columns:11rem minmax(0,1fr);gap:1.8rem;padding:1.6rem;margin-top:.2rem;background:var(--bg2);border:1px solid var(--line);border-top:3px solid var(--brass);border-radius:.4rem .4rem .9rem .9rem}
+.pbody .poster{box-shadow:0 8px 18px #1d142633}
+.pbody h3{font:700 clamp(1.4rem,3vw,1.9rem)/1.3 var(--serif);color:var(--accent);margin:0 2.5rem .6rem 0}
+.dchips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1rem}
+.dchip{font-size:.8rem;padding:.12rem .7rem;border:1px solid var(--brass);border-radius:99px;color:var(--brass-ink);line-height:1.6}
+dl.dmeta{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.35rem 1.2rem;margin:0 0 1rem;font-size:.95rem}
+dl.dmeta dt{color:var(--mute)}dl.dmeta dd{margin:0}
+.syn{margin:0;max-width:62ch;color:var(--ink)}
+.syn i{display:block;font-size:.78rem;color:var(--mute);font-style:normal;margin-bottom:.2rem}
+.xbtn{position:absolute;top:.7rem;right:.7rem;width:2.5rem;height:2.5rem;border-radius:50%;border:1px solid var(--brass);background:var(--bg);cursor:pointer;display:grid;place-items:center}
+.xbtn svg{width:1rem;height:1rem}
+@media (max-width:640px){.pbody{grid-template-columns:1fr;padding:1.2rem}.pbody .poster{display:none}}
+
+/* playlist */
+.plgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:1.6rem;margin-top:1.8rem;grid-template-areas:"player list" "lyrics list"}
+.player{grid-area:player}.lyr{grid-area:lyrics}.tracks{grid-area:list;align-self:start}
+@media (max-width:900px){.plgrid{grid-template-columns:minmax(0,1fr);grid-template-areas:"player" "lyrics" "list"}}
+.player{position:relative;border-radius:.5rem .5rem 1rem 1rem;overflow:hidden;color:#f1e8d8;border:2px solid var(--brass);
+  background:radial-gradient(ellipse at 50% 20%,#7a5a52 0,#3a2a3d 48%,#1d1426 100%)}
+.curt{position:absolute;top:0;bottom:0;width:2.4rem;background:repeating-linear-gradient(90deg,#4A1124 0 14px,#6A1B34 14px 30px,#82284a 30px 36px);box-shadow:0 0 24px #000b;z-index:1}
+.curt.l{left:0}.curt.r{right:0}
+.plin{position:relative;z-index:2;padding:1.6rem 3.4rem 1.4rem;display:grid;gap:1.1rem}
+@media (max-width:480px){.curt{width:1rem}.plin{padding:1.3rem 1.6rem 1.2rem}}
+.top2{display:flex;gap:1.3rem;align-items:center;flex-wrap:wrap}
+.disc{flex:none;width:7.5rem;height:7.5rem;border-radius:50%;position:relative;box-shadow:0 10px 26px #000a,0 0 0 2px #B38A3C88;
+  background:repeating-radial-gradient(circle at 50% 50%,#17101f 0 2px,#241a30 2px 4px);animation:spin 7s linear infinite;animation-play-state:paused}
+.disc.spin{animation-play-state:running}
+.disc::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 20deg,#fff0 0 20%,#ffffff1f 25%,#fff0 32% 70%,#ffffff1a 76%,#fff0 82%)}
+.disc .lab{position:absolute;inset:32%;border-radius:50%;background:linear-gradient(150deg,#6A1B34,#4A1124);border:2px solid #B38A3C;display:grid;place-items:center;color:#F3D99A}
+.disc .lab svg{width:55%;height:55%}
+.disc .hole{position:absolute;left:50%;top:50%;width:.45rem;height:.45rem;margin:-.22rem;border-radius:50%;background:#17141F}
+@keyframes spin{to{transform:rotate(360deg)}}
+.np{min-width:0;flex:1 1 12rem}
+.np-t{font:700 clamp(1.3rem,3vw,1.7rem)/1.35 var(--serif);color:var(--gold)}
+.np-u{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin-top:.35rem;font-size:.92rem}
+.np-c{margin-top:.2rem;font-size:.85rem;color:#cfc4d6}
+.tchip{font-size:.78rem;line-height:1.6;padding:.05rem .65rem;border-radius:99px;border:1px solid currentColor;font-weight:500}
+.player .tchip{color:var(--gold)}
+.seekrow{display:grid;grid-template-columns:auto 1fr auto;gap:.8rem;align-items:center;font-size:.85rem;font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:1.6rem;background:none;margin:0;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:99px;background:linear-gradient(to right,#F3D99A var(--p,0%),#ffffff33 var(--p,0%))}
+input[type=range]::-moz-range-track{height:6px;border-radius:99px;background:#ffffff33}
+input[type=range]::-moz-range-progress{height:6px;border-radius:99px;background:#F3D99A}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#F3D99A;border:2px solid #4A1124;margin-top:-5px;box-shadow:0 0 0 2px #B38A3C}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#F3D99A;border:2px solid #4A1124;box-shadow:0 0 0 2px #B38A3C}
+.ctrls{display:flex;justify-content:center;align-items:center;gap:1.1rem}
+.ib{width:2.9rem;height:2.9rem;border-radius:50%;border:1px solid #B38A3C99;background:#ffffff14;color:#F3D99A;display:grid;place-items:center;cursor:pointer;transition:background .2s}
+.ib:hover{background:#ffffff2b}.ib svg{width:1.2rem;height:1.2rem}
+.ib.big{width:4rem;height:4rem;background:linear-gradient(150deg,#F3D99A,#B38A3C);color:#4A1124;border:0;box-shadow:0 6px 18px #0008}
+.ib.big:hover{background:linear-gradient(150deg,#fbe8b8,#c79a44)}.ib.big svg{width:1.7rem;height:1.7rem}
+.ib[aria-pressed="true"]{background:#F3D99A;color:#4A1124}
+.xtra{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.vol{display:flex;align-items:center;gap:.4rem;flex:1 1 8rem;max-width:11rem}
+.xtra .ib{width:2.5rem;height:2.5rem}.xtra .ib svg{width:1.05rem;height:1.05rem}
+.lyr{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--brass);border-radius:.4rem .4rem .9rem .9rem;padding:1.1rem 1.2rem 1.2rem}
+.lyr-h{display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;margin-bottom:.8rem}
+.lyr-h h3{margin:0;font:700 1.25rem var(--serif);color:var(--accent)}
+.seg{display:flex;border:1px solid var(--brass);border-radius:99px;overflow:hidden}
+.seg button{border:0;background:none;padding:.25rem .9rem;min-height:2.4rem;font-size:.85rem;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--curtain2);color:#fff}
+.lbox{height:15rem;position:relative}
+.lbox.scr{overflow-y:auto;overscroll-behavior:contain;padding:5rem 0.4rem;-webkit-mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent);mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent)}
+.lbox.scr p{margin:0;padding:.4rem .6rem;font:500 1.15rem/1.6 var(--serif);color:var(--mute);border-radius:.4rem;cursor:pointer;transition:color .25s,background .25s}
+.lbox.scr p:hover{background:var(--bg2)}
+.lbox.scr p.on{color:var(--accent);background:var(--bg2);font-weight:700}
+.lbox.lin{overflow:hidden;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:.9rem;padding:0 .5rem}
+.lbox.lin div{font-family:var(--serif)}
+.lbox.lin .pv,.lbox.lin .nx{font-size:1.05rem;color:var(--mute);opacity:.75;min-height:1.7rem}
+.lbox.lin .cu{font-size:clamp(1.5rem,4vw,2rem);font-weight:700;line-height:1.45;color:var(--accent);min-height:3rem}
+.lbox.lin .cu.fade{animation:fin .45s ease}
+@keyframes fin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.tracks{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:2.2rem minmax(0,1fr) auto;gap:.9rem;align-items:center;width:100%;padding:.85rem .6rem;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;cursor:pointer}
+.row:hover{background:var(--bg2)}
+.row[aria-current="true"]{background:var(--bg2);box-shadow:inset 3px 0 0 var(--brass)}
+.row .ix{display:grid;place-items:center;width:2.2rem;height:2.2rem;border-radius:50%;border:1px solid var(--brass);color:var(--brass-ink);font-size:.85rem}
+.row .ix svg{width:.9rem;height:.9rem}
+.eq{display:flex;gap:2px;align-items:flex-end;height:.9rem}
+.eq i{width:3px;background:var(--accent);height:30%;animation:eq 1s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:.25s}.eq i:nth-child(3){animation-delay:.5s}
+.eq.pause i{animation-play-state:paused}
+@keyframes eq{0%,100%{height:25%}50%{height:100%}}
+.row .tt{font:700 1.05rem/1.4 var(--serif)}
+.row .uu{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;font-size:.85rem;color:var(--mute);margin-top:.2rem}
+.row .tchip{color:var(--c)}
+.t-play{--c:var(--c-play)}.t-film{--c:var(--c-film)}.t-album{--c:var(--c-album)}
+.row .tchip{background:color-mix(in srgb,var(--c) 12%,transparent)}
+.row .du{font-size:.85rem;color:var(--mute);font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){.disc{animation:none}.poster,.panel.show,.card .more svg{transition:none}.card:hover .poster{transform:none}.eq i{animation:none;height:70%}.lbox.lin .cu.fade{animation:none}}
+
 </style>
 </head>
 <body>
 <header>
-  <nav aria-label="Sections"><a href="#about" data-kn="ಪರಿಚಯ" data-en="About">ಪರಿಚಯ</a><a href="#journey" data-kn="ಪಯಣ" data-en="Journey">ಪಯಣ</a><a href="#works" data-kn="ಕೃತಿಗಳು" data-en="Works">ಕೃತಿಗಳು</a><a href="#stage" data-kn="ರಂಗಭೂಮಿ" data-en="Stage">ರಂಗಭೂಮಿ</a><a href="#honours" data-kn="ಗೌರವಗಳು" data-en="Honours">ಗೌರವಗಳು</a><a href="#kaajana" data-kn="ಕಾಜಾಣ" data-en="Kaajana">ಕಾಜಾಣ</a></nav>
+  <nav aria-label="Sections"><a href="#about" data-kn="ಪರಿಚಯ" data-en="About">ಪರಿಚಯ</a><a href="#journey" data-kn="ಪಯಣ" data-en="Journey">ಪಯಣ</a><a href="#plays" data-kn="ನಾಟಕಗಳು" data-en="Plays">ನಾಟಕಗಳು</a><a href="#books" data-kn="ಪುಸ್ತಕಗಳು" data-en="Books">ಪುಸ್ತಕಗಳು</a><a href="#playlist" id="nav-playlist" data-kn="ಹಾಡುಗಳು" data-en="Playlist" hidden>ಹಾಡುಗಳು</a><a href="#works" data-kn="ಕೃತಿ ಪಟ್ಟಿ" data-en="All works">ಕೃತಿ ಪಟ್ಟಿ</a><a href="#honours" data-kn="ಗೌರವಗಳು" data-en="Honours">ಗೌರವಗಳು</a><a href="#kaajana" data-kn="ಕಾಜಾಣ" data-en="Kaajana">ಕಾಜಾಣ</a></nav>
   <div class="hr"><a class="cta" href="#connect" data-kn="ಸಂಪರ್ಕಿಸಿ" data-en="Connect">ಸಂಪರ್ಕಿಸಿ</a>
   <div class="tog" role="group" aria-label="Language">
     <button id="bk" aria-pressed="true">ಕನ್ನಡ</button><button id="be" aria-pressed="false">English</button>
@@ -171,8 +286,53 @@ details{border-top:1px solid var(--line);padding:.5rem 0}details:last-child{bord
   </ul>
 </section>
 
+<section id="plays" style="padding-top:1rem">
+  <h2 data-kn="ನಾಟಕಗಳು" data-en="Plays">ನಾಟಕಗಳು</h2>
+  <p class="sub" data-kn="ಪೋಸ್ಟರ್ ಮೇಲೆ ಒತ್ತಿದರೆ ನಾಟಕದ ವಿವರಗಳು ತೆರೆದುಕೊಳ್ಳುತ್ತವೆ." data-en="Select a poster to open the details of the play.">ಪೋಸ್ಟರ್ ಮೇಲೆ ಒತ್ತಿದರೆ ನಾಟಕದ ವಿವರಗಳು ತೆರೆದುಕೊಳ್ಳುತ್ತವೆ.</p>
+  <div class="shelf" id="shelf-plays"></div>
+</section>
+
+<section id="books" style="padding-top:1rem">
+  <h2 data-kn="ಪುಸ್ತಕಗಳು" data-en="Books">ಪುಸ್ತಕಗಳು</h2>
+  <p class="sub" data-kn="ಮುಖಪುಟ ಮೇಲೆ ಒತ್ತಿದರೆ ಪುಸ್ತಕದ ವಿವರಗಳು ತೆರೆದುಕೊಳ್ಳುತ್ತವೆ." data-en="Select a cover to open the details of the book.">ಮುಖಪುಟ ಮೇಲೆ ಒತ್ತಿದರೆ ಪುಸ್ತಕದ ವಿವರಗಳು ತೆರೆದುಕೊಳ್ಳುತ್ತವೆ.</p>
+  <div class="shelf" id="shelf-books"></div>
+</section>
+
+<section id="playlist" style="padding-top:1rem" hidden>
+  <h2 data-kn="ಹಾಡುಗಳು" data-en="Playlist">ಹಾಡುಗಳು</h2>
+  <p class="sub" data-kn="ಹಾಡು ಆರಿಸಿ, ಕೇಳಿ, ಸಾಹಿತ್ಯವನ್ನು ಓದಿ." data-en="Pick a song, listen, and read along.">ಹಾಡು ಆರಿಸಿ, ಕೇಳಿ, ಸಾಹಿತ್ಯವನ್ನು ಓದಿ.</p>
+  <div class="plgrid">
+    <div class="player">
+      <div class="curt l"></div><div class="curt r"></div>
+      <div class="plin">
+        <div class="top2">
+          <div class="disc" id="disc"><div class="lab"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M8 10c10 4 38 4 48 0 2 24-6 44-24 46C14 54 6 34 8 10z"/><path d="M19 26c3-2 7-2 9 1M36 27c2-3 6-3 9-1M22 40c6 6 14 6 20 0"/></svg></div><div class="hole"></div></div>
+          <div class="np" aria-live="polite"><div class="np-t" id="npT"></div><div class="np-u" id="npU"></div><div class="np-c" id="npC"></div></div>
+        </div>
+        <div class="seekrow"><span id="tc">0:00</span><input type="range" id="seek" min="0" max="1000" value="0" data-al-kn="ಹಾಡಿನ ಸ್ಥಾನ" data-al-en="Seek"><span id="td">0:00</span></div>
+        <div class="ctrls">
+          <button class="ib" id="prev" data-al-kn="ಹಿಂದಿನ ಹಾಡು" data-al-en="Previous song"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h2.5v14H6zM20 5v14L9.5 12z"/></svg></button>
+          <button class="ib big" id="play" data-al-kn="ಪ್ಲೇ" data-al-en="Play"><svg id="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button>
+          <button class="ib" id="next" data-al-kn="ಮುಂದಿನ ಹಾಡು" data-al-en="Next song"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 5H18v14h-2.5zM4 5l10.5 7L4 19z"/></svg></button>
+        </div>
+        <div class="xtra">
+          <button class="ib" id="loop" aria-pressed="false" data-al-kn="ಈ ಹಾಡು ಪುನರಾವರ್ತಿಸಿ" data-al-en="Repeat this song"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 013-3h15"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 01-3 3H3"/></svg></button>
+          <div class="vol"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9zM16 8.5a5 5 0 010 7l-1.4-1.4a3 3 0 000-4.2z"/></svg><input type="range" id="vol" min="0" max="100" value="80" data-al-kn="ಧ್ವನಿ" data-al-en="Volume"></div>
+        </div>
+      </div>
+    </div>
+    <div class="lyr">
+      <div class="lyr-h"><h3 data-kn="ಸಾಹಿತ್ಯ" data-en="Lyrics">ಸಾಹಿತ್ಯ</h3>
+        <div class="seg" role="group" aria-label="Lyrics view"><button id="mScr" aria-pressed="true" data-kn="ಪೂರ್ಣ ಸಾಹಿತ್ಯ" data-en="Full lyrics">ಪೂರ್ಣ ಸಾಹಿತ್ಯ</button><button id="mLin" aria-pressed="false" data-kn="ಸಾಲು ಸಾಲಾಗಿ" data-en="Line by line">ಸಾಲು ಸಾಲಾಗಿ</button></div></div>
+      <div class="lbox scr" id="lbox" tabindex="0" data-al-kn="ಸಾಹಿತ್ಯ" data-al-en="Lyrics"></div>
+    </div>
+    <ul class="tracks" id="tracks"></ul>
+  </div>
+<audio id="au" preload="metadata"></audio>
+</section>
+
 <section id="works" style="padding-top:1rem">
-  <h2 data-en="Works">ಕೃತಿಗಳು</h2>
+  <h2 data-en="Complete Works">ಕೃತಿಗಳ ಸಂಪೂರ್ಣ ಪಟ್ಟಿ</h2>
   <div id="wl"></div>
 </section>
 
@@ -351,6 +511,268 @@ details{border-top:1px solid var(--line);padding:.5rem 0}details:last-child{bord
   }
   bk.onclick=function(){set('kn')};be.onclick=function(){set('en')};
   document.querySelectorAll('[data-en]').forEach(function(e){if(!e.hasAttribute('data-kn'))e.setAttribute('data-kn',e.textContent)});
+})();
+</script>
+<script>
+
+(function(){
+var lang='kn';
+var $=function(s){return document.querySelector(s)};
+var T=function(o){return o==null?'':(typeof o==='string'||typeof o==='number')?o:(o[lang]||o.kn)};
+var rm=window.matchMedia('(prefers-reduced-motion: reduce)');
+var K={year:{kn:'ವರ್ಷ',en:'Year'},troupe:{kn:'ತಂಡ',en:'Troupe'},role:{kn:'ಜವಾಬ್ದಾರಿ',en:'His role'},fmt:{kn:'ಪ್ರಕಾರ',en:'Format'},based:{kn:'ಆಧಾರ',en:'Based on'},text:{kn:'ಪಠ್ಯ ಪ್ರಕಟಣೆ',en:'Text published'},genre:{kn:'ಪ್ರಕಾರ',en:'Genre'},pub:{kn:'ಪ್ರಕಾಶಕರು',en:'Publisher'},lang:{kn:'ಭಾಷೆ',en:'Language'}};
+
+/* ---------- data: replace art with img:"images/..." when real files arrive ---------- */
+var PLAYS=[
+ {id:'chitte',t:{kn:'ಚಿಟ್ಟೆ',en:'Chitte'},lines:['ಚಿಟ್ಟೆ'],art:{m:'butterfly',c:['#6A1B34','#27101c','#F3D99A']},
+  brief:{kn:'ಬಾಲ್ಯದ ಅನುಭವಗಳಿಗೆ ದನಿ ನೀಡಿದ ಮಕ್ಕಳ ಏಕವ್ಯಕ್ತಿ ನಾಟಕ.',en:'A solo play for children that gives voice to childhood experience.'},
+  chips:[{kn:'2022',en:'2022'},{kn:'ಏಕವ್ಯಕ್ತಿ ನಾಟಕ',en:'Solo play'}],
+  meta:[['fmt',{kn:'ಮಕ್ಕಳ ಏಕವ್ಯಕ್ತಿ ನಾಟಕ',en:'Children’s solo play'}],['role',{kn:'ರಚನೆ',en:'Playwright'}],['text',{kn:'ಶಾರದಾ ಪ್ರತಿಷ್ಠಾನ, 2022',en:'Sharada Pratishthana, 2022'}]]},
+ {id:'thimmakka',t:{kn:'ಸಾಲುಮರಗಳ ತಾಯಿ ತಿಮ್ಮಕ್ಕ',en:'Salumaragala Taayi Thimmakka'},lines:['ಸಾಲುಮರಗಳ','ತಾಯಿ ತಿಮ್ಮಕ್ಕ'],art:{m:'trees',c:['#1F4D3A','#0b1f17','#F3D99A']},
+  brief:{kn:'ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಅವರ ಜೀವನ ಆಧರಿಸಿದ ನಾಟಕ.',en:'A play based on the life of Salumarada Thimmakka.'},
+  chips:[{kn:'2024',en:'2024'},{kn:'ಕಾಜಾಣ',en:'Kaajana'}],
+  meta:[['troupe',{kn:'ಕಾಜಾಣ',en:'Kaajana'}],['role',{kn:'ರಚನೆ, ಸಂಗೀತ, ನಿರ್ದೇಶನ',en:'Written, scored and directed'}],['based',{kn:'ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಅವರ ಜೀವನ',en:'The life of Salumarada Thimmakka'}],['text',{kn:'ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಇಂಟರ್ನ್ಯಾಷನಲ್ ಫೌಂಡೇಶನ್, 2016',en:'Salumarada Thimmakka International Foundation, 2016'}]]},
+ {id:'panchavarne',t:{kn:'ಪಂಚವರ್ಣೆ',en:'Panchavarne'},lines:['ಪಂಚವರ್ಣೆ'],art:{m:'bands',c:['#2c2a6b','#120f2e','#F3D99A']},
+  brief:{kn:'ಮೀರಾ ಎಚ್.ಎನ್ ಅಭಿನಯದ ಏಕವ್ಯಕ್ತಿ ನಾಟಕ.',en:'A solo play performed by Meera H.N.'},
+  chips:[{kn:'2024',en:'2024'},{kn:'ಕಾಜಾಣ',en:'Kaajana'}],
+  meta:[['troupe',{kn:'ಕಾಜಾಣ',en:'Kaajana'}],['role',{kn:'ರಚನೆ, ಸಂಗೀತ, ನಿರ್ದೇಶನ',en:'Written, scored and directed'}],['fmt',{kn:'ಏಕವ್ಯಕ್ತಿ ನಾಟಕ, ಅಭಿನಯ: ಮೀರಾ ಎಚ್.ಎನ್',en:'Solo play, performed by Meera H.N.'}]]},
+ {id:'akkai',t:{kn:'ಅಕ್ಕಯ್',en:'Akkai'},lines:['ಅಕ್ಕಯ್'],art:{m:'mask',c:['#7a2a4f','#2a0d1e','#F3D99A']},
+  brief:{kn:'ಅಕ್ಕಯ್ ಪದ್ಮಶಾಲಿ ಅವರ ಜೀವನ ಆಧರಿಸಿದ ರಂಗರೂಪ.',en:'A stage version based on the life of Akkai Padmashali.'},
+  chips:[{kn:'2022',en:'2022'},{kn:'ಕಾಜಾಣ ರಂಗ ಪಯಣ',en:'Kaajana Ranga Payana'}],
+  meta:[['troupe',{kn:'ಕಾಜಾಣ ರಂಗ ಪಯಣ',en:'Kaajana Ranga Payana'}],['role',{kn:'ರಂಗಪಠ್ಯ, ನಿರ್ದೇಶನ',en:'Stage text and direction'}],['based',{kn:'ಅಕ್ಕಯ್ ಪದ್ಮಶಾಲಿ ಅವರ ಜೀವನ ಮತ್ತು ಡೊಮಿನಿಕ್ ಅವರ ‘ಅಕ್ಕಯ್’ ಕೃತಿ',en:'The life of Akkai Padmashali and Dominic’s book Akkai'}],['text',{kn:'ಶಾರದಾ ಪ್ರತಿಷ್ಠಾನ, 2022',en:'Sharada Pratishthana, 2022'}]]}
+];
+var BOOKS=[
+ {id:'shwetapriya',t:{kn:'ಶ್ವೇತಪ್ರಿಯ',en:'Shwetapriya'},lines:['ಶ್ವೇತಪ್ರಿಯ'],art:{m:'lotus',c:['#34507a','#0f1a2e','#F3D99A']},
+  brief:{kn:'ಕವನ ಸಂಕಲನ, ಶ್ವೇತಪ್ರಿಯ ಪ್ರಕಾಶನ, 2011.',en:'Poetry collection, Shwetapriya Prakashana, 2011.'},
+  chips:[{kn:'ಕವನ ಸಂಕಲನ',en:'Poetry'},{kn:'2011',en:'2011'}],
+  meta:[['genre',{kn:'ಕವನ ಸಂಕಲನ',en:'Poetry'}],['year',{kn:'2011',en:'2011'}],['pub',{kn:'ಶ್ವೇತಪ್ರಿಯ ಪ್ರಕಾಶನ',en:'Shwetapriya Prakashana'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
+ {id:'maggada',t:{kn:'ಮಗ್ಗದ ಮನೆ',en:'Maggada Mane'},lines:['ಮಗ್ಗದ ಮನೆ'],art:{m:'loom',c:['#8a3a1c','#2a1208','#F3D99A']},
+  brief:{kn:'ಕವನ ಸಂಕಲನ, ರಾಸೀ ಪ್ರಕಾಶನ, 2025.',en:'Poetry collection, Raasee Prakashana, 2025.'},
+  chips:[{kn:'ಕವನ ಸಂಕಲನ',en:'Poetry'},{kn:'2025',en:'2025'}],
+  meta:[['genre',{kn:'ಕವನ ಸಂಕಲನ',en:'Poetry'}],['year',{kn:'2025',en:'2025'}],['pub',{kn:'ರಾಸೀ ಪ್ರಕಾಶನ',en:'Raasee Prakashana'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
+ {id:'haaruva',t:{kn:'ಹಾರುವ ಆನೆ',en:'Haaruva Aane'},lines:['ಹಾರುವ ಆನೆ'],art:{m:'winged',c:['#1f6a78','#0a2630','#F3D99A']},
+  brief:{kn:'ಮಕ್ಕಳ ಸಾಹಿತ್ಯ, ಶ್ವೇತಪ್ರಿಯ ಪ್ರಕಾಶನ, 2018.',en:'Children’s literature, Shwetapriya Prakashana, 2018.'},
+  chips:[{kn:'ಮಕ್ಕಳ ಸಾಹಿತ್ಯ',en:'Children’s'},{kn:'2018',en:'2018'}],
+  meta:[['genre',{kn:'ಮಕ್ಕಳ ಸಾಹಿತ್ಯ',en:'Children’s literature'}],['year',{kn:'2018',en:'2018'}],['pub',{kn:'ಶ್ವೇತಪ್ರಿಯ ಪ್ರಕಾಶನ',en:'Shwetapriya Prakashana'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
+ {id:'hasira',t:{kn:'ಹಸಿರ ಬನಿ',en:'Hasira Bani'},lines:['ಹಸಿರ ಬನಿ'],art:{m:'leaf',c:['#2f6b4a','#0c2218','#F3D99A']},
+  brief:{kn:'ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕನವರ ವ್ಯಕ್ತಿಚಿತ್ರ, 2025.',en:'A portrait of Salumarada Thimmakka, 2025.'},
+  chips:[{kn:'ವ್ಯಕ್ತಿಚಿತ್ರ',en:'Portrait'},{kn:'2025',en:'2025'}],
+  meta:[['genre',{kn:'ವ್ಯಕ್ತಿಚಿತ್ರ',en:'Portrait of a person'}],['year',{kn:'2025',en:'2025'}],['pub',{kn:'ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಇಂಟರ್ನ್ಯಾಷನಲ್ ಫೌಂಡೇಶನ್',en:'Salumarada Thimmakka International Foundation'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
+ {id:'appa',t:{kn:'ಅಪ್ಪ ಕಾಣೆಯಾಗಿದ್ದಾನೆ',en:'Appa Kaaneyaagiddaane'},lines:['ಅಪ್ಪ','ಕಾಣೆಯಾಗಿದ್ದಾನೆ'],art:{m:'door',c:['#4a3a6b','#15102a','#F3D99A']},
+  brief:{kn:'ಕಥಾ ಸಂಕಲನ, ಅಮೂಲ್ಯ ಪುಸ್ತಕ, 2022.',en:'Short stories, Amoolya Pustaka, 2022.'},
+  chips:[{kn:'ಕಥೆಗಳು',en:'Stories'},{kn:'2022',en:'2022'}],
+  meta:[['genre',{kn:'ಕಥಾ ಸಂಕಲನ',en:'Short stories'}],['year',{kn:'2022',en:'2022'}],['pub',{kn:'ಅಮೂಲ್ಯ ಪುಸ್ತಕ',en:'Amoolya Pustaka'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]}
+];
+var TYPES={play:{kn:'ನಾಟಕ',en:'Play'},film:{kn:'ಚಲನಚಿತ್ರ',en:'Film'},album:{kn:'ಆಲ್ಬಂ',en:'Album'}};
+var SONGS=[
+ /* Add songs here and put each mp3 in the audio/ folder. Format:
+ {id:'s1',src:'audio/song-name.mp3',t:{kn:'ಶೀರ್ಷಿಕೆ',en:'Title in Kanglish'},type:'play',  // play | film | album
+  used:{kn:'ನಾಟಕದ ಹೆಸರು',en:'Play name'},year:'2024',by:{kn:'ಸಾಹಿತ್ಯ: ...',en:'Lyrics: ...'},
+  ly:[[1.5,'ಸಾಲು 1','Line 1 in Kanglish'],[5.5,'ಸಾಲು 2','Line 2 in Kanglish']]},   // [seconds, kannada, kanglish]
+ */
+];
+
+/* ---------- generated artwork ---------- */
+var uid=0;
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function motif(m,c){
+ var a=c[2],o='';
+ if(m==='butterfly'){
+  var w='<path d="M100 118C60 55 15 70 32 112C44 138 82 134 100 118Z"/><path d="M100 122C72 126 44 160 64 178C84 190 98 154 100 122Z"/>';
+  o='<g fill="'+a+'" opacity=".92">'+w+'<g transform="translate(200 0) scale(-1 1)">'+w+'</g></g><g fill="#27101c" opacity=".55"><circle cx="52" cy="104" r="7"/><circle cx="148" cy="104" r="7"/><circle cx="70" cy="160" r="5"/><circle cx="130" cy="160" r="5"/></g><ellipse cx="100" cy="130" rx="3.5" ry="26" fill="'+a+'"/><path d="M99 104C92 88 84 82 78 80M101 104C108 88 116 82 122 80" stroke="'+a+'" stroke-width="2" fill="none"/>';
+ }else if(m==='trees'){
+  o='<circle cx="100" cy="98" r="30" fill="'+a+'" opacity=".92"/><rect y="190" width="200" height="110" fill="#0b1f17"/><path d="M82 300L118 300L103 190L97 190Z" fill="#c9b27a" opacity=".55"/>';
+  [[56,214,1],[70,200,.7],[81,192,.5],[144,214,1],[130,200,.7],[119,192,.5]].forEach(function(t){
+   o+='<g transform="translate('+t[0]+' '+t[1]+') scale('+t[2]+')"><rect x="-3" y="-4" width="6" height="26" fill="#4a3322"/><ellipse cx="0" cy="-18" rx="20" ry="24" fill="#2f7d55"/><ellipse cx="-6" cy="-24" rx="9" ry="11" fill="#4aa874" opacity=".6"/></g>';});
+ }else if(m==='bands'){
+  var cols=['#6A1B34','#E8963A','#2f7d55','#4a64c8','#B38A3C'];
+  o='<defs><clipPath id="cp'+(++uid)+'"><path d="M30 215V95A70 70 0 0 1 170 95V215Z"/></clipPath></defs><g clip-path="url(#cp'+uid+')">';
+  cols.forEach(function(k,i){o+='<rect x="'+(30+i*28)+'" y="20" width="28" height="200" fill="'+k+'"/>';});
+  o+='</g><path d="M30 215V95A70 70 0 0 1 170 95V215Z" fill="none" stroke="'+a+'" stroke-width="3"/><path d="M30 215H170" stroke="'+a+'" stroke-width="3"/>';
+ }else if(m==='mask'){
+  o='<g transform="translate(34 40) scale(2.1)" fill="none" stroke="'+a+'" stroke-width="1.8" stroke-linecap="round"><path d="M8 10c10 4 38 4 48 0 2 24-6 44-24 46C14 54 6 34 8 10z"/><path d="M19 26c3-2 7-2 9 1M36 27c2-3 6-3 9-1M22 40c6 6 14 6 20 0"/></g>';
+  for(var i=0;i<10;i++){o+='<path d="M'+(20+i*18)+' 200l7-6 7 6-7 6z" fill="'+a+'" opacity=".85"/>';}
+ }else if(m==='lotus'){
+  o='<ellipse cx="100" cy="188" rx="64" ry="9" fill="#ffffff" opacity=".18"/>';
+  [-62,-31,0,31,62].forEach(function(r){o+='<ellipse cx="100" cy="130" rx="15" ry="46" fill="#fff" opacity=".93" stroke="#34507a" stroke-width="1" transform="rotate('+r+' 100 176)"/>';});
+  o+='<circle cx="100" cy="150" r="9" fill="'+a+'"/>';
+ }else if(m==='loom'){
+  for(var x=26;x<=174;x+=8){o+='<line x1="'+x+'" y1="30" x2="'+x+'" y2="200" stroke="'+a+'" stroke-width="1" opacity=".55"/>';}
+  var pal=['#F3D99A','#c0392b','#2c2a6b','#2f7d55'];
+  for(var r=0;r<6;r++){for(var q=0;q<18;q++){o+='<rect x="'+(26+q*8)+'" y="'+(92+r*11)+'" width="8" height="11" fill="'+pal[(r+q)%4]+'" opacity="'+((r+q)%2?0.95:0.55)+'"/>';}}
+ }else if(m==='winged'){
+  o='<g fill="#fff" opacity=".22"><circle cx="40" cy="60" r="14"/><circle cx="56" cy="64" r="11"/><circle cx="160" cy="46" r="12"/><circle cx="146" cy="52" r="9"/></g>'+
+   '<g fill="#f1e8d8"><ellipse cx="102" cy="150" rx="38" ry="28"/><circle cx="64" cy="134" r="21"/><path d="M50 140q-18 22-2 44l7-3q-12-18 0-32z"/><ellipse cx="74" cy="140" rx="9" ry="13" fill="#e2d4bc"/><rect x="76" y="168" width="10" height="26" rx="4"/><rect x="92" y="170" width="10" height="24" rx="4"/><rect x="114" y="170" width="10" height="24" rx="4"/><rect x="128" y="166" width="10" height="26" rx="4"/><path d="M140 146q18 4 20 20" stroke="#f1e8d8" stroke-width="4" fill="none"/></g><circle cx="58" cy="128" r="2.4" fill="#0a2630"/>'+
+   '<g fill="'+a+'" opacity=".95"><path d="M100 128C118 72 166 70 182 98C158 94 136 104 116 134Z"/><path d="M96 130C84 80 48 70 32 92C52 92 72 104 90 134Z" opacity=".7"/></g>';
+ }else if(m==='leaf'){
+  o='<path d="M30 200C70 170 110 120 170 60" stroke="'+a+'" stroke-width="3" fill="none"/>';
+  [[55,184,-30,22],[78,164,20,26],[98,144,-35,24],[120,122,25,24],[142,98,-30,22],[160,76,30,18]].forEach(function(l){
+   o+='<ellipse cx="'+l[0]+'" cy="'+l[1]+'" rx="'+l[3]+'" ry="'+(l[3]/2.2)+'" fill="#4aa874" opacity=".9" transform="rotate('+l[2]+' '+l[0]+' '+l[1]+')"/>';});
+  o+='<circle cx="168" cy="52" r="5" fill="'+a+'"/>';
+ }else if(m==='door'){
+  o='<path d="M70 216L130 216L186 300L14 300Z" fill="'+a+'" opacity=".2"/><path d="M64 216V104A36 36 0 0 1 136 104V216Z" fill="#0b0818" stroke="'+a+'" stroke-width="3"/><path d="M100 70A36 36 0 0 1 136 104V216L100 226Z" fill="'+a+'" opacity=".9"/><circle cx="122" cy="156" r="3" fill="#15102a"/>';
+ }
+ return o;
+}
+function art(a,lines,kind,sub){
+ var id='g'+(++uid),c=a.c,n=0;lines.forEach(function(l){n=Math.max(n,l.length)});
+ var fs=n<=6?30:n<=9?26:n<=12?22:17,two=lines.length>1,y0=two?236:252;
+ var s='<svg viewBox="0 0 200 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="'+id+'b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset="1" stop-color="'+c[1]+'"/></linearGradient><linearGradient id="'+id+'s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".82"/></linearGradient></defs><rect width="200" height="300" fill="url(#'+id+'b)"/>';
+ s+=motif(a.m,c)+'<rect y="150" width="200" height="150" fill="url(#'+id+'s)"/>';
+ if(kind==='play'){s+='<rect x="8" y="8" width="184" height="284" fill="none" stroke="'+c[2]+'" stroke-opacity=".55" stroke-width="1"/>';}
+ else{s+='<rect width="11" height="300" fill="#000" opacity=".3"/><line x1="11" y1="0" x2="11" y2="300" stroke="#fff" stroke-opacity=".28"/>';}
+ var cx=kind==='play'?100:106;
+ lines.forEach(function(l,i){s+='<text x="'+cx+'" y="'+(y0+i*(fs+4))+'" text-anchor="middle" fill="'+c[2]+'" font-family="\'Noto Serif Kannada\',serif" font-weight="700" font-size="'+fs+'">'+esc(l)+'</text>';});
+ s+='<text x="'+cx+'" y="286" text-anchor="middle" fill="#f1e8d8" fill-opacity=".85" font-family="\'Noto Sans Kannada\',sans-serif" font-size="9">'+esc(sub)+'</text></svg>';
+ return s;
+}
+function visual(it,kind){
+ var svg=art(it.art,it.lines,kind,kind==='play'?'ಕಾಜಾಣ':'ಬೇಲೂರು ರಘುನಂದನ್');
+ var f=it.img||('images/'+(kind==='play'?'plays':'books')+'/'+it.id+'.jpg');
+ return svg+'<img class="ov" src="'+esc(f)+'" alt="" loading="lazy" onerror="this.remove()">';
+}
+/* ---------- shelf with drawer ---------- */
+var CHEV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+function Shelf(el,items,kind){
+ var openId=null,panel=document.createElement('div');panel.className='panel';panel.setAttribute('role','region');
+ var timer=null;
+ function cards(){return Array.prototype.slice.call(el.querySelectorAll('.card'))}
+ function build(){
+  var h='';
+  items.forEach(function(it){h+='<button class="card" type="button" data-id="'+it.id+'" aria-expanded="'+(openId===it.id)+'" aria-controls="pn-'+kind+'"><div class="poster">'+visual(it,kind)+'</div><h3>'+esc(T(it.t))+'</h3><div class="brief">'+esc(T(it.brief))+'</div><span class="more">'+(lang==='kn'?'ವಿವರ':'Details')+CHEV+'</span></button>';});
+  el.innerHTML=h;panel.id='pn-'+kind;el.appendChild(panel);
+  if(openId){fill(find(openId));place(openId)}
+ }
+ function find(id){return items.filter(function(i){return i.id===id})[0]}
+ function fill(it){
+  var dl='';it.meta.forEach(function(m){dl+='<dt>'+esc(T(K[m[0]]))+'</dt><dd>'+esc(T(m[1]))+'</dd>'});
+  var ch='';it.chips.forEach(function(c){ch+='<span class="dchip">'+esc(T(c))+'</span>'});
+  panel.setAttribute('aria-label',T(it.t));
+  panel.innerHTML='<div class="pin"><div class="pbody"><div class="poster">'+visual(it,kind)+'</div><div><h3>'+esc(T(it.t))+'</h3><div class="dchips">'+ch+'</div><dl class="dmeta">'+dl+'</dl>'+(it.syn?'<p class="syn"><i>'+(lang==='kn'?'ಪರಿಚಯ':'About')+'</i>'+esc(T(it.syn))+'</p>':'')+'</div><button class="xbtn" type="button" aria-label="'+(lang==='kn'?'ಮುಚ್ಚಿ':'Close')+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div>';
+ }
+ function place(id){
+  var c=el.querySelector('.card[data-id="'+id+'"]');if(!c)return;
+  var top=c.getBoundingClientRect().top,last=c;
+  cards().forEach(function(k){if(Math.abs(k.getBoundingClientRect().top-top)<6)last=k});
+  last.after(panel);
+ }
+ function sync(){cards().forEach(function(k){k.setAttribute('aria-expanded',String(k.dataset.id===openId))})}
+ function open(id){
+  clearTimeout(timer);var wasShown=panel.classList.contains('show');
+  openId=id;fill(find(id));place(id);sync();
+  if(!wasShown){panel.classList.add('show');requestAnimationFrame(function(){requestAnimationFrame(function(){panel.classList.add('open')})})}
+  else panel.classList.add('open');
+  setTimeout(function(){var r=panel.getBoundingClientRect();if(r.bottom>innerHeight||r.top<80)panel.scrollIntoView({behavior:rm.matches?'auto':'smooth',block:'nearest'})},rm.matches?0:380);
+ }
+ function close(){
+  var id=openId;openId=null;sync();panel.classList.remove('open');
+  timer=setTimeout(function(){panel.classList.remove('show')},rm.matches?0:360);
+  var c=el.querySelector('.card[data-id="'+id+'"]');if(c)c.focus({preventScroll:true});
+ }
+ el.addEventListener('click',function(e){
+  if(e.target.closest('.xbtn')){close();return}
+  var c=e.target.closest('.card');if(!c)return;
+  if(c.dataset.id===openId)close();else open(c.dataset.id);
+ });
+ el.addEventListener('keydown',function(e){if(e.key==='Escape'&&openId)close()});
+ var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){if(openId)place(openId)},120)});
+ build();
+ return {render:build};
+}
+var shelfP=Shelf($('#shelf-plays'),PLAYS,'play'),shelfB=Shelf($('#shelf-books'),BOOKS,'book');
+
+/* ---------- player ---------- */
+var au=$('#au'),idx=0,mode='scr',follow=true,fT=null,curLine=-2,durs={};
+var ICO_PLAY='<path d="M7 4.5v15l13-7.5z"/>',ICO_PAUSE='<path d="M6 4.5h4.2v15H6zM13.8 4.5H18v15h-4.2z"/>';
+function fmt(t){if(!isFinite(t))return '0:00';t=Math.floor(t);return Math.floor(t/60)+':'+('0'+t%60).slice(-2)}
+function usedHTML(s,withYear){return '<span class="tchip t-'+s.type+'">'+esc(T(TYPES[s.type]))+'</span><span>'+esc(T(s.used))+(withYear?', '+s.year:'')+'</span>'}
+function renderList(){
+ var h='';
+ SONGS.forEach(function(s,i){
+  var on=i===idx,pl=on&&!au.paused;
+  var ix=on?'<span class="eq'+(pl?'':' pause')+'" aria-hidden="true"><i></i><i></i><i></i></span>':'<span aria-hidden="true">'+(i+1)+'</span>';
+  h+='<li><button class="row" type="button" data-i="'+i+'"'+(on?' aria-current="true"':'')+'><span class="ix">'+ix+'</span><span><div class="tt">'+esc(T(s.t))+'</div><div class="uu t-'+s.type+'">'+usedHTML(s,true)+'</div></span><span class="du">'+(durs[s.id]?fmt(durs[s.id]):'')+'</span></button></li>';
+ });
+ $('#tracks').innerHTML=h;
+}
+function renderNow(){
+ var s=SONGS[idx];
+ $('#npT').textContent=T(s.t);$('#npU').innerHTML=usedHTML(s,true);$('#npC').textContent=T(s.by);
+ $('#td').textContent=fmt(au.duration||durs[s.id]||0);
+}
+function renderLyrics(){
+ var s=SONGS[idx],b=$('#lbox'),li=lang==='kn'?1:2;
+ b.className='lbox '+(mode==='scr'?'scr':'lin');curLine=-2;
+ if(mode==='scr'){
+  var h='';s.ly.forEach(function(l,i){h+='<p data-i="'+i+'">'+esc(l[li])+'</p>'});b.innerHTML=h;b.scrollTop=0;
+ }else{b.innerHTML='<div class="pv"></div><div class="cu"></div><div class="nx"></div>'}
+ updLine(true);
+}
+function lineAt(t){var s=SONGS[idx],k=-1;for(var i=0;i<s.ly.length;i++){if(t>=s.ly[i][0])k=i}return k}
+function updLine(force){
+ var s=SONGS[idx],k=lineAt(au.currentTime||0),b=$('#lbox'),li=lang==='kn'?1:2;
+ if(k===curLine&&!force)return;curLine=k;
+ if(mode==='scr'){
+  var ps=b.querySelectorAll('p');ps.forEach(function(p,i){p.classList.toggle('on',i===k)});
+  if(k>=0&&follow){var p=ps[k];b.scrollTo({top:p.offsetTop-b.clientHeight/2+p.clientHeight/2,behavior:(rm.matches||force)?'auto':'smooth'})}
+ }else{
+  var g=function(i){return s.ly[i]?esc(s.ly[i][li]):''};
+  b.querySelector('.pv').innerHTML=g(k-1);
+  var cu=b.querySelector('.cu');cu.innerHTML=k>=0?g(k):'…';cu.classList.remove('fade');void cu.offsetWidth;cu.classList.add('fade');
+  b.querySelector('.nx').innerHTML=g(k+1);
+ }
+}
+function setSeek(){
+ var d=au.duration||0,v=d?au.currentTime/d*1000:0,sk=$('#seek');
+ sk.value=v;sk.style.setProperty('--p',(v/10)+'%');$('#tc').textContent=fmt(au.currentTime);
+}
+function setPlayUI(){
+ var p=!au.paused;$('#ico').innerHTML=p?ICO_PAUSE:ICO_PLAY;$('#disc').classList.toggle('spin',p);
+ $('#play').setAttribute('aria-label',p?(lang==='kn'?'ವಿರಾಮ':'Pause'):(lang==='kn'?'ಪ್ಲೇ':'Play'));
+ renderList();
+}
+function meta(){
+ try{if('mediaSession' in navigator){var s=SONGS[idx];navigator.mediaSession.metadata=new MediaMetadata({title:T(s.t),artist:'Dr. Beluru Raghunandan',album:T(s.used)});}}catch(e){}
+}
+function load(i,autoplay){
+ idx=(i+SONGS.length)%SONGS.length;au.src=SONGS[idx].src;au.load();
+ renderNow();renderLyrics();renderList();setSeek();meta();
+ if(autoplay){var pr=au.play();if(pr&&pr.catch)pr.catch(function(){})}
+}
+function toggle(){if(au.paused){var pr=au.play();if(pr&&pr.catch)pr.catch(function(){})}else au.pause()}
+$('#play').onclick=toggle;
+$('#next').onclick=function(){load(idx+1,!au.paused||true)};
+$('#prev').onclick=function(){if(au.currentTime>3){au.currentTime=0}else load(idx-1,true)};
+$('#tracks').addEventListener('click',function(e){var b=e.target.closest('.row');if(!b)return;var i=+b.dataset.i;if(i===idx)toggle();else load(i,true)});
+au.addEventListener('timeupdate',function(){if(!seeking){setSeek()}updLine(false)});
+au.addEventListener('loadedmetadata',function(){durs[SONGS[idx].id]=au.duration;$('#td').textContent=fmt(au.duration);renderList()});
+au.addEventListener('play',setPlayUI);au.addEventListener('pause',setPlayUI);
+au.addEventListener('ended',function(){if($('#loop').getAttribute('aria-pressed')==='true'){au.currentTime=0;au.play()}else load(idx+1,true)});
+var seeking=false,sk=$('#seek');
+sk.addEventListener('input',function(){seeking=true;var d=au.duration||0;au.currentTime=sk.value/1000*d;sk.style.setProperty('--p',(sk.value/10)+'%');$('#tc').textContent=fmt(au.currentTime)});
+sk.addEventListener('change',function(){seeking=false;updLine(true)});
+var vo=$('#vol');vo.style.setProperty('--p','80%');au.volume=.8;
+vo.addEventListener('input',function(){au.volume=vo.value/100;vo.style.setProperty('--p',vo.value+'%')});
+$('#loop').onclick=function(){var b=$('#loop');b.setAttribute('aria-pressed',String(b.getAttribute('aria-pressed')!=='true'))};
+$('#mScr').onclick=function(){mode='scr';$('#mScr').setAttribute('aria-pressed','true');$('#mLin').setAttribute('aria-pressed','false');renderLyrics()};
+$('#mLin').onclick=function(){mode='lin';$('#mLin').setAttribute('aria-pressed','true');$('#mScr').setAttribute('aria-pressed','false');renderLyrics()};
+var lb=$('#lbox');
+['wheel','touchmove','pointerdown'].forEach(function(ev){lb.addEventListener(ev,function(){follow=false;clearTimeout(fT);fT=setTimeout(function(){follow=true},3500)},{passive:true})});
+lb.addEventListener('click',function(e){var p=e.target.closest('p[data-i]');if(!p)return;au.currentTime=SONGS[idx].ly[+p.dataset.i][0];follow=true;updLine(true);if(au.paused)toggle()});
+try{if('mediaSession' in navigator){navigator.mediaSession.setActionHandler('play',toggle);navigator.mediaSession.setActionHandler('pause',toggle);navigator.mediaSession.setActionHandler('nexttrack',function(){load(idx+1,true)});navigator.mediaSession.setActionHandler('previoustrack',function(){load(idx-1,true)})}}catch(e){}
+/* list durations */
+SONGS.forEach(function(s){var a=new Audio();a.preload='metadata';a.onloadedmetadata=function(){durs[s.id]=a.duration;renderList();if(SONGS[idx]===s)$('#td').textContent=fmt(a.duration)};a.src=s.src});
+
+/* ---------- language (static text is switched by the page's own toggle) ---------- */
+function setLang(l){
+ lang=l;
+ document.querySelectorAll('[data-al-kn]').forEach(function(e){e.setAttribute('aria-label',e.getAttribute('data-al-'+l))});
+ shelfP.render();shelfB.render();
+ if(SONGS.length){renderNow();renderLyrics();setPlayUI();meta()}
+}
+$('#bk').addEventListener('click',function(){setLang('kn')});$('#be').addEventListener('click',function(){setLang('en')});
+if(SONGS.length){$('#playlist').hidden=false;$('#nav-playlist').hidden=false;load(0,false)}
+setLang('kn');
 })();
 </script>
 <button id="top-btn" type="button" aria-label="ಮೇಲಕ್ಕೆ / Back to top" title="ಮೇಲಕ್ಕೆ / Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
