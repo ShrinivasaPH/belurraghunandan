@@ -370,6 +370,45 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 .lib .pbody .poster{border:1.5px solid #B38A3C}
 @media (max-width:640px){.lib{border-radius:999px 999px .8rem .8rem/4rem 4rem .8rem .8rem;padding-top:3rem}.lib .pbody{padding-left:2rem}.lib .shelf{gap:2.2rem .9rem}.lib .card::after{margin:0 -.45rem}}
 @media (prefers-reduced-motion:reduce){.lib .card .poster{transition:none}}
+
+/* ---- open book ---- */
+.lib .card[aria-expanded="true"] .poster{outline:0;animation:hop .7s ease forwards}
+@keyframes hop{0%{transform:perspective(700px) rotateY(-9deg)}38%{transform:perspective(700px) rotateY(0) translateY(-36px) scale(1.08);opacity:1}100%{transform:perspective(700px) rotateY(0) translateY(-4px);opacity:.25;filter:grayscale(.6)}}
+.lib .panel{margin:.2rem 0 .4rem}
+.obwrap{position:relative;padding:1.6rem .8rem 2.2rem}
+.spread{--pg:#F4ECD8;position:relative;display:grid;grid-template-columns:1fr 1fr;width:min(44rem,100%);aspect-ratio:4/3;margin:0 auto;perspective:2400px;transform:translateX(25%);transition:transform 1.2s cubic-bezier(.6,0,.2,1) .3s;color:#2a2233;text-align:left;filter:drop-shadow(0 22px 22px #000a)}
+.spread.open{transform:none}
+.pg{position:relative;min-width:0;min-height:0;background:linear-gradient(90deg,#0000 0,#0000 90%,#00000014 100%),repeating-linear-gradient(#0000 0 1.9rem,#cdbf9c66 1.9rem 1.95rem),var(--pg);border:5px solid #5a1830;outline:1.5px solid #B38A3C;outline-offset:-5px;overflow:hidden}
+.pgR{grid-column:2;border-left:0;border-radius:0 .5rem .5rem 0;padding:2.2rem 1.6rem 1.4rem 1.8rem;overflow-y:auto;box-shadow:inset 14px 0 18px -10px #0000004d}
+.pgR h4{margin:0 0 .8rem;font:600 .75rem var(--sans);letter-spacing:.2em;color:#7D5A17;text-transform:uppercase}
+.pgR dl.dmeta{font-size:.95rem;margin:0 0 1rem;--mute:#6d6358}
+.pgR .syn{color:#2a2233;--mute:#6d6358}
+.pgR::before{content:"";position:absolute;right:1.4rem;top:-4px;width:1.1rem;height:3.4rem;background:linear-gradient(#8f2447,#6A1B34);clip-path:polygon(0 0,100% 0,100% 100%,50% 78%,0 100%)}
+.flip{position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.25s cubic-bezier(.6,0,.2,1) .3s;z-index:3}
+.spread.open .flip{transform:rotateY(-180deg)}
+.ff,.fb{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.ff{border-radius:0 .5rem .5rem 0;overflow:hidden;border:5px solid #5a1830;outline:1.5px solid #B38A3C;outline-offset:-5px;background:#241a31}
+.ff .poster{position:absolute;inset:0;aspect-ratio:auto;border:0;border-radius:0;box-shadow:none;transform:none!important;animation:none!important;opacity:1!important;filter:none!important}
+.fb{transform:rotateY(180deg);border-radius:.5rem 0 0 .5rem;border-right:0;box-shadow:inset -14px 0 18px -10px #0000004d;padding:2rem 1.8rem 1.4rem 1.6rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;text-align:center}
+.fb .orn{width:3.2rem;height:3.2rem;color:#B38A3C}
+.fb .bk{font:600 .72rem var(--sans);letter-spacing:.22em;color:#7D5A17}
+.fb h3{font:700 clamp(1.4rem,2.6vw,2rem)/1.3 var(--serif);color:#6A1B34;margin:0}
+.fb .au2{font-size:.95rem;color:#4a4256}
+.fb .dchips{justify-content:center;margin:.2rem 0 0}
+.fb .dchip{border-color:#B38A3C;color:#7D5A17}
+.fb .seal{margin-top:.6rem;width:3.6rem;height:3.6rem;border-radius:50%;border:2px solid #B38A3C;display:grid;place-items:center;color:#B38A3C;transform:rotate(-8deg)}
+.fb .seal svg{width:60%;height:60%}
+.obwrap .xbtn{top:.4rem;right:1.4rem;background:#F4ECD8;color:#2a2233}
+@media (max-width:700px){
+ .spread{aspect-ratio:auto;grid-template-columns:1fr;transform:none;transition:none;perspective:none;filter:drop-shadow(0 16px 16px #000a)}
+ .flip{position:static;width:auto;transform:none!important;transition:none}
+ .ff{display:none}
+ .fb{position:relative;transform:none;-webkit-backface-visibility:visible;backface-visibility:visible;border-radius:.5rem .5rem 0 0;border-right:5px solid #5a1830;border-bottom:0;box-shadow:none;padding:1.8rem 1.2rem 1rem}
+ .pgR{grid-column:1;border-left:5px solid #5a1830;border-radius:0 0 .5rem .5rem;box-shadow:none;overflow:visible;padding:1.2rem 1.2rem 1.6rem}
+ .pgR::before{display:none}
+ .spread{animation:vin .5s ease}
+}
+@media (prefers-reduced-motion:reduce){.spread,.flip{transition:none}.lib .card[aria-expanded="true"] .poster{animation:none;opacity:.3}}
 </style>
 </head>
 <body>
@@ -783,6 +822,11 @@ function visual(it,kind){
 }
 /* ---------- shelf with drawer ---------- */
 var CHEV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+function bookHTML(it,dl,ch){
+ var kn=lang==='kn';
+ return '<div class="pin"><div class="obwrap"><div class="spread"><div class="flip"><div class="ff"><div class="poster">'+visual(it,'book')+'</div></div><div class="fb pg"><svg class="orn" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M32 8v10M32 46v10M8 32h10M46 32h10M15 15l7 7M42 42l7 7M49 15l-7 7M22 42l-7 7"/><circle cx="32" cy="32" r="6"/></svg><div class="bk">'+(kn?'ಕೃತಿ':'THE BOOK')+'</div><h3>'+esc(T(it.t))+'</h3><div class="au2">'+(kn?'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್':'Dr. Beluru Raghunandan')+'</div><div class="dchips">'+ch+'</div><div class="seal" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M8 10c10 4 38 4 48 0 2 24-6 44-24 46C14 54 6 34 8 10z"/><path d="M19 26c3-2 7-2 9 1M36 27c2-3 6-3 9-1M22 40c6 6 14 6 20 0"/></svg></div></div></div><div class="pg pgR"><h4>'+(kn?'ವಿವರಗಳು':'Details')+'</h4><dl class="dmeta">'+dl+'</dl>'+(it.syn?'<p class="syn"><i>'+(kn?'ಪರಿಚಯ':'About')+'</i>'+esc(T(it.syn))+'</p>':'')+'</div></div><button class="xbtn" type="button" aria-label="'+(kn?'ಮುಚ್ಚಿ':'Close')+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div>';
+}
+function bookFlip(p){var sp=p.querySelector('.spread');if(!sp)return;requestAnimationFrame(function(){requestAnimationFrame(function(){sp.classList.add('open')})})}
 function Shelf(el,items,kind){
  var openId=null,panel=document.createElement('div');panel.className='panel';panel.setAttribute('role','region');
  var timer=null;
@@ -798,6 +842,7 @@ function Shelf(el,items,kind){
   var dl='';it.meta.forEach(function(m){dl+='<dt>'+esc(T(K[m[0]]))+'</dt><dd>'+esc(T(m[1]))+'</dd>'});
   var ch='';it.chips.forEach(function(c){ch+='<span class="dchip">'+esc(T(c))+'</span>'});
   panel.setAttribute('aria-label',T(it.t));
+  if(kind==='book'){panel.innerHTML=bookHTML(it,dl,ch);bookFlip(panel);return}
   panel.innerHTML='<div class="pin"><div class="pbody"><div class="poster">'+visual(it,kind)+'</div><div><h3>'+esc(T(it.t))+'</h3><div class="dchips">'+ch+'</div><dl class="dmeta">'+dl+'</dl>'+(it.syn?'<p class="syn"><i>'+(lang==='kn'?'ಪರಿಚಯ':'About')+'</i>'+esc(T(it.syn))+'</p>':'')+'</div><button class="xbtn" type="button" aria-label="'+(lang==='kn'?'ಮುಚ್ಚಿ':'Close')+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div>';
  }
  function place(id){
