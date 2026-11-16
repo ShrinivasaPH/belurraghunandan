@@ -277,6 +277,20 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .glx svg{width:1.1rem;height:1.1rem}
 @media (max-width:640px){.ggrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.3rem .9rem}.gt h3{font-size:.95rem}.gln{width:2.6rem;height:2.6rem}#glb{padding-top:4rem}}
 @media (prefers-reduced-motion:reduce){.gph,.gfilter button{transition:none}.gt:hover .gph{transform:none}}
+
+/* ---- click-to-open sections ---- */
+.fhead{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.fhead h2{flex:1;min-width:0;cursor:pointer}
+.ftog{flex:none;margin-top:.3rem;display:inline-flex;align-items:center;gap:.5rem;font:500 .95rem var(--sans);color:var(--ink);background:none;border:1px solid var(--brass);border-radius:99px;padding:.35rem 1.1rem;min-height:2.75rem;cursor:pointer;transition:background .2s,color .2s}
+.ftog:hover{background:var(--bg2)}
+.ftog svg{width:.95rem;height:.95rem;transition:transform .25s}
+.ftog[aria-expanded="true"]{background:var(--curtain2);color:#fff}
+.ftog[aria-expanded="true"] svg{transform:rotate(180deg)}
+.fold{animation:fin .35s ease}
+.fold[hidden]{display:none}
+@keyframes fin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fold{animation:none}.ftog svg,.ftog{transition:none}}
+@media (max-width:480px){.ftog{padding:.3rem .8rem;font-size:.88rem}}
 </style>
 </head>
 <body>
@@ -892,6 +906,29 @@ function setLang(l){
 $('#bk').addEventListener('click',function(){setLang('kn')});$('#be').addEventListener('click',function(){setLang('en')});
 if(SONGS.length){$('#playlist').hidden=false;$('#nav-playlist').hidden=false;load(0,false)}
 setLang('kn');
+})();
+</script>
+<script>
+(function(){
+var IDS=['plays','books','playlist','gallery'],L={o:['ತೆರೆಯಿರಿ','Open'],c:['ಮುಚ್ಚಿ','Close']},svg='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+var folds={};
+function lg(){return document.documentElement.lang==='en'?1:0}
+function lab(id){var b=folds[id].b,open=!folds[id].f.hidden;b.innerHTML='<span>'+L[open?'c':'o'][lg()]+'</span>'+svg;b.setAttribute('aria-expanded',open)}
+function setOpen(id,o){var x=folds[id];if(!x)return;x.f.hidden=!o;lab(id);if(o)window.dispatchEvent(new Event('resize'))}
+IDS.forEach(function(id){
+  var sec=document.getElementById(id),h=sec.querySelector('h2'),sub=sec.querySelector('.sub');if(!sec||!h)return;
+  var head=document.createElement('div');head.className='fhead';sec.insertBefore(head,h);head.appendChild(h);
+  var b=document.createElement('button');b.type='button';b.className='ftog';b.setAttribute('aria-controls','fold-'+id);head.appendChild(b);
+  var f=document.createElement('div');f.className='fold';f.id='fold-'+id;f.hidden=true;
+  var n=(sub||head).nextSibling;while(n){var nx=n.nextSibling;f.appendChild(n);n=nx}
+  sec.appendChild(f);folds[id]={b:b,f:f};lab(id);
+  b.addEventListener('click',function(){setOpen(id,f.hidden)});
+  h.addEventListener('click',function(){setOpen(id,f.hidden)});
+});
+new MutationObserver(function(){IDS.forEach(function(id){if(folds[id])lab(id)})}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+function fromHash(){var id=(location.hash||'').slice(1);if(folds[id]){setOpen(id,true);setTimeout(function(){var e=document.getElementById(id);if(e)e.scrollIntoView()},60)}}
+document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1);if(folds[id])setOpen(id,true)});
+window.addEventListener('hashchange',fromHash);fromHash();
 })();
 </script>
 <button id="top-btn" type="button" aria-label="ಮೇಲಕ್ಕೆ / Back to top" title="ಮೇಲಕ್ಕೆ / Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
