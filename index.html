@@ -345,6 +345,31 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 .hc:hover svg,.hc:hover i,.hc:focus-visible svg,.hc:focus-visible i{color:#f3d99a}
 @media (max-width:760px){.hub{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4rem 1rem}.hc b{font-size:1.1rem}.hc svg{width:2.6rem;height:2.6rem}}
 @media (prefers-reduced-motion:reduce){.vsec.on{animation:none}.hc{transition:none}.hc:hover{transform:none}}
+
+/* ---- library (books) ---- */
+.lib{position:relative;overflow:hidden;text-align:center;border:3px solid #B38A3C;border-radius:999px 999px .8rem .8rem/7rem 7rem .8rem .8rem;padding:4rem clamp(1rem,4vw,2.6rem) 2.2rem;color:#f1e8d8;
+ background:radial-gradient(ellipse at 50% 0,#ffd98a40,#0000 58%),repeating-linear-gradient(90deg,#3a1220 0 18px,#431529 18px 36px);box-shadow:0 0 0 8px var(--paper),0 0 0 10px #B38A3C,0 24px 50px #1d142655}
+.lib-k{display:block;font:600 .75rem var(--sans);letter-spacing:.22em;color:#f3d99a}
+.lib h2{color:#f3d99a;margin:.4rem 0 .5rem;display:inline-block}
+.lib h2::after{margin-left:auto;margin-right:auto}
+.lib .sub{margin:0 auto;color:#d9cde2}
+.lib .shelf{margin-top:2.4rem;text-align:left;gap:2.6rem 1.3rem}
+.lib .card{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto .95rem auto auto;gap:0;position:relative}
+.lib .card .poster{grid-row:1;border:0;border-radius:.2rem .35rem .35rem .2rem;box-shadow:12px 6px 16px #0009;transform:perspective(700px) rotateY(-9deg);transform-origin:left center;transition:transform .3s,box-shadow .3s;z-index:2}
+.lib .card .poster::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(90deg,#0006 0,#fff2 3%,#0000 9%,#0000 92%,#0004 100%)}
+.lib .card::after{content:"";grid-row:2;grid-column:1;height:.95rem;margin:0 -.65rem;background:repeating-linear-gradient(90deg,#0000 0 70px,#0000000f 70px 71px),linear-gradient(#9a6c40 0,#7a5230 30%,#432c1c 100%);border-top:2px solid #c99a4a;box-shadow:0 10px 14px #000a;z-index:1}
+.lib .card.bor::after{margin-left:-100vw}.lib .card.eor::after{margin-right:-100vw}
+.lib .card:hover .poster,.lib .card:focus-visible .poster{transform:perspective(700px) rotateY(-2deg) translateY(-9px) scale(1.03);box-shadow:16px 14px 22px #000b}
+.lib .card[aria-expanded="true"] .poster{transform:perspective(700px) rotateY(0) translateY(-12px) scale(1.04);outline:2px solid #f3d99a;outline-offset:3px}
+.lib .card h3{grid-row:3;margin-top:.8rem;font-size:.98rem;color:#f3d99a;text-align:center}
+.lib .card .brief{display:none}
+.lib .card .more{grid-row:4;justify-self:center;color:#d9cde2;margin-top:.2rem}
+.lib .panel{margin:.4rem 0 .6rem}
+.lib .pbody{--ink:#2a2233;--mute:#6d6358;--accent:#6A1B34;--brass-ink:#7D5A17;--line:#cdbf9c;--bg:#F4ECD8;color:#2a2233;border:1px solid #B38A3C;border-top:4px solid #B38A3C;border-radius:.3rem;padding-left:2.6rem;
+ background:radial-gradient(circle at 1.1rem 50%,#431529 0 .38rem,#0000 .4rem),repeating-linear-gradient(#0000 0 1.8rem,#cdbf9c66 1.8rem 1.85rem),#F4ECD8;box-shadow:0 16px 30px #0008}
+.lib .pbody .poster{border:1.5px solid #B38A3C}
+@media (max-width:640px){.lib{border-radius:999px 999px .8rem .8rem/4rem 4rem .8rem .8rem;padding-top:3rem}.lib .pbody{padding-left:2rem}.lib .shelf{gap:2.2rem .9rem}.lib .card::after{margin:0 -.45rem}}
+@media (prefers-reduced-motion:reduce){.lib .card .poster{transition:none}}
 </style>
 </head>
 <body>
@@ -406,9 +431,12 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 </section>
 
 <section id="books" class="vsec" style="padding-top:1rem">
-  <h2 data-kn="ಪುಸ್ತಕಗಳು" data-en="Books">ಪುಸ್ತಕಗಳು</h2>
-  <p class="sub" data-kn="ಮುಖಪುಟ ಮೇಲೆ ಒತ್ತಿದರೆ ಪುಸ್ತಕದ ವಿವರಗಳು ತೆರೆದುಕೊಳ್ಳುತ್ತವೆ." data-en="Select a cover to open the details of the book.">ಮುಖಪುಟ ಮೇಲೆ ಒತ್ತಿದರೆ ಪುಸ್ತಕದ ವಿವರಗಳು ತೆರೆದುಕೊಳ್ಳುತ್ತವೆ.</p>
-  <div class="shelf" id="shelf-books"></div>
+  <div class="lib">
+    <span class="lib-k" data-kn="ಗ್ರಂಥಾಲಯ" data-en="THE LIBRARY">ಗ್ರಂಥಾಲಯ</span>
+    <h2 data-kn="ಪುಸ್ತಕಗಳು" data-en="Books">ಪುಸ್ತಕಗಳು</h2>
+    <p class="sub" data-kn="ಪುಸ್ತಕವನ್ನು ಕಪಾಟಿನಿಂದ ಹೊರತೆಗೆದರೆ ಅದರ ವಿವರಗಳು ತೆರೆದುಕೊಳ್ಳುತ್ತವೆ." data-en="Pull a book off the shelf to open its catalogue card.">ಪುಸ್ತಕವನ್ನು ಕಪಾಟಿನಿಂದ ಹೊರತೆಗೆದರೆ ಅದರ ವಿವರಗಳು ತೆರೆದುಕೊಳ್ಳುತ್ತವೆ.</p>
+    <div class="shelf" id="shelf-books"></div>
+  </div>
 </section>
 
 <section id="playlist" class="vsec" style="padding-top:1rem" hidden>
@@ -802,6 +830,10 @@ function Shelf(el,items,kind){
  return {render:build};
 }
 var shelfP=Shelf($('#shelf-plays'),PLAYS,'play'),shelfB=Shelf($('#shelf-books'),BOOKS,'book');
+(function(){var el=$('#shelf-books');
+ function mark(){var cs=[].slice.call(el.querySelectorAll('.card'));cs.forEach(function(c,i){var t=c.getBoundingClientRect().top,p=cs[i-1],n=cs[i+1];c.classList.toggle('bor',!p||Math.abs(p.getBoundingClientRect().top-t)>6);c.classList.toggle('eor',!n||Math.abs(n.getBoundingClientRect().top-t)>6)})}
+ if(window.ResizeObserver)new ResizeObserver(mark).observe(el);window.addEventListener('resize',mark);new MutationObserver(mark).observe(el,{childList:true});mark();
+})();
 
 /* ---------- music world ---------- */
 var au=$('#au'),idx=0,curLine=-2,mode='scr',lyPick=null,follow=true,fT=null,durs={},liked={},filt='all',query='',shuf=false,rep=0,spI=0,sleepI=0,sleepT=null,seeking=false,curAc='#E0668A',npfOpen=false;
