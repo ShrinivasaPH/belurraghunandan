@@ -478,6 +478,7 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 .hub .fr-music{width:48%}.hub .fr-gallery{width:70%;top:14%}
 .hub .sl.on .kb.fr{animation:none}
 @media (prefers-reduced-motion:reduce){.hub .sl,.hub .sc{transition:none}.hub .sl.on .kb{animation:none}}
+.npfly.nol{display:grid;place-items:center;overflow:hidden;-webkit-mask-image:none;mask-image:none;padding:0}.nolyr{font:700 clamp(6rem,18vw,12rem)/1 var(--serif);color:#ffffff1f}
 </style>
 </head>
 <body>
@@ -822,12 +823,150 @@ var BOOKS=[
 ];
 var TYPES={play:{kn:'ನಾಟಕ',en:'Play'},film:{kn:'ಚಲನಚಿತ್ರ',en:'Film'},album:{kn:'ಆಲ್ಬಂ',en:'Album'}};
 var SONGS=[
- {id:'s1',src:'audio/sample-1.mp3',t:{kn:'ತೆರೆ ಸರಿಯಿತು',en:'Tere Sariyitu'},type:'play',used:{kn:'ಮಾದರಿ ನಾಟಕ',en:'Sample Play'},year:'2024',by:'',
-  ly:[[1.5,'ತೆರೆ ಸರಿಯಿತು ಬೆಳಕು ಮೂಡಿತು','Tere sariyitu belaku moodithu'],[5.5,'ರಂಗದ ಮೇಲೆ ಕನಸು ಅರಳಿತು','Rangada mele kanasu aralithu'],[9.5,'ಮೌನದ ಮಾತು ಹಾಡಾಗಿ ಬಂತು','Mounada maatu haadaagi banthu'],[13.5,'ಹೃದಯದ ಧ್ವನಿ ದೀಪವಾಯಿತು','Hrudayada dhwani deepavaayithu'],[17.5,'ಕಥೆಯ ಹೆಜ್ಜೆ ಮುಂದೆ ಸಾಗಿತು','Katheya hejje munde saagithu'],[21,'ರಂಗ ಮತ್ತೆ ನಗುತ ನಿಂತಿತು','Ranga matte naguta nintitu']]},
- {id:'s2',src:'audio/sample-2.mp3',t:{kn:'ಹಸಿರು ದಾರಿ',en:'Hasiru Daari'},type:'film',used:{kn:'ಮಾದರಿ ಚಲನಚಿತ್ರ',en:'Sample Film'},year:'2023',by:'',
-  ly:[[1.5,'ಹಸಿರು ದಾರಿ ಹಾಡು ಹಾಡಿತು','Hasiru daari haadu haadithu'],[5.5,'ಮರದ ನೆರಳು ಕಥೆ ಹೇಳಿತು','Marada neralu kathe helithu'],[9.5,'ಬೇರು ಆಳಕೆ ಇಳಿದು ನಿಂತಿತು','Beru aalake ilidu nintithu'],[13.5,'ಚಿಗುರು ಆಕಾಶ ನೋಡಿ ನಕ್ಕಿತು','Chiguru aakaasha nodi nakkithu'],[17.5,'ಕಾಲ ಹರಿದರೂ ನೆನಪು ಉಳಿಯಿತು','Kaala haridaru nenapu uliyithu'],[21,'ಹಸಿರು ದಾರಿ ಮುಂದೆ ಸಾಗಿತು','Hasiru daari munde saagithu']]},
- {id:'s3',src:'audio/sample-3.mp3',t:{kn:'ನೂಲಿನ ಹಾಡು',en:'Noolina Haadu'},type:'album',used:{kn:'ಮಾದರಿ ಆಲ್ಬಂ',en:'Sample Album'},year:'2025',by:'',
-  ly:[[1.5,'ನೂಲು ನೂಲು ಬೆಸೆದು ಬಂತು','Noolu noolu besedu banthu'],[5.5,'ಮಗ್ಗದ ಲಯ ಮನೆಯ ತುಂಬಿತು','Maggada laya maneya tumbithu'],[9.5,'ಬಣ್ಣ ಬಣ್ಣ ಕನಸು ನೇಯ್ದೆ','Banna banna kanasu neyde'],[13.5,'ಕೈಯ ಕಲೆ ಹಾಡಾಗಿ ಹರಿಯಿತು','Kaiya kale haadaagi hariyithu'],[17.5,'ಸಂಜೆ ಬೆಳಕು ಮೆಲ್ಲ ಇಳಿಯಿತು','Sanje belaku mella iliyithu'],[21,'ಮಗ್ಗ ಮೌನ ಹಾಡು ಉಳಿಯಿತು','Magga mouna haadu uliyithu']]}
+ {
+  "id": "kaituttu",
+  "src": "audios/Kaituttu Kannada Jukebox Rajguru Nayana Sooda Beluru Raghunandan.mp3",
+  "t": {
+   "kn": "ಕೈತುತ್ತು",
+   "en": "Kaituttu (Jukebox)"
+  },
+  "type": "album",
+  "used": {
+   "kn": "ಕೈತುತ್ತು ಜ್ಯೂಕ್‌ಬಾಕ್ಸ್",
+   "en": "Kaituttu Jukebox"
+  },
+  "year": "",
+  "by": "",
+  "ly": []
+ },
+ {
+  "id": "amma",
+  "src": "audios/ಶ್ವೇತಗಾನ ಬೇಲೂರು ರಘುನಂದನ್ ಅಮ್ಮ... ಅಮ್ಮ.mp3",
+  "t": {
+   "kn": "ಅಮ್ಮ... ಅಮ್ಮ",
+   "en": "Amma... Amma"
+  },
+  "type": "album",
+  "used": {
+   "kn": "ಶ್ವೇತಗಾನ",
+   "en": "Shwetagaana"
+  },
+  "year": "",
+  "by": "",
+  "ly": []
+ },
+ {
+  "id": "kannadi",
+  "src": "audios/ಶ್ವೇತಗಾನ ಬೇಲೂರು ರಘುನಂದನ್ ಕನ್ನಡಿ ಮುಂದೆ ನಿಂತಾಗ.mp3",
+  "t": {
+   "kn": "ಕನ್ನಡಿ ಮುಂದೆ ನಿಂತಾಗ",
+   "en": "Kannadi Munde Nintaaga"
+  },
+  "type": "album",
+  "used": {
+   "kn": "ಶ್ವೇತಗಾನ",
+   "en": "Shwetagaana"
+  },
+  "year": "",
+  "by": "",
+  "ly": []
+ },
+ {
+  "id": "nannavalu",
+  "src": "audios/ಶ್ವೇತಗಾನ ಬೇಲೂರು ರಘುನಂದನ್ ನನ್ನವಳು ಎಂದರೆ ಅನಂತ.mp3",
+  "t": {
+   "kn": "ನನ್ನವಳು ಎಂದರೆ ಅನಂತ",
+   "en": "Nannavalu Endare Ananta"
+  },
+  "type": "album",
+  "used": {
+   "kn": "ಶ್ವೇತಗಾನ",
+   "en": "Shwetagaana"
+  },
+  "year": "",
+  "by": "",
+  "ly": []
+ },
+ {
+  "id": "nee-illa",
+  "src": "audios/ಶ್ವೇತಗಾನ ಬೇಲೂರು ರಘುನಂದನ್ ನೀ ಇಲ್ಲವೆಂಬುದು ಲಹರಿಯು.mp3",
+  "t": {
+   "kn": "ನೀ ಇಲ್ಲವೆಂಬುದು ಲಹರಿಯು",
+   "en": "Nee Illavembudu Lahariyu"
+  },
+  "type": "album",
+  "used": {
+   "kn": "ಶ್ವೇತಗಾನ",
+   "en": "Shwetagaana"
+  },
+  "year": "",
+  "by": "",
+  "ly": []
+ },
+ {
+  "id": "nodalu",
+  "src": "audios/ಶ್ವೇತಗಾನ ಬೇಲೂರು ರಘುನಂದನ್ ನೋಡಲು ಚುಕ್ಕಿ.mp3",
+  "t": {
+   "kn": "ನೋಡಲು ಚುಕ್ಕಿ",
+   "en": "Nodalu Chukki"
+  },
+  "type": "album",
+  "used": {
+   "kn": "ಶ್ವೇತಗಾನ",
+   "en": "Shwetagaana"
+  },
+  "year": "",
+  "by": "",
+  "ly": []
+ },
+ {
+  "id": "preeti",
+  "src": "audios/ಶ್ವೇತಗಾನ ಬೇಲೂರು ರಘುನಂದನ್ ಪ್ರೀತಿಯೆಂಬುದು ಮಾಯೆ.mp3",
+  "t": {
+   "kn": "ಪ್ರೀತಿಯೆಂಬುದು ಮಾಯೆ",
+   "en": "Preetiyembudu Maaye"
+  },
+  "type": "album",
+  "used": {
+   "kn": "ಶ್ವೇತಗಾನ",
+   "en": "Shwetagaana"
+  },
+  "year": "",
+  "by": "",
+  "ly": []
+ },
+ {
+  "id": "baarayya",
+  "src": "audios/ಶ್ವೇತಗಾನ ಬೇಲೂರು ರಘುನಂದನ್ ಬಾರಯ್ಯ ಬಾ ಗುರುವೆ.mp3",
+  "t": {
+   "kn": "ಬಾರಯ್ಯ ಬಾ ಗುರುವೆ",
+   "en": "Baarayya Baa Guruve"
+  },
+  "type": "album",
+  "used": {
+   "kn": "ಶ್ವೇತಗಾನ",
+   "en": "Shwetagaana"
+  },
+  "year": "",
+  "by": "",
+  "ly": []
+ },
+ {
+  "id": "matte",
+  "src": "audios/ಶ್ವೇತಗಾನ ಬೇಲೂರು ರಘುನಂದನ್ ಮತ್ತೆ ಮತ್ತೆ ಕರೆವ ಶೈಲ.mp3",
+  "t": {
+   "kn": "ಮತ್ತೆ ಮತ್ತೆ ಕರೆವ ಶೈಲ",
+   "en": "Matte Matte Kareva Shaila"
+  },
+  "type": "album",
+  "used": {
+   "kn": "ಶ್ವೇತಗಾನ",
+   "en": "Shwetagaana"
+  },
+  "year": "",
+  "by": "",
+  "ly": []
+ }
 ];
 
 /* ---------- generated artwork ---------- */
@@ -1034,6 +1173,8 @@ function renderNow(){
 function lyIdx(){return lyPick||(lang==='kn'?1:2)}
 function renderLyrics(){
  var s=SONGS[idx],b=$('#npfly'),li=lyIdx();
+ var hasL=!!(s.ly&&s.ly.length);$('#pMode').style.display=$('#pScr').style.display=hasL?'':'none';
+ if(!hasL){b.className='npfly nol';b.innerHTML='<div class="nolyr" aria-hidden="true">♪</div>';curLine=-2;return}
  b.className='npfly '+(mode==='scr'?'scr':'lin');curLine=-2;
  if(mode==='scr'){var h='';s.ly.forEach(function(l,i){h+='<p data-i="'+i+'">'+esc(l[li])+'</p>'});b.innerHTML=h;b.scrollTop=0}
  else b.innerHTML='<div class="pv"></div><div class="cu"></div><div class="nx"></div>';
@@ -1042,6 +1183,7 @@ function renderLyrics(){
 function lineAt(t){var s=SONGS[idx],k=-1;for(var i=0;i<s.ly.length;i++){if(t>=s.ly[i][0])k=i}return k}
 function updLine(force){
  if(!npfOpen&&!force)return;
+ if(!SONGS[idx].ly||!SONGS[idx].ly.length)return;
  var s=SONGS[idx],k=lineAt(au.currentTime||0),b=$('#npfly'),li=lyIdx();
  if(k===curLine&&!force)return;curLine=k;
  if(mode==='scr'){
