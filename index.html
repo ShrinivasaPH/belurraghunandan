@@ -503,6 +503,23 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 .hub .sl.pkon .pbr i{width:100%;transition:width 3s linear}
 .vsec.on{animation:vin .22s ease-out}
 @keyframes vin{from{opacity:0}to{opacity:1}}
+.poster.hb{perspective:1100px}
+.hbi{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.4,.1,.2,1)}
+.hbi .pf,.hbi .pb{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;overflow:hidden}
+.hbi .pb{transform:rotateY(180deg);background:#241a31}
+.hbi .pb img{display:block;width:100%;height:100%;object-fit:cover}
+@media (hover:hover){.lib .card:hover .poster.hb .hbi,.lib .card:focus-visible .poster.hb .hbi{transform:rotateY(180deg)}}
+.pgR{position:relative}
+.bkth{display:flex;align-items:center;gap:.8rem;margin-top:1.1rem;background:#0000;border:1px solid #B38A3C;border-radius:.4rem;padding:.4rem .9rem .4rem .4rem;cursor:pointer;color:#6A1B34;font:600 .9rem var(--sans);text-align:left}
+.bkth img{width:2.6rem;height:3.8rem;object-fit:cover;border-radius:.15rem;box-shadow:0 3px 8px #0004}
+.bkth:hover{background:#B38A3C22}
+.bkbig{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;padding:1.2rem 1.4rem;background:var(--pg);z-index:2}
+.bkbig img{max-width:100%;max-height:calc(100% - 3.4rem);object-fit:contain;border-radius:.2rem;box-shadow:0 8px 22px #0006;border:1px solid #B38A3C}
+.bkx{background:#0000;border:1px solid #B38A3C;color:#6A1B34;border-radius:99px;padding:.35rem 1.1rem;cursor:pointer;font:600 .9rem var(--sans);min-height:2.4rem}
+.spread.sb .bkbig{display:flex}
+@media (max-width:760px){.spread.sb .pgR{min-height:30rem}}
+@media (prefers-reduced-motion:reduce){.hbi{transition:none}}
+
 .hero{border-bottom:4px solid var(--brass);box-shadow:0 6px 0 -1px var(--wine2),0 7px 0 0 var(--brass)}
 .hedge{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.6rem auto 0;max-width:min(560px,86%);color:var(--brass)}
 .hedge span{flex:1;height:7px;border-top:1px solid currentColor;border-bottom:1px solid currentColor;opacity:.85}
@@ -942,7 +959,35 @@ var BOOKS=[
   brief:{kn:'ಕಥಾ ಸಂಕಲನ, ಅಮೂಲ್ಯ ಪುಸ್ತಕ, 2022.',en:'Short stories, Amoolya Pustaka, 2022.'},
   chips:[{kn:'ಕಥೆಗಳು',en:'Stories'},{kn:'2022',en:'2022'}],
   meta:[['genre',{kn:'ಕಥಾ ಸಂಕಲನ',en:'Short stories'}],['year',{kn:'2022',en:'2022'}],['pub',{kn:'ಅಮೂಲ್ಯ ಪುಸ್ತಕ',en:'Amoolya Pustaka'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
- {id:'anche',mt:['ಅಂಚೆ ಅಣ್ಣ'],pos:'100% 50%',t:{kn:'ಅಂಚೆ ಅಣ್ಣ – ರಂಗ ಚಂದ್ರಣ್ಣ',en:'Anche Anna – Ranga Chandranna'},lines:['ಅಂಚೆ ಅಣ್ಣ'],art:{m:'door',c:['#1F4D3A','#0b1f17','#F3D99A']},brief:{kn:'',en:''},chips:[],meta:[['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]}
+ {id:'anche',mt:['ಅಂಚೆ ಅಣ್ಣ'],pos:'100% 50%',t:{kn:'ಅಂಚೆ ಅಣ್ಣ – ರಂಗ ಚಂದ್ರಣ್ಣ',en:'Anche Anna – Ranga Chandranna'},lines:['ಅಂಚೆ ಅಣ್ಣ'],art:{m:'door',c:['#1F4D3A','#0b1f17','#F3D99A']},brief:{kn:'',en:''},chips:[],meta:[['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
+ {id:'adhinayaki',mt:['adhinayaki'],t:{kn:'ಅಧಿನಾಯಕಿ & ಉಧೋ ಉಧೋ ಎಲ್ಲವ್ವ',en:'Adhinayaki & Udho Udho Ellavva'},lines:['ಅಧಿನಾಯಕಿ','& ಉಧೋ ಉಧೋ','ಎಲ್ಲವ್ವ'],art:{m:'mask',c:['#2c2a6b', '#120f2e', '#F3D99A']},
+  brief:{kn:'ಏಕವ್ಯಕ್ತಿ ನಾಟಕಗಳು, ಸಪ್ನ ಬುಕ್ ಹೌಸ್, 2023.',en:'Solo plays, Sapna Book House, 2023.'},
+  chips:[{kn:'ಏಕವ್ಯಕ್ತಿ ನಾಟಕಗಳು',en:'Solo plays'},{kn:'2023',en:'2023'}],
+  meta:[['genre',{kn:'ಏಕವ್ಯಕ್ತಿ ನಾಟಕಗಳು',en:'Solo plays'}],['year',{kn:'2023',en:'2023'}],['incl',{kn:'ಅಧಿನಾಯಕಿ, ಉಧೋ ಉಧೋ ಎಲ್ಲವ್ವ',en:'Adhinayaki, Udho Udho Ellavva'}],['pub',{kn:'ಸಪ್ನ ಬುಕ್ ಹೌಸ್',en:'Sapna Book House'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
+ {id:'arivu',mt:['arivuthore'],t:{kn:'ಅರಿವು ತೊರೆ',en:'Arivu Thore'},lines:['ಅರಿವು ತೊರೆ'],art:{m:'lotus',c:['#1f6a78', '#0a2630', '#F3D99A']},
+  brief:{kn:'ಕಟ್ಟುಪದಗಳು, ಸಪ್ನ ಬುಕ್ ಹೌಸ್, 2013.',en:'Kattupada verses, Sapna Book House, 2013.'},
+  chips:[{kn:'ಕಟ್ಟುಪದ',en:'Kattupada'},{kn:'2013',en:'2013'}],
+  meta:[['genre',{kn:'ಕಟ್ಟುಪದ',en:'Kattupada verses'}],['year',{kn:'2013',en:'2013'}],['pub',{kn:'ಸಪ್ನ ಬುಕ್ ಹೌಸ್',en:'Sapna Book House'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
+ {id:'ayda',mt:['aydakavanagalu'],t:{kn:'ಆಯ್ದ ಕವನಗಳು',en:'Aayda Kavanagalu'},lines:['ಆಯ್ದ ಕವನಗಳು'],art:{m:'bands',c:['#8a3a1c', '#2a1208', '#F3D99A']},
+  brief:{kn:'ಆಯ್ದ ಕವನಗಳ ಸಂಕಲನ.',en:'A collection of selected poems.'},
+  chips:[{kn:'ಕವನ ಸಂಕಲನ',en:'Poetry'}],
+  meta:[['genre',{kn:'ಆಯ್ದ ಕವನಗಳು',en:'Selected poems'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
+ {id:'belurara',mt:['belurara'],t:{kn:'ಬೇಲೂರರ ಮೂರು ನಾಟಕಗಳು',en:'Belurara Mooru Naatakagalu'},lines:['ಬೇಲೂರರ','ಮೂರು ನಾಟಕಗಳು'],art:{m:'mask',c:['#6A1B34', '#27101c', '#F3D99A']},
+  brief:{kn:'ಮೂರು ನಾಟಕಗಳ ಸಂಕಲನ.',en:'A collection of three plays.'},
+  chips:[{kn:'ನಾಟಕ ಸಂಕಲನ',en:'Plays'}],
+  meta:[['genre',{kn:'ನಾಟಕ ಸಂಕಲನ',en:'Collection of plays'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
+ {id:'kriye',mt:['kriyepratikriye'],t:{kn:'ಕ್ರಿಯೆ ಪ್ರತಿಕ್ರಿಯೆ',en:'Kriye Pratikriye'},lines:['ಕ್ರಿಯೆ','ಪ್ರತಿಕ್ರಿಯೆ'],art:{m:'door',c:['#1F4D3A', '#0b1f17', '#F3D99A']},
+  brief:{kn:'ವಿಮರ್ಶೆ, ಕದಂಬ ಪ್ರಕಾಶನ, 2025.',en:'Criticism, Kadamba Prakashana, 2025.'},
+  chips:[{kn:'ವಿಮರ್ಶೆ',en:'Criticism'},{kn:'2025',en:'2025'}],
+  meta:[['genre',{kn:'ವಿಮರ್ಶೆ',en:'Criticism'}],['year',{kn:'2025',en:'2025'}],['pub',{kn:'ಕದಂಬ ಪ್ರಕಾಶನ',en:'Kadamba Prakashana'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
+ {id:'tippe',mt:['tipperudra'],t:{kn:'ತಿಪ್ಪೇರುದ್ರ',en:'Tipperudra'},lines:['ತಿಪ್ಪೇರುದ್ರ'],art:{m:'bands',c:['#34507a', '#0f1a2e', '#F3D99A']},
+  brief:{kn:'ನಾಟಕ, ಸಪ್ನ ಬುಕ್ ಹೌಸ್, 2016.',en:'Play, Sapna Book House, 2016.'},
+  chips:[{kn:'ನಾಟಕ',en:'Play'},{kn:'2016',en:'2016'}],
+  meta:[['genre',{kn:'ನಾಟಕ',en:'Play'}],['year',{kn:'2016',en:'2016'}],['pub',{kn:'ಸಪ್ನ ಬುಕ್ ಹೌಸ್',en:'Sapna Book House'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
+ {id:'teesta',mt:['teesta'],t:{kn:'ಜೀವನ್ಮುಖಿ ತೀಸ್ತಾ',en:'Jeevanmukhi Teesta'},lines:['ಜೀವನ್ಮುಖಿ','ತೀಸ್ತಾ'],art:{m:'lotus',c:['#7a2a4f', '#2a0d1e', '#F3D99A']},
+  brief:{kn:'ಸಿಕ್ಕಿಂ ರಾಜ್ಯದ ಪ್ರವಾಸ ಕಥನ, ಕರ್ನಾಟಕ ಸಾಹಿತ್ಯ ಅಕಾಡೆಮಿ, 2016.',en:'A travelogue of Sikkim, Karnataka Sahitya Akademi, 2016.'},
+  chips:[{kn:'ಪ್ರವಾಸ ಸಾಹಿತ್ಯ',en:'Travelogue'},{kn:'2016',en:'2016'}],
+  meta:[['genre',{kn:'ಪ್ರವಾಸ ಸಾಹಿತ್ಯ (ಸಿಕ್ಕಿಂ)',en:'Travelogue of Sikkim'}],['year',{kn:'2016',en:'2016'}],['pub',{kn:'ಕರ್ನಾಟಕ ಸಾಹಿತ್ಯ ಅಕಾಡೆಮಿ',en:'Karnataka Sahitya Akademi'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]}
 ];
 var TYPES={play:{kn:'ನಾಟಕ',en:'Play'},film:{kn:'ಚಲನಚಿತ್ರ',en:'Film'},album:{kn:'ಆಲ್ಬಂ',en:'Album'}};
 var SONGS=[
@@ -1159,16 +1204,16 @@ function visual(it,kind){
 var CHEV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
 function bookHTML(it,dl,ch){
  var kn=lang==='kn';
- return '<div class="pin"><div class="obwrap"><div class="spread"><div class="flip"><div class="ff"><div class="poster">'+visual(it,'book')+'</div></div><div class="fb pg"><svg class="orn" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M32 8v10M32 46v10M8 32h10M46 32h10M15 15l7 7M42 42l7 7M49 15l-7 7M22 42l-7 7"/><circle cx="32" cy="32" r="6"/></svg><div class="bk">'+(kn?'ಕೃತಿ':'THE BOOK')+'</div><h3>'+esc(T(it.t))+'</h3><div class="au2">'+(kn?'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್':'Dr. Beluru Raghunandan')+'</div><div class="dchips">'+ch+'</div><div class="seal" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M8 10c10 4 38 4 48 0 2 24-6 44-24 46C14 54 6 34 8 10z"/><path d="M19 26c3-2 7-2 9 1M36 27c2-3 6-3 9-1M22 40c6 6 14 6 20 0"/></svg></div></div></div><div class="pg pgR"><h4>'+(kn?'ವಿವರಗಳು':'Details')+'</h4><dl class="dmeta">'+dl+'</dl>'+(it.syn?'<p class="syn"><i>'+(kn?'ಪರಿಚಯ':'About')+'</i>'+esc(T(it.syn))+'</p>':'')+'</div></div><button class="xbtn" type="button" aria-label="'+(kn?'ಮುಚ್ಚಿ':'Close')+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div>';
+ return '<div class="pin"><div class="obwrap"><div class="spread"><div class="flip"><div class="ff"><div class="poster">'+visual(it,'book')+'</div></div><div class="fb pg"><svg class="orn" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M32 8v10M32 46v10M8 32h10M46 32h10M15 15l7 7M42 42l7 7M49 15l-7 7M22 42l-7 7"/><circle cx="32" cy="32" r="6"/></svg><div class="bk">'+(kn?'ಕೃತಿ':'THE BOOK')+'</div><h3>'+esc(T(it.t))+'</h3><div class="au2">'+(kn?'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್':'Dr. Beluru Raghunandan')+'</div><div class="dchips">'+ch+'</div><div class="seal" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M8 10c10 4 38 4 48 0 2 24-6 44-24 46C14 54 6 34 8 10z"/><path d="M19 26c3-2 7-2 9 1M36 27c2-3 6-3 9-1M22 40c6 6 14 6 20 0"/></svg></div></div></div><div class="pg pgR"><h4>'+(kn?'ವಿವರಗಳು':'Details')+'</h4><dl class="dmeta">'+dl+'</dl>'+(it.syn?'<p class="syn"><i>'+(kn?'ಪರಿಚಯ':'About')+'</i>'+esc(T(it.syn))+'</p>':'')+(it.back?'<button type="button" class="bkth"><img src="'+esc(encodeURI(it.back))+'" alt="" loading="lazy" decoding="async" onerror="ifx(this)"><span>'+(kn?'ಹಿಂಭಾಗದ ಮುಖಪುಟ ನೋಡಿ':'See the back cover')+'</span></button><div class="bkbig"><img src="'+esc(encodeURI(it.back))+'" alt="'+(kn?'ಹಿಂಭಾಗದ ಮುಖಪುಟ':'Back cover')+'" decoding="async" onerror="ifx(this)"><button type="button" class="bkx">← '+(kn?'ವಿವರಗಳಿಗೆ':'Back to details')+'</button></div>':'')+'</div></div><button class="xbtn" type="button" aria-label="'+(kn?'ಮುಚ್ಚಿ':'Close')+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div>';
 }
-function bookFlip(p){var sp=p.querySelector('.spread');if(!sp)return;requestAnimationFrame(function(){requestAnimationFrame(function(){sp.classList.add('open')})})}
+function bookFlip(p){var sp=p.querySelector('.spread');if(!sp)return;p.querySelectorAll('.bkth,.bkx').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();sp.classList.toggle('sb')})});requestAnimationFrame(function(){requestAnimationFrame(function(){sp.classList.add('open')})})}
 function Shelf(el,items,kind){
  var openId=null,panel=document.createElement('div');panel.className='panel';panel.setAttribute('role','region');
  var timer=null;
  function cards(){return Array.prototype.slice.call(el.querySelectorAll('.card'))}
  function build(){
   var h='';
-  items.forEach(function(it){h+='<button class="card" type="button" data-id="'+it.id+'" aria-expanded="'+(openId===it.id)+'" aria-controls="pn-'+kind+'"><div class="poster">'+visual(it,kind)+'</div><h3>'+esc(T(it.t))+'</h3><div class="brief">'+esc(T(it.brief))+'</div><span class="more">'+(lang==='kn'?'ವಿವರ':'Details')+CHEV+'</span></button>';});
+  items.forEach(function(it){h+='<button class="card" type="button" data-id="'+it.id+'" aria-expanded="'+(openId===it.id)+'" aria-controls="pn-'+kind+'">'+(kind==='book'&&it.back&&hasImg(it)?'<div class="poster hb"><div class="hbi"><div class="pf">'+visual(it,kind)+'</div><div class="pb"><img src="'+esc(encodeURI(it.back))+'" alt="" loading="lazy" decoding="async" onerror="ifx(this)"></div></div></div>':'<div class="poster">'+visual(it,kind)+'</div>')+'<h3>'+esc(T(it.t))+'</h3><div class="brief">'+esc(T(it.brief))+'</div><span class="more">'+(lang==='kn'?'ವಿವರ':'Details')+CHEV+'</span></button>';});
   el.innerHTML=h;panel.id='pn-'+kind;el.appendChild(panel);
   if(openId){fill(find(openId));place(openId)}
  }
@@ -1525,32 +1570,32 @@ function hubCaps(){Object.keys(HUBS).forEach(hubBuild)}
  if(!rm.matches)keys.forEach(function(k,i){setTimeout(function(){HT[k]=setInterval(function(){hubStep(k)},3000)},i*900)});
 })();
 /* ---------- image discovery: every picture dropped into the repo folders is picked up ---------- */
-var MAN={"plays": ["Akkai.jpg", "Ameer Bai Karnataki.jpg", "Chitte.jpg", "Darpana Sundari.jpg", "Doll House.jpg", "maatha.jpg", "Mohana Tarangini 1.jpg", "Mohana Tarangini 2.jpg", "Nadaleele 1.jpg", "Nadaleele 2.jpg", "Nagasampige - ನಾಗಸಂಪಿಗೆ .jpg", "Panchagavya - ಪಂಚಗವ್ಯ 1.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 2.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 3.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 4.png", "Shaswatha Parihara.jpg", "timmakka.jpg", "Vrushali 1.jpg", "Vrushali 2.jpg"], "books": ["Maggada Mane - ಮಗ್ಗದ ಮನೆ.jpg", "Rubics Cube - ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್.jpg", "ಅಂಚೆ ಅಣ್ಣ - ರಂಗ ಚಂದ್ರಣ್ಣ .jpg"], "gallery": ["K.V. Subbanna Award by the Shivamogga Karnataka Sangha for his remarkable 2025 play, 'Sharmishthe'!.jpg", "K.V. Subbanna Award.jpg", "ಶ್ರೀ ವಿಜಯ ದತ್ತಿ ಪುರಸ್ಕಾರ.jpg"], "hero": ["1.jpg"]};
+var MAN={"plays": ["Akkai.jpg", "Ameer Bai Karnataki.jpg", "Chitte.jpg", "Darpana Sundari.jpg", "Doll House.jpg", "maatha.jpg", "Mohana Tarangini 1.jpg", "Mohana Tarangini 2.jpg", "Nadaleele 1.jpg", "Nadaleele 2.jpg", "Nagasampige - ನಾಗಸಂಪಿಗೆ .jpg", "Panchagavya - ಪಂಚಗವ್ಯ 1.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 2.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 3.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 4.png", "Shaswatha Parihara.jpg", "timmakka.jpg", "Vrushali 1.jpg", "Vrushali 2.jpg"], "books": ["Adhinayaki & Udho Udho Yellavva - Back Cover Pic.png", "Adhinayaki & Udho Udho Yellavva - Front Cover Pic.png", "APPA KANEYAGIDDANE - Back Cover Pic.png", "APPA KANEYAGIDDANE - Front Cover Pic.png", "Arivu Thore - Front Cover Pic.png", "Ayda Kavanagalu - Back Cover Pic.png", "Ayda Kavanagalu - Front Cover Pic.png", "Belurara Mooru Natakagalu - Back Cover Pic.png", "Belurara Mooru Natakagalu - Front Cover Pic.png", "Kriye Pratikriye - Back Cover Pic.png", "Kriye Pratikriye - Front Cover Pic.png", "Maggada Mane - ಮಗ್ಗದ ಮನೆ.jpg", "Rubics Cube - ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್.jpg", "Tippe Rudra - Back Cover Pic.png", "Tippe Rudra - Front Cover Pic.png", "ಅಂಚೆ ಅಣ್ಣ - ರಂಗ ಚಂದ್ರಣ್ಣ .jpg", "ಜೀವನ್ಮುಖಿ ತೀಸ್ತಾ Jeevanmukhi Teesta (A Travelogue of Sikkim State) (Kannada) - Front Cover Pic.png"], "gallery": ["K.V. Subbanna Award by the Shivamogga Karnataka Sangha for his remarkable 2025 play, 'Sharmishthe'!.jpg", "K.V. Subbanna Award.jpg", "ಶ್ರೀ ವಿಜಯ ದತ್ತಿ ಪುರಸ್ಕಾರ.jpg"], "hero": ["1.jpg"]};
 window.ifx=function(im){var m=im.src.match(/\.(jpe?g|png)(?=$|\?)/i),t=(im.dataset.tr||'').split(',').filter(Boolean);if(!m){im.remove();return}t.push(m[1].toLowerCase());im.dataset.tr=t.join(',');var nx=['jpg','png','jpeg'].filter(function(e){return t.indexOf(e)<0})[0];if(!nx){im.remove();return}im.src=im.src.replace(/\.(jpe?g|png)(?=$|\?)/i,'.'+nx)};
 var NORMRE=/[^\p{L}\p{M}\p{N}]+/gu;
 function nrm(x){return String(x).toLowerCase().replace(/\.[a-z0-9]+$/,'').replace(NORMRE,'')}
 function nat(a,b){return a.localeCompare(b,undefined,{numeric:true,sensitivity:'base'})}
 var APAL=[['#6A1B34','#27101c'],['#1F4D3A','#0b1f17'],['#2c2a6b','#120f2e'],['#8a3a1c','#2a1208'],['#7a2a4f','#2a0d1e'],['#34507a','#0f1a2e']],AMOT=['mask','bands','trees','butterfly'];
 function parseTitle(fn){
- var base=fn.replace(/\.[A-Za-z0-9]+$/,'').replace(/\s*\d+\s*$/,'').trim(),parts=base.split(/\s+-\s+/),lat='',kn='';
+ var base=fn.replace(/\.[A-Za-z0-9]+$/,'').replace(/\s*-?\s*(front|back)\s*cover(\s*pic)?/i,'').replace(/\s*\d+\s*$/,'').trim(),parts=base.split(/\s+-\s+/),lat='',kn='';
  parts.forEach(function(p){if(/[ಀ-೿]/.test(p))kn=kn||p.trim();else if(/[A-Za-z]/.test(p))lat=lat||p.trim()});
  return {base:base,t:{kn:kn||lat||base,en:lat||kn||base}};
 }
 function distribute(arr,dir,files,kind){
  for(var i=arr.length-1;i>=0;i--)if(arr[i].auto)arr.splice(i,1);
- arr.forEach(function(it){it.imgs=[];(it.extra||[]).forEach(function(x){it.imgs.push('images/'+x)})});
+ arr.forEach(function(it){it.imgs=[];it.back='';(it.extra||[]).forEach(function(x){it.imgs.push('images/'+x)})});
  var autos={};
  files.slice().sort(nat).forEach(function(f){
   var n=nrm(f),hit=null;
   arr.forEach(function(it){if(hit||it.auto)return;if((it.mt||[it.id]).some(function(t){t=nrm(t);return t&&n.indexOf(t)>=0}))hit=it});
-  var path='images/'+dir+'/'+f;
-  if(hit){if(hit.imgs.indexOf(path)<0)hit.imgs.push(path);return}
+  var path='images/'+dir+'/'+f,isBack=kind==='book'&&/back\s*cover|\bback\b|ಹಿಂಭಾಗ/i.test(f);
+  if(hit){if(isBack){hit.back=hit.back||path}else if(hit.imgs.indexOf(path)<0)hit.imgs.push(path);return}
   var pt=parseTitle(f),key=nrm(pt.base.replace(/\s*\d+\s*$/,''));
   if(!autos[key]){var k=Object.keys(autos).length,pal=APAL[k%APAL.length],o={id:'auto-'+key,auto:true,imgs:[],t:pt.t,lines:[pt.t.kn],brief:{kn:'',en:''},chips:[],meta:[]};
    if(kind==='gallery'){o.cat=/award|puraskar|prashasti|ಪ್ರಶಸ್ತಿ|ಪುರಸ್ಕಾರ/i.test(f)?'award':'stage';o.c=[pal[0],pal[1],'#F3D99A'];o.mt=['zz-none'];o.s={kn:'',en:''}}
    else o.art={m:AMOT[k%AMOT.length],c:[pal[0],pal[1],'#F3D99A']};
    autos[key]=o;arr.push(o)}
-  autos[key].imgs.push(path);
+  if(isBack)autos[key].back=autos[key].back||path;else autos[key].imgs.push(path);
  });
 }
 function heroBuild(){
