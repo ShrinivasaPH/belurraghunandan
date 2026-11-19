@@ -1252,7 +1252,7 @@ function setUI(){
 function renderHead(){
  var s=SONGS[idx],tot=0,k=0;SONGS.forEach(function(x){if(durs[x.id]){tot+=durs[x.id];k++}});
  $('#mcov').innerHTML=cover(s);
- $('#mmeta').textContent=(lang==='kn'?'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್':'Dr. Beluru Raghunandan')+' · '+SONGS.length+' '+L('songs')+(k===SONGS.length&&tot?' · '+Math.max(1,Math.round(tot/60))+' '+L('min'):'');
+ $('#mmeta').textContent=(lang==='kn'?'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್':'Dr. Beluru Raghunandan');
  var h='';[['all']].concat(['play','film','album'].filter(function(t){return SONGS.some(function(x){return x.type===t})}).map(function(t){return [t]})).concat(Object.keys(liked).some(function(k){return liked[k]})?[['liked']]:[]).forEach(function(c){h+='<button type="button" data-act="chip" data-k="'+c[0]+'" aria-pressed="'+(filt===c[0])+'">'+esc(L(c[0]))+'</button>'});
  $('#mchips').innerHTML=h;
 }
