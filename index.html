@@ -778,7 +778,7 @@ var lang='kn';
 var $=function(s){return document.querySelector(s)};
 var T=function(o){return o==null?'':(typeof o==='string'||typeof o==='number')?o:(o[lang]||o.kn)};
 var rm=window.matchMedia('(prefers-reduced-motion: reduce)');
-var K={year:{kn:'ವರ್ಷ',en:'Year'},troupe:{kn:'ತಂಡ',en:'Troupe'},role:{kn:'ಜವಾಬ್ದಾರಿ',en:'His role'},fmt:{kn:'ಪ್ರಕಾರ',en:'Format'},based:{kn:'ಆಧಾರ',en:'Based on'},text:{kn:'ಪಠ್ಯ ಪ್ರಕಟಣೆ',en:'Text published'},genre:{kn:'ಪ್ರಕಾರ',en:'Genre'},pub:{kn:'ಪ್ರಕಾಶಕರು',en:'Publisher'},lang:{kn:'ಭಾಷೆ',en:'Language'}};
+var K={year:{kn:'ವರ್ಷ',en:'Year'},troupe:{kn:'ತಂಡ',en:'Troupe'},role:{kn:'ಜವಾಬ್ದಾರಿ',en:'His role'},fmt:{kn:'ಪ್ರಕಾರ',en:'Format'},based:{kn:'ಆಧಾರ',en:'Based on'},text:{kn:'ಪಠ್ಯ ಪ್ರಕಟಣೆ',en:'Text published'},genre:{kn:'ಪ್ರಕಾರ',en:'Genre'},pub:{kn:'ಪ್ರಕಾಶಕರು',en:'Publisher'},lang:{kn:'ಭಾಷೆ',en:'Language'},incl:{kn:'ಒಳಗೊಂಡಿರುವುದು',en:'Includes'}};
 
 /* ---------- data: replace art with img:"images/..." when real files arrive ---------- */
 var PLAYS=[
@@ -804,10 +804,14 @@ var BOOKS=[
   brief:{kn:'ಕವನ ಸಂಕಲನ, ಶ್ವೇತಪ್ರಿಯ ಪ್ರಕಾಶನ, 2011.',en:'Poetry collection, Shwetapriya Prakashana, 2011.'},
   chips:[{kn:'ಕವನ ಸಂಕಲನ',en:'Poetry'},{kn:'2011',en:'2011'}],
   meta:[['genre',{kn:'ಕವನ ಸಂಕಲನ',en:'Poetry'}],['year',{kn:'2011',en:'2011'}],['pub',{kn:'ಶ್ವೇತಪ್ರಿಯ ಪ್ರಕಾಶನ',en:'Shwetapriya Prakashana'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
- {id:'maggada',t:{kn:'ಮಗ್ಗದ ಮನೆ',en:'Maggada Mane'},lines:['ಮಗ್ಗದ ಮನೆ'],art:{m:'loom',c:['#8a3a1c','#2a1208','#F3D99A']},
+ {id:'maggada',img:'images/Books/Maggada Mane - ಮಗ್ಗದ ಮನೆ.jpeg',t:{kn:'ಮಗ್ಗದ ಮನೆ',en:'Maggada Mane'},lines:['ಮಗ್ಗದ ಮನೆ'],art:{m:'loom',c:['#8a3a1c','#2a1208','#F3D99A']},
   brief:{kn:'ಕವನ ಸಂಕಲನ, ರಾಸೀ ಪ್ರಕಾಶನ, 2025.',en:'Poetry collection, Raasee Prakashana, 2025.'},
   chips:[{kn:'ಕವನ ಸಂಕಲನ',en:'Poetry'},{kn:'2025',en:'2025'}],
   meta:[['genre',{kn:'ಕವನ ಸಂಕಲನ',en:'Poetry'}],['year',{kn:'2025',en:'2025'}],['pub',{kn:'ರಾಸೀ ಪ್ರಕಾಶನ',en:'Raasee Prakashana'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
+ {id:'rubiks',img:'images/Books/Rubics Cube - ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್.jpeg',t:{kn:'ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್ ಮತ್ತಿತರ ನಾಟಕಗಳು',en:'Roobiks Kyoob Mattitara Naatakagalu'},lines:['ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್','ಮತ್ತಿತರ ನಾಟಕಗಳು'],art:{m:'bands',c:['#2c2a6b','#120f2e','#F3D99A']},
+  brief:{kn:'ನಾಟಕ ಸಂಕಲನ, ಕಾಜಾಣ ಪ್ರಕಾಶನ.',en:'Collection of plays, Kaajana Prakashana.'},
+  chips:[{kn:'ನಾಟಕ ಸಂಕಲನ',en:'Plays'}],
+  meta:[['genre',{kn:'ನಾಟಕ ಸಂಕಲನ',en:'Collection of plays'}],['incl',{kn:'ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್, ಕ್ಲೀನ್ ಅಂಡ್ ಕ್ಲಿಯರ್ ಪಾಯಖಾನೆ, ಆಯಾಮ',en:'Roobiks Kyoob, Kleen and Kliyar Paayakhaane, Aayaama'}],['pub',{kn:'ಕಾಜಾಣ ಪ್ರಕಾಶನ',en:'Kaajana Prakashana'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
  {id:'haaruva',t:{kn:'ಹಾರುವ ಆನೆ',en:'Haaruva Aane'},lines:['ಹಾರುವ ಆನೆ'],art:{m:'winged',c:['#1f6a78','#0a2630','#F3D99A']},
   brief:{kn:'ಮಕ್ಕಳ ಸಾಹಿತ್ಯ, ಶ್ವೇತಪ್ರಿಯ ಪ್ರಕಾಶನ, 2018.',en:'Children’s literature, Shwetapriya Prakashana, 2018.'},
   chips:[{kn:'ಮಕ್ಕಳ ಸಾಹಿತ್ಯ',en:'Children’s'},{kn:'2018',en:'2018'}],
