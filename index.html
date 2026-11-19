@@ -1130,7 +1130,7 @@ function hasImg(it){return sources(it).length>0}
 function slides(it,iv){var ss=sources(it);if(!ss.length)return '';
  var st=it.pos?' style="object-position:'+it.pos+'"':'';
  var h=ss.map(function(f,i){return '<img class="ov'+(i?'':' on')+'" src="'+esc(encodeURI(f))+'" alt=""'+st+' loading="lazy" decoding="async" onerror="ifx(this)">'}).join('');
- return ss.length>1?'<span class="ssl" data-iv="'+(iv||3200)+'">'+h+'</span>':h}
+ return ss.length>1?'<span class="ssl" data-iv="'+(iv||2200)+'">'+h+'</span>':h}
 function visual(it,kind){
  return art(it.art,it.lines,kind,kind==='play'?'ಕಾಜಾಣ':'ಬೇಲೂರು ರಘುನಂದನ್')+slides(it);
 }
@@ -1501,7 +1501,7 @@ function hubStep(key){
 }
 function hubCaps(){Object.keys(HUBS).forEach(hubBuild)}
 (function(){var keys=Object.keys(HUBS);keys.forEach(hubBuild);
- if(!rm.matches)keys.forEach(function(k,i){setTimeout(function(){HT[k]=setInterval(function(){hubStep(k)},3800)},i*900)});
+ if(!rm.matches)keys.forEach(function(k,i){setTimeout(function(){HT[k]=setInterval(function(){hubStep(k)},3000)},i*900)});
 })();
 /* ---------- image discovery: every picture dropped into the repo folders is picked up ---------- */
 var MAN={"plays": ["Akkai.jpg", "Ameer Bai Karnataki.jpg", "Chitte.jpg", "Darpana Sundari.jpg", "Doll House.jpg", "maatha.jpg", "Mohana Tarangini 1.jpg", "Mohana Tarangini 2.jpg", "Nadaleele 1.jpg", "Nadaleele 2.jpg", "Nagasampige - ನಾಗಸಂಪಿಗೆ .jpg", "Panchagavya - ಪಂಚಗವ್ಯ 1.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 2.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 3.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 4.png", "Shaswatha Parihara.jpg", "timmakka.jpg", "Vrushali 1.jpg", "Vrushali 2.jpg"], "books": ["Maggada Mane - ಮಗ್ಗದ ಮನೆ.jpg", "Rubics Cube - ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್.jpg", "ಅಂಚೆ ಅಣ್ಣ - ರಂಗ ಚಂದ್ರಣ್ಣ .jpg"], "gallery": ["K.V. Subbanna Award by the Shivamogga Karnataka Sangha for his remarkable 2025 play, 'Sharmishthe'!.jpg", "K.V. Subbanna Award.jpg", "ಶ್ರೀ ವಿಜಯ ದತ್ತಿ ಪುರಸ್ಕಾರ.jpg"], "hero": ["1.jpg"]};
@@ -1538,10 +1538,10 @@ function heroBuild(){
  if(!fs.length){hero.classList.add('nohdp');fig.hidden=true;return}
  hero.classList.remove('nohdp');fig.hidden=false;
  var h=fs.map(function(f,i){return '<img class="'+(i?'':'on')+'" src="'+esc(encodeURI('images/gallery/Belur Raghunandan/'+f))+'" alt="'+(i?'':'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ (Dr. Beluru Raghunandan)')+'" decoding="async"'+(i?' loading="lazy"':' fetchpriority="high"')+' onerror="ifx(this)">'}).join('');
- fig.querySelector('.hframe').innerHTML=fs.length>1?'<span class="ssl" data-iv="4800">'+h+'</span>':h;
+ fig.querySelector('.hframe').innerHTML=fs.length>1?'<span class="ssl" data-iv="3400">'+h+'</span>':h;
 }
 function applyManifest(m){
- MAN=m;distribute(PLAYS,'plays',m.plays||[],'play');distribute(BOOKS,'Books',m.books||[],'book');BOOKS.map(function(b,i){return [b,i]}).sort(function(x,y){return (hasImg(y[0])-hasImg(x[0]))||(x[1]-y[1])}).forEach(function(x,i){BOOKS[i]=x[0]});distribute(GALLERY,'gallery',m.gallery||[],'gallery');heroBuild();
+ MAN=m;distribute(PLAYS,'plays',m.plays||[],'play');PLAYS.map(function(b,i){return [b,i]}).sort(function(x,y){return (sources(y[0]).length-sources(x[0]).length)||(x[1]-y[1])}).forEach(function(x,i){PLAYS[i]=x[0]});distribute(BOOKS,'Books',m.books||[],'book');BOOKS.map(function(b,i){return [b,i]}).sort(function(x,y){return (hasImg(y[0])-hasImg(x[0]))||(x[1]-y[1])}).forEach(function(x,i){BOOKS[i]=x[0]});distribute(GALLERY,'gallery',m.gallery||[],'gallery');heroBuild();
 }
 function ghls(dir,fallback){
  return fetch('https://api.github.com/repos/ShrinivasaPH/belurraghunandan/contents/'+encodeURI('images/'+dir)).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(a){
@@ -1559,7 +1559,7 @@ setInterval(function(){
  if(document.hidden||rm.matches)return;var now=Date.now();
  document.querySelectorAll('.ssl').forEach(function(g){
   if(!g.getClientRects().length)return;
-  var iv=+g.dataset.iv||3200,last=+g.dataset.l||0;
+  var iv=+g.dataset.iv||2200,last=+g.dataset.l||0;
   if(!last){g.dataset.l=now-Math.random()*iv*.7;return}
   var im=g.querySelectorAll('img');if(!im.length)return;
   var cur=-1;im.forEach(function(x,i){if(x.classList.contains('on'))cur=i});
