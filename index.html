@@ -478,6 +478,32 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 .hub .fr-music{width:48%}.hub .fr-gallery{width:70%;top:14%}
 .hub .sl.on .kb.fr{animation:none}
 @media (prefers-reduced-motion:reduce){.hub .sl,.hub .sc{transition:none}.hub .sl.on .kb{animation:none}}
+.hub .hs{background:radial-gradient(120% 80% at 50% 25%,#3b1a33,#150d1c)}
+.hub .bg{display:none}
+.hub .kb.fr{transition:opacity .5s}
+.hub .pk{position:absolute;z-index:1;left:8%;right:8%;top:9%;height:44%;opacity:0;transform:perspective(700px) rotateY(-75deg);transform-origin:left center;transition:opacity .5s,transform .8s cubic-bezier(.2,.7,.2,1);pointer-events:none;border:2px solid #B38A3C;border-radius:.2rem;overflow:hidden;box-shadow:0 14px 30px #000c}
+.hub .sl.pkon .pk{opacity:1;transform:none}
+.hub .sl.pkon .kb.fr{opacity:0}
+.hub .pkp{height:100%;box-sizing:border-box;background:#F3EBD6 repeating-linear-gradient(transparent 0 1.15rem,#c9b88f66 1.15rem calc(1.15rem + 1px));color:#2a1a14;padding:.6rem .7rem;display:flex;flex-direction:column;gap:.3rem;text-align:left}
+.hub .pkp small{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#6A1B34;font-weight:700}
+.hub .pkp p{margin:0;font-size:.74rem;line-height:1.55;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.hub .pkp em{font-size:.68rem;line-height:1.45;color:#4a3a30;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.hub .pkp u{text-decoration:none;margin-top:auto;font-size:.66rem;font-weight:700;color:#6A1B34}
+.hub .pkm{height:100%;box-sizing:border-box;background:linear-gradient(160deg,#2c1244,#0f0a18);color:#fff;padding:.6rem .7rem;display:flex;flex-direction:column;gap:.28rem;justify-content:center;align-items:center;text-align:center}
+.hub .pkm b{font:700 .85rem/1.3 var(--serif)}
+.hub .pkm small{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#F3D99A}
+.hub .pkm p{margin:0;font-size:.7rem;line-height:1.5;color:#e9deef}
+.hub .peq{display:flex;gap:3px;align-items:flex-end;height:1.5rem}
+.hub .peq i{width:4px;height:100%;background:#F3D99A;border-radius:2px;transform-origin:bottom;transform:scaleY(.3);animation:peq .8s ease-in-out infinite;animation-play-state:paused}
+.hub .peq i:nth-child(2){animation-delay:.15s}.hub .peq i:nth-child(3){animation-delay:.3s}.hub .peq i:nth-child(4){animation-delay:.45s}.hub .peq i:nth-child(5){animation-delay:.6s}
+.hub .sl.pkon .peq i{animation-play-state:running}
+@keyframes peq{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
+.hub .pbr{width:100%;height:3px;background:#ffffff33;border-radius:2px;overflow:hidden;margin-top:.2rem}
+.hub .pbr i{display:block;height:100%;width:0;background:#F3D99A}
+.hub .sl.pkon .pbr i{width:100%;transition:width 3s linear}
+.vsec.on{animation:vin .22s ease-out}
+@keyframes vin{from{opacity:0}to{opacity:1}}
+
 .npfly.nol{display:grid;place-items:center;overflow:hidden;-webkit-mask-image:none;mask-image:none;padding:0}.nolyr{font:700 clamp(6rem,18vw,12rem)/1 var(--serif);color:#ffffff1f}
 </style>
 </head>
@@ -786,7 +812,11 @@ var PLAYS=[
   brief:{kn:'ಬಾಲ್ಯದ ಅನುಭವಗಳಿಗೆ ದನಿ ನೀಡಿದ ಮಕ್ಕಳ ಏಕವ್ಯಕ್ತಿ ನಾಟಕ.',en:'A solo play for children that gives voice to childhood experience.'},
   chips:[{kn:'2022',en:'2022'},{kn:'ಏಕವ್ಯಕ್ತಿ ನಾಟಕ',en:'Solo play'}],
   meta:[['fmt',{kn:'ಮಕ್ಕಳ ಏಕವ್ಯಕ್ತಿ ನಾಟಕ',en:'Children’s solo play'}],['role',{kn:'ರಚನೆ',en:'Playwright'}],['text',{kn:'ಶಾರದಾ ಪ್ರತಿಷ್ಠಾನ, 2022',en:'Sharada Pratishthana, 2022'}]]},
- {id:'thimmakka',t:{kn:'ಸಾಲುಮರಗಳ ತಾಯಿ ತಿಮ್ಮಕ್ಕ',en:'Salumaragala Taayi Thimmakka'},lines:['ಸಾಲುಮರಗಳ','ತಾಯಿ ತಿಮ್ಮಕ್ಕ'],art:{m:'trees',c:['#1F4D3A','#0b1f17','#F3D99A']},
+ {id:'maatha',img:'images/plays/maatha.jpg',t:{kn:'ಮಾತಾ',en:'Maatha'},lines:['ಮಾತಾ'],art:{m:'mask',c:['#8a3a1c','#2a1208','#F3D99A']},
+  brief:{kn:'ಪದ್ಮಶ್ರೀ ಮಾತಾ ಬಿ. ಮಂಜಮ್ಮ ಜೋಗತಿ ಅವರ ಜೀವನಾಧಾರಿತ ನಾಟಕ.',en:'A play based on the life of Padma Shri Matha B. Manjamma Jogati.'},
+  chips:[{kn:'2023',en:'2023'},{kn:'ಕಾಜಾಣ',en:'Kaajana'}],
+  meta:[['troupe',{kn:'ಕಾಜಾಣ',en:'Kaajana'}],['role',{kn:'ರಂಗಪಠ್ಯ, ನಿರ್ದೇಶನ',en:'Stage text and direction'}],['based',{kn:'ಮಂಜಮ್ಮ ಜೋಗತಿ ಅವರ ಜೀವನ; ಅರುಣ್ ಜೋಳದಕೂಡ್ಲಿಗಿ ಅವರ ‘ನಡುವೆ ಸುಳಿವ ಹೆಣ್ಣು’ ಮತ್ತು ಡಾ. ಚಂದ್ರಪ್ಪ ಸೊಬಟಿ ಅವರ ‘ಮಂಜಮ್ಮ ಜೋಗತಿ’ ಕೃತಿಗಳು',en:'The life of Manjamma Jogati; Arun Joladakudligi’s Naduve Suliva Hennu and Dr. Chandrappa Sobati’s Manjamma Jogati'}]]},
+ {id:'thimmakka',img:'images/plays/timmakka.jpg',t:{kn:'ಸಾಲುಮರಗಳ ತಾಯಿ ತಿಮ್ಮಕ್ಕ',en:'Salumaragala Taayi Thimmakka'},lines:['ಸಾಲುಮರಗಳ','ತಾಯಿ ತಿಮ್ಮಕ್ಕ'],art:{m:'trees',c:['#1F4D3A','#0b1f17','#F3D99A']},
   brief:{kn:'ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಅವರ ಜೀವನ ಆಧರಿಸಿದ ನಾಟಕ.',en:'A play based on the life of Salumarada Thimmakka.'},
   chips:[{kn:'2024',en:'2024'},{kn:'ಕಾಜಾಣ',en:'Kaajana'}],
   meta:[['troupe',{kn:'ಕಾಜಾಣ',en:'Kaajana'}],['role',{kn:'ರಚನೆ, ಸಂಗೀತ, ನಿರ್ದೇಶನ',en:'Written, scored and directed'}],['based',{kn:'ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಅವರ ಜೀವನ',en:'The life of Salumarada Thimmakka'}],['text',{kn:'ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಇಂಟರ್ನ್ಯಾಷನಲ್ ಫೌಂಡೇಶನ್, 2016',en:'Salumarada Thimmakka International Foundation, 2016'}]]},
@@ -1368,22 +1398,38 @@ var HUBS={
  music:{get:function(){return SONGS},img:function(s){return cover(s)},cap:function(s){return T(s.t)},sub:function(s){return T(TYPES[s.type])}},
  gallery:{get:function(){return GALLERY.filter(function(g){return g.cat==='award'||g.cat==='stage'})},img:function(g){return gart(g)+'<img class="ov" src="'+esc(gimg(g))+'" alt="" onerror="this.remove()">'},cap:function(g){return T(g.t)},sub:function(g){return T(g.s)}}
 };
-var HSTATE={},HT={};
+function mv(it,k){var m=(it.meta||[]).filter(function(x){return x[0]===k})[0];if(!m)return '';var v=m[1];return typeof v==='object'?T(v):String(v)}
+HUBS.books.peek=function(it){var inc=mv(it,'incl'),g=mv(it,'genre'),p=mv(it,'pub'),y=mv(it,'year');
+ return '<div class="pkp"><small>'+esc(g)+(y?' · '+esc(y):'')+'</small><p>'+esc(it.brief?T(it.brief):'')+'</p>'+(inc?'<em>'+esc(inc)+'</em>':'')+(p?'<u>'+esc(p)+'</u>':'')+'</div>'};
+HUBS.music.peek=function(s){var li=lang==='kn'?1:2,ly=(s.ly||[]).slice(0,2).map(function(l){return l[li]||l[1]}).filter(Boolean),
+ meta=[T(TYPES[s.type]),s.used?T(s.used):'',s.year||''].filter(Boolean).join(' · ');
+ return '<div class="pkm"><div class="peq"><i></i><i></i><i></i><i></i><i></i></div><b>'+esc(T(s.t))+'</b><small>'+esc(meta)+'</small>'+(ly.length?'<p>'+ly.map(esc).join('<br>')+'</p>':'')+'<div class="pbr"><i></i></div></div>'};
+var HSTATE={},HT={},HP={};
+function hubEl(key){return document.querySelector('.hs[data-s="'+key+'"]')}
+function hubFill(key,i){var el=hubEl(key),sl=el&&el.querySelectorAll('.sl')[i];if(!sl||sl.dataset.f)return;
+ var H=HUBS[key],it=H.get().slice(0,8)[i];sl.dataset.f=1;
+ sl.innerHTML='<div class="kb fr fr-'+key+'">'+H.img(it)+'</div>'+(H.peek?'<div class="pk pk-'+key+'">'+H.peek(it)+'</div>':'')+'<div class="sc"><b>'+esc(H.cap(it))+'</b><small>'+esc(H.sub(it))+'</small></div>'}
+function hubPeek(key,n){clearTimeout(HP[key]);var el=hubEl(key);if(!el)return;
+ el.querySelectorAll('.sl').forEach(function(x){x.classList.remove('pkon')});
+ if(!HUBS[key].peek||rm.matches)return;
+ HP[key]=setTimeout(function(){var sl=el.querySelectorAll('.sl')[n];if(sl&&HSTATE[key]===n)sl.classList.add('pkon')},2100)}
 function hubBuild(key){
- var el=document.querySelector('.hs[data-s="'+key+'"]'),H=HUBS[key];if(!el)return;
+ var el=hubEl(key),H=HUBS[key];if(!el)return;
  var items=H.get().slice(0,8),n=HSTATE[key]||0;if(n>=items.length)n=0;HSTATE[key]=n;
- var h='';items.forEach(function(it,i){h+='<div class="sl'+(i===n?' on':'')+'"><div class="bg">'+H.img(it)+'</div><div class="kb fr fr-'+key+'">'+H.img(it)+'</div><div class="sc"><b>'+esc(H.cap(it))+'</b><small>'+esc(H.sub(it))+'</small></div></div>'});
+ var h='';items.forEach(function(it,i){h+='<div class="sl'+(i===n?' on':'')+'"></div>'});
  h+='<div class="dots">'+items.map(function(_,i){return '<i'+(i===n?' class="on"':'')+'></i>'}).join('')+'</div>';
- el.innerHTML=h;
+ el.innerHTML=h;hubFill(key,n);hubFill(key,(n+1)%items.length);hubPeek(key,n);
 }
 function hubStep(key){
- var el=document.querySelector('.hs[data-s="'+key+'"]');if(!el||document.hidden||document.body.classList.contains('view'))return;
+ var el=hubEl(key);if(!el||document.hidden||document.body.classList.contains('view'))return;
  var sl=el.querySelectorAll('.sl'),ds=el.querySelectorAll('.dots i');if(sl.length<2)return;
- var n=HSTATE[key]||0;sl[n].classList.remove('on');ds[n].classList.remove('on');n=(n+1)%sl.length;HSTATE[key]=n;sl[n].classList.add('on');ds[n].classList.add('on');
+ var n=HSTATE[key]||0;sl[n].classList.remove('on');ds[n].classList.remove('on');n=(n+1)%sl.length;HSTATE[key]=n;
+ hubFill(key,n);sl[n].classList.add('on');ds[n].classList.add('on');hubPeek(key,n);
+ setTimeout(function(){hubFill(key,(n+1)%sl.length)},900);
 }
 function hubCaps(){Object.keys(HUBS).forEach(hubBuild)}
 (function(){var keys=Object.keys(HUBS);keys.forEach(hubBuild);
- if(!rm.matches)keys.forEach(function(k,i){setTimeout(function(){HT[k]=setInterval(function(){hubStep(k)},3600)},i*900)});
+ if(!rm.matches)keys.forEach(function(k,i){setTimeout(function(){HT[k]=setInterval(function(){hubStep(k)},HUBS[k].peek?5400:3600)},i*900)});
 })();
 /* ---------- language (static text is switched by the page's own toggle) ---------- */
 function setLang(l){
@@ -1418,18 +1464,22 @@ function labels(){
   var hp=document.getElementById('hub-playlist');if(hp)hp.style.display=(secs.playlist&&secs.playlist.hidden)?'none':'';
 }
 function pauseAudio(){var a=document.getElementById('au');if(a&&!a.paused)a.pause()}
+function go(h){if(location.hash==='#'+h)return route();history.pushState(null,'','#'+h);route()}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||e.defaultPrevented||e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;
+ var h=a.getAttribute('href').slice(1);if(IDS.indexOf(h)<0&&h!=='explore')return;e.preventDefault();go(h)});
 function route(){
   var h=(location.hash||'').slice(1),v=IDS.indexOf(h)>=0&&secs[h]&&!secs[h].hidden;
   document.body.classList.toggle('view',v);document.body.dataset.v=v?h:'';
   IDS.forEach(function(id){if(secs[id])secs[id].classList.toggle('on',v&&id===h)});
-  if(v){window.scrollTo({top:0,behavior:'instant'});document.title=N[h][lg()]+' | '+(lg()?'Dr. Beluru Raghunandan':'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್')}
-  else{pauseAudio();var e=h&&document.getElementById(h);setTimeout(function(){if(e)e.scrollIntoView();else if(!h)window.scrollTo({top:0,behavior:'instant'})},30)}
+  if(v){window.scrollTo({top:0,left:0,behavior:'instant'});document.title=N[h][lg()]+' | '+(lg()?'Dr. Beluru Raghunandan':'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್')}
+  else{pauseAudio();var e=h&&document.getElementById(h);setTimeout(function(){if(e)e.scrollIntoView({behavior:'instant'});else if(!h)window.scrollTo({top:0,behavior:'instant'})},30)}
   if(v&&h!=='playlist')pauseAudio();
   labels();
 }
 new MutationObserver(function(){labels();var h=(location.hash||'').slice(1);if(IDS.indexOf(h)>=0&&secs[h]&&!secs[h].hidden)document.title=N[h][lg()]+' | '+(lg()?'Dr. Beluru Raghunandan':'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್')}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
-window.addEventListener('hashchange',route);
+window.addEventListener('hashchange',route);window.addEventListener('popstate',route);
 labels();
+(window.requestIdleCallback||function(f){setTimeout(f,1200)})(function(){document.querySelectorAll('.vsec img[loading=lazy]').forEach(function(i){var x=new Image();x.src=i.currentSrc||i.src})});
 if(IDS.indexOf((location.hash||'').slice(1))>=0)route();
 })();
 </script>
