@@ -503,6 +503,23 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 .hub .sl.pkon .pbr i{width:100%;transition:width 3s linear}
 .vsec.on{animation:vin .22s ease-out}
 @keyframes vin{from{opacity:0}to{opacity:1}}
+.hub .sc small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.ssl{position:absolute;inset:0;display:block}
+.ssl img.ov,.ssl>img{opacity:0;transition:opacity .9s ease}
+.ssl img.ov.on,.ssl>img.on{opacity:1}
+.hero .in{display:flex;align-items:center;justify-content:center;gap:clamp(1.6rem,4vw,3.4rem);max-width:1000px;text-align:left}
+.hero .htx{flex:1 1 0;min-width:0}
+.hero .htx .mask{margin:0 0 .6rem}.hero:not(.nohdp) .htx .mask{display:none}
+.hero .htx p{margin:.4rem 0}
+.hero h1{font-size:clamp(2rem,4.6vw,3.5rem)}
+.hdp{flex:none;margin:0;width:clamp(10.5rem,17vw,14.5rem)}
+.hframe{position:relative;aspect-ratio:4/5;border-radius:999px 999px .5rem .5rem;overflow:hidden;border:3px solid var(--brass);box-shadow:0 0 0 7px #0003,0 0 0 9px var(--brass),0 22px 46px #000a;background:#241a31}
+.hframe img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.hframe>img{opacity:0}.hframe>img.on,.hframe:not(:has(.ssl))>img:first-child{opacity:1}
+.hframe::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0,#ffe9b844,#0000 60%);pointer-events:none}
+.hero.nohdp .in{display:block;text-align:center;max-width:820px}.hero.nohdp .htx p{margin:.4rem auto}.hero.nohdp .htx .mask{margin:0 auto .6rem}
+@media (max-width:760px){.hero .in{flex-direction:column;text-align:center;gap:1.1rem}.hero .htx .mask{display:none}.hdp{width:9.2rem}.hero .htx p{margin:.4rem auto}.hero h1{font-size:clamp(1.9rem,8vw,2.6rem)}}
+
 .hero{min-height:clamp(19rem,40svh,26rem);padding:3rem 1.2rem 2rem}
 .hero .mask{width:clamp(44px,5.5vw,76px);margin-bottom:.6rem}
 .hero h1{font-size:clamp(2.2rem,6vw,4rem)}
@@ -510,9 +527,9 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 @media (max-width:760px){.hero{min-height:clamp(18rem,42svh,23rem)}}
 @media (max-height:500px) and (orientation:landscape){.hero{min-height:auto;padding:3.5rem 1rem 2rem}}
 
-.hub .kb.fr-plays,.hub .kb.fr-books{inset:auto;left:50%;top:8%;height:42%;width:auto;max-width:88%;aspect-ratio:2/3;transform:translateX(-50%)}
-.hub .kb.fr-plays img,.hub .kb.fr-books img{width:100%;height:100%;object-fit:cover}
-.hub .sl.on .kb.fr-plays,.hub .sl.on .kb.fr-books{animation:none}
+.hub .kb.fr-plays,.hub .kb.fr-books,.hub .kb.fr-gallery{inset:auto;left:50%;top:8%;height:42%;width:auto;max-width:88%;aspect-ratio:2/3;transform:translateX(-50%)}
+.hub .kb.fr-plays img,.hub .kb.fr-books img,.hub .kb.fr-gallery img{width:100%;height:100%;object-fit:cover}
+.hub .sl.on .kb.fr-plays,.hub .sl.on .kb.fr-books,.hub .sl.on .kb.fr-gallery{animation:none}
 .hub .kb.fr-music{inset:auto;left:0;right:0;top:12%;height:34%;width:auto;aspect-ratio:auto;border:0;box-shadow:none;background:none}
 .hub .mu{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .hub .mu .peq{height:4.2rem;gap:6px}.hub .mu .peq i{width:7px;animation-play-state:paused}
@@ -540,10 +557,13 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 <div class="hero" id="top">
   <div class="valance"></div><div class="curtain l"></div><div class="curtain r"></div>
   <div class="in">
+    <figure class="hdp" id="hdp" hidden><div class="hframe"></div></figure>
+    <div class="htx">
     <svg class="mask" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M8 10c10 4 38 4 48 0 2 24-6 44-24 46C14 54 6 34 8 10z"/><path d="M19 26c3-2 7-2 9 1M36 27c2-3 6-3 9-1M22 40c6 6 14 6 20 0"/></svg>
     <h1 id="name" data-kn="ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್" data-en="Dr. Beluru Raghunandan">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್</h1>
     <div class="roles" data-kn="ಕವಿ, ನಾಟಕಕಾರ, ರಂಗ ನಿರ್ದೇಶಕ" data-en="Poet, Playwright, Theatre Director">ಕವಿ, ನಾಟಕಕಾರ, ರಂಗ ನಿರ್ದೇಶಕ</div>
     <p data-kn="ಕನ್ನಡ ರಂಗಭೂಮಿಗೆ ಮಾತು, ಮೌನ ಮತ್ತು ಬೆಳಕನ್ನು ನೀಡಿದ ಸೃಜನಶೀಲ ಕಲಾವಿದ." data-en="A Kannada dramatist who gives the stage its words, its silences and its light.">ಕನ್ನಡ ರಂಗಭೂಮಿಗೆ ಮಾತು, ಮೌನ ಮತ್ತು ಬೆಳಕನ್ನು ನೀಡಿದ ಸೃಜನಶೀಲ ಕಲಾವಿದ.</p>
+      </div>
   </div>
 </div>
 
@@ -838,18 +858,42 @@ var PLAYS=[
   brief:{kn:'ಪದ್ಮಶ್ರೀ ಮಾತಾ ಬಿ. ಮಂಜಮ್ಮ ಜೋಗತಿ ಅವರ ಜೀವನಾಧಾರಿತ ನಾಟಕ.',en:'A play based on the life of Padma Shri Matha B. Manjamma Jogati.'},
   chips:[{kn:'2023',en:'2023'},{kn:'ಕಾಜಾಣ',en:'Kaajana'}],
   meta:[['troupe',{kn:'ಕಾಜಾಣ',en:'Kaajana'}],['role',{kn:'ರಂಗಪಠ್ಯ, ನಿರ್ದೇಶನ',en:'Stage text and direction'}],['based',{kn:'ಮಂಜಮ್ಮ ಜೋಗತಿ ಅವರ ಜೀವನ; ಅರುಣ್ ಜೋಳದಕೂಡ್ಲಿಗಿ ಅವರ ‘ನಡುವೆ ಸುಳಿವ ಹೆಣ್ಣು’ ಮತ್ತು ಡಾ. ಚಂದ್ರಪ್ಪ ಸೊಬಟಿ ಅವರ ‘ಮಂಜಮ್ಮ ಜೋಗತಿ’ ಕೃತಿಗಳು',en:'The life of Manjamma Jogati; Arun Joladakudligi’s Naduve Suliva Hennu and Dr. Chandrappa Sobati’s Manjamma Jogati'}]]},
- {id:'thimmakka',img:'images/plays/timmakka.jpg',t:{kn:'ಸಾಲುಮರಗಳ ತಾಯಿ ತಿಮ್ಮಕ್ಕ',en:'Salumaragala Taayi Thimmakka'},lines:['ಸಾಲುಮರಗಳ','ತಾಯಿ ತಿಮ್ಮಕ್ಕ'],art:{m:'trees',c:['#1F4D3A','#0b1f17','#F3D99A']},
+ {id:'thimmakka',mt:['timmakka','thimmakka'],img:'images/plays/timmakka.jpg',t:{kn:'ಸಾಲುಮರಗಳ ತಾಯಿ ತಿಮ್ಮಕ್ಕ',en:'Salumaragala Taayi Thimmakka'},lines:['ಸಾಲುಮರಗಳ','ತಾಯಿ ತಿಮ್ಮಕ್ಕ'],art:{m:'trees',c:['#1F4D3A','#0b1f17','#F3D99A']},
   brief:{kn:'ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಅವರ ಜೀವನ ಆಧರಿಸಿದ ನಾಟಕ.',en:'A play based on the life of Salumarada Thimmakka.'},
   chips:[{kn:'2024',en:'2024'},{kn:'ಕಾಜಾಣ',en:'Kaajana'}],
   meta:[['troupe',{kn:'ಕಾಜಾಣ',en:'Kaajana'}],['role',{kn:'ರಚನೆ, ಸಂಗೀತ, ನಿರ್ದೇಶನ',en:'Written, scored and directed'}],['based',{kn:'ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಅವರ ಜೀವನ',en:'The life of Salumarada Thimmakka'}],['text',{kn:'ಸಾಲುಮರದ ತಿಮ್ಮಕ್ಕ ಇಂಟರ್ನ್ಯಾಷನಲ್ ಫೌಂಡೇಶನ್, 2016',en:'Salumarada Thimmakka International Foundation, 2016'}]]},
- {id:'panchavarne',t:{kn:'ಪಂಚವರ್ಣೆ',en:'Panchavarne'},lines:['ಪಂಚವರ್ಣೆ'],art:{m:'bands',c:['#2c2a6b','#120f2e','#F3D99A']},
+ {id:'panchavarne',extra:['panchavarne-poster-2.png'],t:{kn:'ಪಂಚವರ್ಣೆ',en:'Panchavarne'},lines:['ಪಂಚವರ್ಣೆ'],art:{m:'bands',c:['#2c2a6b','#120f2e','#F3D99A']},
   brief:{kn:'ಮೀರಾ ಎಚ್.ಎನ್ ಅಭಿನಯದ ಏಕವ್ಯಕ್ತಿ ನಾಟಕ.',en:'A solo play performed by Meera H.N.'},
   chips:[{kn:'2024',en:'2024'},{kn:'ಕಾಜಾಣ',en:'Kaajana'}],
   meta:[['troupe',{kn:'ಕಾಜಾಣ',en:'Kaajana'}],['role',{kn:'ರಚನೆ, ಸಂಗೀತ, ನಿರ್ದೇಶನ',en:'Written, scored and directed'}],['fmt',{kn:'ಏಕವ್ಯಕ್ತಿ ನಾಟಕ, ಅಭಿನಯ: ಮೀರಾ ಎಚ್.ಎನ್',en:'Solo play, performed by Meera H.N.'}]]},
  {id:'akkai',t:{kn:'ಅಕ್ಕಯ್',en:'Akkai'},lines:['ಅಕ್ಕಯ್'],art:{m:'mask',c:['#7a2a4f','#2a0d1e','#F3D99A']},
   brief:{kn:'ಅಕ್ಕಯ್ ಪದ್ಮಶಾಲಿ ಅವರ ಜೀವನ ಆಧರಿಸಿದ ರಂಗರೂಪ.',en:'A stage version based on the life of Akkai Padmashali.'},
   chips:[{kn:'2022',en:'2022'},{kn:'ಕಾಜಾಣ ರಂಗ ಪಯಣ',en:'Kaajana Ranga Payana'}],
-  meta:[['troupe',{kn:'ಕಾಜಾಣ ರಂಗ ಪಯಣ',en:'Kaajana Ranga Payana'}],['role',{kn:'ರಂಗಪಠ್ಯ, ನಿರ್ದೇಶನ',en:'Stage text and direction'}],['based',{kn:'ಅಕ್ಕಯ್ ಪದ್ಮಶಾಲಿ ಅವರ ಜೀವನ ಮತ್ತು ಡೊಮಿನಿಕ್ ಅವರ ‘ಅಕ್ಕಯ್’ ಕೃತಿ',en:'The life of Akkai Padmashali and Dominic’s book Akkai'}],['text',{kn:'ಶಾರದಾ ಪ್ರತಿಷ್ಠಾನ, 2022',en:'Sharada Pratishthana, 2022'}]]}
+  meta:[['troupe',{kn:'ಕಾಜಾಣ ರಂಗ ಪಯಣ',en:'Kaajana Ranga Payana'}],['role',{kn:'ರಂಗಪಠ್ಯ, ನಿರ್ದೇಶನ',en:'Stage text and direction'}],['based',{kn:'ಅಕ್ಕಯ್ ಪದ್ಮಶಾಲಿ ಅವರ ಜೀವನ ಮತ್ತು ಡೊಮಿನಿಕ್ ಅವರ ‘ಅಕ್ಕಯ್’ ಕೃತಿ',en:'The life of Akkai Padmashali and Dominic’s book Akkai'}],['text',{kn:'ಶಾರದಾ ಪ್ರತಿಷ್ಠಾನ, 2022',en:'Sharada Pratishthana, 2022'}]]},
+ {id:'nagasampige',t:{kn:'ನಾಗಸಂಪಿಗೆ',en:'Nagasampige'},lines:['ನಾಗಸಂಪಿಗೆ'],art:{m:'trees',c:['#1F4D3A','#0b1f17','#F3D99A']},
+  brief:{kn:'ಲಿಂಗೇಗೌಡ ಅವರ ಜೀವನ ಆಧರಿಸಿದ ಏಕವ್ಯಕ್ತಿ ನಾಟಕ.',en:'A solo play based on the life of Lingegowda.'},
+  chips:[{kn:'2025',en:'2025'},{kn:'ಏಕವ್ಯಕ್ತಿ ನಾಟಕ',en:'Solo play'}],
+  meta:[['troupe',{kn:'ಕಾಜಾಣ',en:'Kaajana'}],['role',{kn:'ರಂಗಪಠ್ಯ, ಸಂಗೀತ, ನಿರ್ದೇಶನ',en:'Stage text, music and direction'}],['based',{kn:'ಲಿಂಗೇಗೌಡ ಅವರ ಜೀವನ; ಎನ್. ಲಿಂಗಯ್ಯ ಅವರ ‘ನಾಗಸಂಪಿಗೆ’ ಕೃತಿ',en:'The life of Lingegowda; N. Lingaiah’s book Nagasampige'}]]},
+ {id:'vrushali',t:{kn:'ವೃಷಾಲಿ',en:'Vrushali'},lines:['ವೃಷಾಲಿ'],art:{m:'mask',c:['#8a3a1c','#2a1208','#F3D99A']},
+  brief:{kn:'ಪದ್ಮಶ್ರೀ ಗೋವಿಂದರಾಜ್ ಅವರ ರಚನೆಯ ಏಕವ್ಯಕ್ತಿ ನಾಟಕ.',en:'A solo play written by Padmashri Govindaraj.'},
+  chips:[{kn:'2025',en:'2025'},{kn:'ಏಕವ್ಯಕ್ತಿ ನಾಟಕ',en:'Solo play'}],
+  meta:[['troupe',{kn:'ಕಾಜಾಣ',en:'Kaajana'}],['role',{kn:'ರಂಗಪಠ್ಯ, ಸಂಗೀತ, ನಿರ್ದೇಶನ',en:'Stage text, music and direction'}],['text',{kn:'ಪದ್ಮಶ್ರೀ ಗೋವಿಂದರಾಜ್',en:'Padmashri Govindaraj'}]]},
+ {id:'ameer',mt:['ameer'],t:{kn:'ಅಮೀರ್ ಬಾಯಿ ಕರ್ನಾಟಕಿ',en:'Ameer Bai Karnataki'},lines:['ಅಮೀರ್ ಬಾಯಿ','ಕರ್ನಾಟಕಿ'],art:{m:'bands',c:['#2c2a6b','#120f2e','#F3D99A']},
+  brief:{kn:'ರಹಮತ್ ತರೀಕೆರೆ ಅವರ ಕೃತಿ ಆಧರಿಸಿದ ನಾಟಕ.',en:'A play based on Rahamat Tarikere’s book.'},
+  chips:[{kn:'2025',en:'2025'},{kn:'ರಂಗಬದುಕು',en:'Rangabaduku'}],
+  meta:[['troupe',{kn:'ರಂಗಬದುಕು',en:'Rangabaduku'}],['role',{kn:'ರಂಗಪಠ್ಯ, ವಿನ್ಯಾಸ, ಸಂಗೀತ, ನಿರ್ದೇಶನ',en:'Stage text, design, music and direction'}],['based',{kn:'ರಹಮತ್ ತರೀಕೆರೆ ಅವರ ‘ಅಮೀರ್ ಬಾಯಿ ಕರ್ನಾಟಕಿ’ ಕೃತಿ',en:'Rahamat Tarikere’s book Ameer Bai Karnataki'}]]},
+ {id:'shaswatha',mt:['shaswatha'],t:{kn:'ಶಾಶ್ವತ ಪರಿಹಾರ',en:'Shaswatha Parihara'},lines:['ಶಾಶ್ವತ','ಪರಿಹಾರ'],art:{m:'butterfly',c:['#6A1B34','#27101c','#F3D99A']},
+  brief:{kn:'ಹಾಸ್ಯ ನಾಟಕ.',en:'A comedy play.'},
+  chips:[{kn:'2025',en:'2025'},{kn:'ಹಾಸ್ಯ ನಾಟಕ',en:'Comedy'}],
+  meta:[['troupe',{kn:'ಸ್ಟೇಜ್ ಬೆಂಗಳೂರು',en:'Stage Bengaluru'}],['role',{kn:'ರಚನೆ, ನಿರ್ದೇಶನ',en:'Written and directed'}]]},
+ {id:'mohana',mt:['mohana'],t:{kn:'ಮೋಹನ ತರಂಗಿಣಿ',en:'Mohana Tarangini'},lines:['ಮೋಹನ','ತರಂಗಿಣಿ'],art:{m:'mask',c:['#7a2a4f','#2a0d1e','#F3D99A']},
+  brief:{kn:'ಕನಕದಾಸರ ಮೋಹನ ತರಂಗಿಣಿ ಮಹಾಕಾವ್ಯ ಆಧಾರಿತ ನಾಟಕ.',en:'A play based on Kanakadasa’s epic Mohana Tarangini.'},
+  chips:[{kn:'ಮಹಾಕಾವ್ಯ ಆಧಾರಿತ',en:'Epic-based'}],
+  meta:[['role',{kn:'ರಚನೆ',en:'Playwright'}],['based',{kn:'ಕನಕದಾಸರ ಮೋಹನ ತರಂಗಿಣಿ ಮಹಾಕಾವ್ಯ',en:'Kanakadasa’s epic Mohana Tarangini'}],['text',{kn:'ಸಪ್ನ ಬುಕ್ ಹೌಸ್',en:'Sapna Book House'}]]},
+ {id:'panchagavya',mt:['panchagavya'],t:{kn:'ಪಂಚಗವ್ಯ',en:'Panchagavya'},lines:['ಪಂಚಗವ್ಯ'],art:{m:'trees',c:['#1F4D3A','#0b1f17','#F3D99A']},brief:{kn:'',en:''},chips:[],meta:[]},
+ {id:'darpana',mt:['darpana'],t:{kn:'ದರ್ಪಣ ಸುಂದರಿ',en:'Darpana Sundari'},lines:['ದರ್ಪಣ','ಸುಂದರಿ'],art:{m:'mask',c:['#6A1B34','#27101c','#F3D99A']},brief:{kn:'',en:''},chips:[],meta:[]},
+ {id:'dollhouse',mt:['doll'],t:{kn:'ಡಾಲ್ ಹೌಸ್',en:'Doll House'},lines:['ಡಾಲ್ ಹೌಸ್'],art:{m:'butterfly',c:['#8a3a1c','#2a1208','#F3D99A']},brief:{kn:'',en:''},chips:[],meta:[]},
+ {id:'nadaleele',mt:['nadaleele','naadaleele'],t:{kn:'ನಾದಲೀಲೆ',en:'Naadaleele'},lines:['ನಾದಲೀಲೆ'],art:{m:'bands',c:['#34507a','#0f1a2e','#F3D99A']},brief:{kn:'',en:''},chips:[],meta:[]}
 ];
 var BOOKS=[
  {id:'shwetapriya',t:{kn:'ಶ್ವೇತಪ್ರಿಯ',en:'Shwetapriya'},lines:['ಶ್ವೇತಪ್ರಿಯ'],art:{m:'lotus',c:['#34507a','#0f1a2e','#F3D99A']},
@@ -860,7 +904,7 @@ var BOOKS=[
   brief:{kn:'ಕವನ ಸಂಕಲನ, ರಾಸೀ ಪ್ರಕಾಶನ, 2025.',en:'Poetry collection, Raasee Prakashana, 2025.'},
   chips:[{kn:'ಕವನ ಸಂಕಲನ',en:'Poetry'},{kn:'2025',en:'2025'}],
   meta:[['genre',{kn:'ಕವನ ಸಂಕಲನ',en:'Poetry'}],['year',{kn:'2025',en:'2025'}],['pub',{kn:'ರಾಸೀ ಪ್ರಕಾಶನ',en:'Raasee Prakashana'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
- {id:'rubiks',img:'images/Books/Rubics Cube - ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್.jpeg',t:{kn:'ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್ ಮತ್ತಿತರ ನಾಟಕಗಳು',en:'Roobiks Kyoob Mattitara Naatakagalu'},lines:['ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್','ಮತ್ತಿತರ ನಾಟಕಗಳು'],art:{m:'bands',c:['#2c2a6b','#120f2e','#F3D99A']},
+ {id:'rubiks',mt:['rubics','rubiks'],img:'images/Books/Rubics Cube - ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್.jpeg',t:{kn:'ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್ ಮತ್ತಿತರ ನಾಟಕಗಳು',en:'Roobiks Kyoob Mattitara Naatakagalu'},lines:['ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್','ಮತ್ತಿತರ ನಾಟಕಗಳು'],art:{m:'bands',c:['#2c2a6b','#120f2e','#F3D99A']},
   brief:{kn:'ನಾಟಕ ಸಂಕಲನ, ಕಾಜಾಣ ಪ್ರಕಾಶನ.',en:'Collection of plays, Kaajana Prakashana.'},
   chips:[{kn:'ನಾಟಕ ಸಂಕಲನ',en:'Plays'}],
   meta:[['genre',{kn:'ನಾಟಕ ಸಂಕಲನ',en:'Collection of plays'}],['incl',{kn:'ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್, ಕ್ಲೀನ್ ಅಂಡ್ ಕ್ಲಿಯರ್ ಪಾಯಖಾನೆ, ಆಯಾಮ',en:'Roobiks Kyoob, Kleen and Kliyar Paayakhaane, Aayaama'}],['pub',{kn:'ಕಾಜಾಣ ಪ್ರಕಾಶನ',en:'Kaajana Prakashana'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
@@ -875,7 +919,8 @@ var BOOKS=[
  {id:'appa',t:{kn:'ಅಪ್ಪ ಕಾಣೆಯಾಗಿದ್ದಾನೆ',en:'Appa Kaaneyaagiddaane'},lines:['ಅಪ್ಪ','ಕಾಣೆಯಾಗಿದ್ದಾನೆ'],art:{m:'door',c:['#4a3a6b','#15102a','#F3D99A']},
   brief:{kn:'ಕಥಾ ಸಂಕಲನ, ಅಮೂಲ್ಯ ಪುಸ್ತಕ, 2022.',en:'Short stories, Amoolya Pustaka, 2022.'},
   chips:[{kn:'ಕಥೆಗಳು',en:'Stories'},{kn:'2022',en:'2022'}],
-  meta:[['genre',{kn:'ಕಥಾ ಸಂಕಲನ',en:'Short stories'}],['year',{kn:'2022',en:'2022'}],['pub',{kn:'ಅಮೂಲ್ಯ ಪುಸ್ತಕ',en:'Amoolya Pustaka'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]}
+  meta:[['genre',{kn:'ಕಥಾ ಸಂಕಲನ',en:'Short stories'}],['year',{kn:'2022',en:'2022'}],['pub',{kn:'ಅಮೂಲ್ಯ ಪುಸ್ತಕ',en:'Amoolya Pustaka'}],['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]},
+ {id:'anche',mt:['ಅಂಚೆ ಅಣ್ಣ'],pos:'100% 50%',t:{kn:'ಅಂಚೆ ಅಣ್ಣ – ರಂಗ ಚಂದ್ರಣ್ಣ',en:'Anche Anna – Ranga Chandranna'},lines:['ಅಂಚೆ ಅಣ್ಣ'],art:{m:'door',c:['#1F4D3A','#0b1f17','#F3D99A']},brief:{kn:'',en:''},chips:[],meta:[['lang',{kn:'ಕನ್ನಡ',en:'Kannada'}]]}
 ];
 var TYPES={play:{kn:'ನಾಟಕ',en:'Play'},film:{kn:'ಚಲನಚಿತ್ರ',en:'Film'},album:{kn:'ಆಲ್ಬಂ',en:'Album'}};
 var SONGS=[
@@ -1079,10 +1124,14 @@ function art(a,lines,kind,sub){
  s+='<text x="'+cx+'" y="286" text-anchor="middle" fill="#f1e8d8" fill-opacity=".85" font-family="\'Noto Sans Kannada\',sans-serif" font-size="9">'+esc(sub)+'</text></svg>';
  return s;
 }
+function sources(it){return it.imgs&&it.imgs.length?it.imgs:(it.img?[it.img]:[])}
+function hasImg(it){return sources(it).length>0}
+function slides(it,iv){var ss=sources(it);if(!ss.length)return '';
+ var st=it.pos?' style="object-position:'+it.pos+'"':'';
+ var h=ss.map(function(f,i){return '<img class="ov'+(i?'':' on')+'" src="'+esc(encodeURI(f))+'" alt=""'+st+' loading="lazy" decoding="async" onerror="this.remove()">'}).join('');
+ return ss.length>1?'<span class="ssl" data-iv="'+(iv||3200)+'">'+h+'</span>':h}
 function visual(it,kind){
- var svg=art(it.art,it.lines,kind,kind==='play'?'ಕಾಜಾಣ':'ಬೇಲೂರು ರಘುನಂದನ್');
- var f=it.img||('images/'+(kind==='play'?'plays':'books')+'/'+it.id+'.jpg');
- return svg+'<img class="ov" src="'+esc(f)+'" alt="" loading="lazy" onerror="this.remove()">';
+ return art(it.art,it.lines,kind,kind==='play'?'ಕಾಜಾಣ':'ಬೇಲೂರು ರಘುನಂದನ್')+slides(it);
 }
 /* ---------- shelf with drawer ---------- */
 var CHEV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
@@ -1347,13 +1396,17 @@ var GCATS=[['all',{kn:'ಎಲ್ಲವೂ',en:'All'}],['award',{kn:'ಪ್ರಶ
 /* Add real photos as images/gallery/<id>.jpg (auto-picked). Optional: yt:'YouTubeVideoId' plays in the viewer; href opens in a new tab. */
 var GALLERY=[
  {id:'sahitya-shri',cat:'award',m:'award',c:['#6A1B34','#27101c','#F3D99A'],t:{kn:'ಸಾಹಿತ್ಯ ಶ್ರೀ ಪ್ರಶಸ್ತಿ',en:'Sahitya Shri award'},s:{kn:'ಭೋಪಾಲ್ · 2026',en:'Bhopal · 2026'}},
+ {id:'kv-subbanna',cat:'award',m:'award',mt:['K.V. Subbanna Award'],c:['#8a3a1c','#2a1208','#F3D99A'],t:{kn:'ಕೆ.ವಿ. ಸುಬ್ಬಣ್ಣ ಪ್ರಶಸ್ತಿ',en:'K.V. Subbanna Award'},s:{kn:'ಶಿವಮೊಗ್ಗ ಕರ್ನಾಟಕ ಸಂಘ · ಶರ್ಮಿಷ್ಠೆ (2025)',en:'Shivamogga Karnataka Sangha · Sharmishthe (2025)'}},
+ {id:'vijaya-datti',cat:'award',m:'award',mt:['ಶ್ರೀ ವಿಜಯ ದತ್ತಿ'],c:['#34507a','#0f1a2e','#F3D99A'],t:{kn:'ಶ್ರೀ ವಿಜಯ ದತ್ತಿ ಪುರಸ್ಕಾರ',en:'Sri Vijaya Datti Puraskara'},s:{kn:'ಪ್ರಶಸ್ತಿ ಪ್ರದಾನ',en:'Award ceremony'}},
  {id:'bismillah-khan',cat:'award',m:'award',c:['#34507a','#0f1a2e','#F3D99A'],t:{kn:'ಉಸ್ತಾದ್ ಬಿಸ್ಮಿಲ್ಲಾ ಖಾನ್ ಯುವ ಪುರಸ್ಕಾರ',en:'Ustad Bismillah Khan Yuva Puraskar'},s:{kn:'ಸಂಗೀತ ನಾಟಕ ಅಕಾಡೆಮಿ · 2022',en:'Sangeet Natak Akademi · 2022'}},
  {id:'nataka-akademi',cat:'award',m:'award',c:['#7a2a4f','#2a0d1e','#F3D99A'],t:{kn:'ಕರ್ನಾಟಕ ನಾಟಕ ಅಕಾಡೆಮಿ ಪ್ರಶಸ್ತಿ',en:'Karnataka Nataka Academy Award'},s:{kn:'2022',en:'2022'}},
  {id:'mayuravarma',cat:'award',m:'award',c:['#8a3a1c','#2a1208','#F3D99A'],t:{kn:'ಮಯೂರವರ್ಮ ಪ್ರಶಸ್ತಿ',en:'Mayuravarma Award'},s:{kn:'ಕನ್ನಡ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು · 2022',en:'Kannada Sahitya Parishat · 2022'}},
- {id:'stage-thimmakka',cat:'stage',m:'stage',c:['#1F4D3A','#0b1f17','#F3D99A'],t:{kn:'ಸಾಲುಮರಗಳ ತಾಯಿ ತಿಮ್ಮಕ್ಕ',en:'Salumaragala Taayi Thimmakka'},s:{kn:'ನಾಟಕ ಪ್ರದರ್ಶನ · ಕಾಜಾಣ · 2024',en:'Play screening · Kaajana · 2024'}},
- {id:'stage-akkai',cat:'stage',m:'stage',c:['#7a2a4f','#2a0d1e','#F3D99A'],t:{kn:'ಅಕ್ಕಯ್',en:'Akkai'},s:{kn:'ನಾಟಕ ಪ್ರದರ್ಶನ · ಕಾಜಾಣ ರಂಗ ಪಯಣ · 2022',en:'Play screening · Kaajana Ranga Payana · 2022'}},
- {id:'stage-panchavarne',cat:'stage',m:'stage',c:['#2c2a6b','#120f2e','#F3D99A'],t:{kn:'ಪಂಚವರ್ಣೆ',en:'Panchavarne'},s:{kn:'ನಾಟಕ ಪ್ರದರ್ಶನ · ಕಾಜಾಣ · 2024',en:'Play screening · Kaajana · 2024'}},
- {id:'stage-chitte',cat:'stage',m:'stage',c:['#6A1B34','#27101c','#F3D99A'],t:{kn:'ಚಿಟ್ಟೆ',en:'Chitte'},s:{kn:'ನಾಟಕ ಪ್ರದರ್ಶನ · 2022',en:'Play screening · 2022'}},
+ {id:'stage-thimmakka',extra:['plays/timmakka.jpg'],cat:'stage',m:'stage',c:['#1F4D3A','#0b1f17','#F3D99A'],t:{kn:'ಸಾಲುಮರಗಳ ತಾಯಿ ತಿಮ್ಮಕ್ಕ',en:'Salumaragala Taayi Thimmakka'},s:{kn:'ನಾಟಕ ಪ್ರದರ್ಶನ · ಕಾಜಾಣ · 2024',en:'Play screening · Kaajana · 2024'}},
+ {id:'stage-akkai',extra:['plays/Akkai.png'],cat:'stage',m:'stage',c:['#7a2a4f','#2a0d1e','#F3D99A'],t:{kn:'ಅಕ್ಕಯ್',en:'Akkai'},s:{kn:'ನಾಟಕ ಪ್ರದರ್ಶನ · ಕಾಜಾಣ ರಂಗ ಪಯಣ · 2022',en:'Play screening · Kaajana Ranga Payana · 2022'}},
+ {id:'stage-panchavarne',extra:['panchavarne-poster-2.png'],cat:'stage',m:'stage',c:['#2c2a6b','#120f2e','#F3D99A'],t:{kn:'ಪಂಚವರ್ಣೆ',en:'Panchavarne'},s:{kn:'ನಾಟಕ ಪ್ರದರ್ಶನ · ಕಾಜಾಣ · 2024',en:'Play screening · Kaajana · 2024'}},
+ {id:'stage-panchagavya',m:'stage',extra:['plays/Panchagavya - ಪಂಚಗವ್ಯ 3.png','plays/Panchagavya - ಪಂಚಗವ್ಯ 4.png'],cat:'stage',mt:['zz-none'],c:['#1F4D3A','#0b1f17','#F3D99A'],t:{kn:'ಪಂಚಗವ್ಯ',en:'Panchagavya'},s:{kn:'ನಾಟಕ ಪ್ರದರ್ಶನ',en:'Play screening'}},
+ {id:'stage-vrushali',m:'stage',extra:['plays/Vrushali 2.png'],cat:'stage',mt:['zz-none'],c:['#8a3a1c','#2a1208','#F3D99A'],t:{kn:'ವೃಷಾಲಿ',en:'Vrushali'},s:{kn:'ನಾಟಕ ಪ್ರದರ್ಶನ · ಕಾಜಾಣ · 2025',en:'Play screening · Kaajana · 2025'}},
+ {id:'stage-chitte',extra:['plays/Chitte.png'],cat:'stage',m:'stage',c:['#6A1B34','#27101c','#F3D99A'],t:{kn:'ಚಿಟ್ಟೆ',en:'Chitte'},s:{kn:'ನಾಟಕ ಪ್ರದರ್ಶನ · 2022',en:'Play screening · 2022'}},
  {id:'speech-1',cat:'speech',m:'mic',c:['#4a3a6b','#15102a','#F3D99A'],t:{kn:'ಭಾಷಣ',en:'Bhashana'},s:{kn:'ಭಾಷಣಗಳು',en:'Speeches'}},
  {id:'speech-2',cat:'speech',m:'mic',c:['#1f6a78','#0a2630','#F3D99A'],t:{kn:'ಉಪನ್ಯಾಸ',en:'Upanyaasa'},s:{kn:'ಭಾಷಣಗಳು',en:'Speeches'}},
  {id:'video-yt',cat:'video',m:'film',c:['#4A1124','#1d1426','#F3D99A'],t:{kn:'ಯೂಟ್ಯೂಬ್ ಚಾನೆಲ್',en:'YouTube channel'},s:{kn:'ವಿಡಿಯೋಗಳು',en:'Videos'},href:'https://www.youtube.com/@raghunandanb.r1996'}
@@ -1375,7 +1428,7 @@ function gart(it){
  var id='ga'+(++uid),c=it.c;
  return '<svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><radialGradient id="'+id+'" cx=".5" cy=".3" r=".9"><stop offset="0" stop-color="'+c[0]+'"/><stop offset="1" stop-color="'+c[1]+'"/></radialGradient></defs><rect width="200" height="150" fill="url(#'+id+')"/>'+gmotif(it.m,c)+'</svg>';
 }
-function gimg(it){return it.img||('images/gallery/'+it.id+'.jpg')}
+
 function gcat(k){for(var i=0;i<GCATS.length;i++)if(GCATS[i][0]===k)return GCATS[i][1]}
 var PLAYSVG='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
 var gcur='all',glist=[],gpos=0,gfrom=null;
@@ -1386,7 +1439,7 @@ function gRender(){
  glist=GALLERY.filter(function(g){return gcur==='all'||g.cat===gcur});
  var h='';
  glist.forEach(function(g,i){
-  var inner='<div class="gph">'+gart(g)+'<img class="ov" src="'+esc(gimg(g))+'" alt="" loading="lazy" onerror="this.remove()"><span class="gk">'+esc(T(gcat(g.cat)))+'</span>'+((g.yt||g.href)?'<span class="gplay">'+PLAYSVG+'</span>':'')+'</div><h3>'+esc(T(g.t))+'</h3><div class="gs">'+esc(T(g.s))+'</div>';
+  var inner='<div class="gph">'+gart(g)+slides(g)+'<span class="gk">'+esc(T(gcat(g.cat)))+'</span>'+((g.yt||g.href)?'<span class="gplay">'+PLAYSVG+'</span>':'')+'</div><h3>'+esc(T(g.t))+'</h3><div class="gs">'+esc(T(g.s))+'</div>';
   if(g.href&&!g.yt)h+='<a class="gt" href="'+esc(g.href)+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(T(g.t))+(lang==='kn'?' (ಹೊಸ ಟ್ಯಾಬ್‌ನಲ್ಲಿ ತೆರೆಯುತ್ತದೆ)':' (opens in a new tab)')+'">'+inner+'</a>';
   else h+='<button class="gt" type="button" data-i="'+i+'">'+inner+'</button>';
  });
@@ -1398,7 +1451,7 @@ function gRender(){
 function gShow(){
  var g=glist[gpos],m=$('#glm');if(!g)return;
  if(g.yt){m.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+esc(g.yt)+'?rel=0" title="'+esc(T(g.t))+'" allow="accelerometer;encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe>'}
- else{var im=new Image();im.alt=T(g.t);im.onerror=function(){m.innerHTML=gart(g)};m.innerHTML='';m.appendChild(im);im.src=gimg(g)}
+ else{var ss=sources(g),k=0,im=new Image();im.alt=T(g.t);im.onerror=function(){m.innerHTML=gart(g)};m.innerHTML='';m.appendChild(im);im.src=encodeURI(ss[0]);if(ss.length>1){im.style.cursor='pointer';im.onclick=function(){k=(k+1)%ss.length;im.src=encodeURI(ss[k])}}}
  $('#glc').innerHTML='<b>'+esc(T(g.t))+'</b><span>'+esc(T(g.s))+'</span>';
  var many=glist.length>1;$('#glp').style.display=$('#gln').style.display=many?'':'none';
 }
@@ -1414,20 +1467,18 @@ document.addEventListener('keydown',function(e){if(!$('#glb').classList.contains
 
 
 /* ---------- homepage slideshow thumbnails ---------- */
-function imgSrc(it,k){return it.img||('images/'+k+'/'+it.id+'.jpg')}
-function hasImg(it){return !!(it.img||it._ok)}
-function rimg(it,k){return '<img src="'+esc(imgSrc(it,k))+'" alt="" decoding="async" onload="var f=this.closest(\'.fr\');if(f)f.style.aspectRatio=Math.min(1.5,Math.max(.62,this.naturalWidth/this.naturalHeight))">'}
+function rimg(it){return '<img src="'+esc(encodeURI(sources(it)[0]))+'" alt="" decoding="async"'+(it.pos?' style="object-position:'+it.pos+'"':'')+' onload="var f=this.closest(\'.fr\');if(f)f.style.aspectRatio=Math.min(1.5,Math.max(.62,this.naturalWidth/this.naturalHeight))">'}
 var HUBS={
- plays:{get:function(){return PLAYS.filter(hasImg)},img:function(it){return rimg(it,'plays')},cap:function(it){return T(it.t)},sub:function(it){return it.chips&&it.chips[0]?T(it.chips[0]):''}},
- books:{get:function(){return BOOKS.filter(hasImg)},img:function(it){return rimg(it,'books')},cap:function(it){return T(it.t)},sub:function(it){return it.chips&&it.chips[0]?T(it.chips[0]):''}},
+ plays:{get:function(){return PLAYS.filter(hasImg)},img:function(it){return rimg(it)},cap:function(it){return T(it.t)},sub:function(it){return it.chips&&it.chips[0]?T(it.chips[0]):''}},
+ books:{get:function(){return BOOKS.filter(hasImg)},img:function(it){return rimg(it)},cap:function(it){return T(it.t)},sub:function(it){return it.chips&&it.chips[0]?T(it.chips[0]):''}},
  music:{get:function(){return SONGS},img:function(s){return '<div class="mu"><span class="nt n1">♪</span><span class="nt n2">♫</span><div class="peq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>'},cap:function(s){return T(s.t)},sub:function(s){return T(TYPES[s.type])}},
- gallery:{get:function(){return GALLERY.filter(function(g){return g.cat==='award'||g.cat==='stage'})},img:function(g){return gart(g)+'<img class="ov" src="'+esc(gimg(g))+'" alt="" onerror="this.remove()">'},cap:function(g){return T(g.t)},sub:function(g){return T(g.s)}}
+ gallery:{get:function(){return GALLERY.filter(function(g){return (g.cat==='award'||g.cat==='stage')&&hasImg(g)})},img:function(g){return rimg(g)},cap:function(g){return T(g.t)},sub:function(g){return T(g.s)}}
 };
 function mv(it,k){var m=(it.meta||[]).filter(function(x){return x[0]===k})[0];if(!m)return '';var v=m[1];return typeof v==='object'?T(v):String(v)}
 var HSTATE={},HT={},HP={};
 function hubEl(key){return document.querySelector('.hs[data-s="'+key+'"]')}
 function hubFill(key,i){var el=hubEl(key),sl=el&&el.querySelectorAll('.sl')[i];if(!sl||sl.dataset.f)return;
- var H=HUBS[key],it=H.get().slice(0,8)[i];sl.dataset.f=1;
+ var H=HUBS[key],it=H.get().slice(0,10)[i];sl.dataset.f=1;
  sl.innerHTML='<div class="kb fr fr-'+key+'">'+H.img(it)+'</div>'+(H.peek?'<div class="pk pk-'+key+'">'+H.peek(it)+'</div>':'')+'<div class="sc"><b>'+esc(H.cap(it))+'</b><small>'+esc(H.sub(it))+'</small></div>'}
 function hubPeek(key,n){clearTimeout(HP[key]);var el=hubEl(key);if(!el)return;
  el.querySelectorAll('.sl').forEach(function(x){x.classList.remove('pkon')});
@@ -1435,7 +1486,7 @@ function hubPeek(key,n){clearTimeout(HP[key]);var el=hubEl(key);if(!el)return;
  HP[key]=setTimeout(function(){var sl=el.querySelectorAll('.sl')[n];if(sl&&HSTATE[key]===n)sl.classList.add('pkon')},2100)}
 function hubBuild(key){
  var el=hubEl(key),H=HUBS[key];if(!el)return;
- var items=H.get().slice(0,8),n=HSTATE[key]||0;if(n>=items.length)n=0;HSTATE[key]=n;
+ var items=H.get().slice(0,10),n=HSTATE[key]||0;if(n>=items.length)n=0;HSTATE[key]=n;
  var h='';items.forEach(function(it,i){h+='<div class="sl'+(i===n?' on':'')+'"></div>'});
  h+='<div class="dots">'+items.map(function(_,i){return '<i'+(i===n?' class="on"':'')+'></i>'}).join('')+'</div>';
  el.innerHTML=h;hubFill(key,n);hubFill(key,(n+1)%items.length);hubPeek(key,n);
@@ -1448,10 +1499,73 @@ function hubStep(key){
  setTimeout(function(){hubFill(key,(n+1)%sl.length)},900);
 }
 function hubCaps(){Object.keys(HUBS).forEach(hubBuild)}
-[['plays',PLAYS],['books',BOOKS]].forEach(function(p){p[1].forEach(function(it){if(it.img)return;var im=new Image();im.onload=function(){it._ok=true;hubBuild(p[0])};im.src=imgSrc(it,p[0])})});
 (function(){var keys=Object.keys(HUBS);keys.forEach(hubBuild);
  if(!rm.matches)keys.forEach(function(k,i){setTimeout(function(){HT[k]=setInterval(function(){hubStep(k)},3800)},i*900)});
 })();
+/* ---------- image discovery: every picture dropped into the repo folders is picked up ---------- */
+var MAN={"plays": ["Akkai.png", "Ameer Bai Karnataki.png", "Chitte.png", "Darpana Sundari.png", "Doll House.png", "maatha.jpg", "Mohana Tarangini 1.png", "Mohana Tarangini 2.png", "Nadaleele 1.png", "Nadaleele 2.png", "Nagasampige - ನಾಗಸಂಪಿಗೆ .png", "Panchagavya - ಪಂಚಗವ್ಯ 1.png", "Panchagavya - ಪಂಚಗವ್ಯ 2.png", "Panchagavya - ಪಂಚಗವ್ಯ 3.png", "Panchagavya - ಪಂಚಗವ್ಯ 4.png", "Shaswatha Parihara.png", "timmakka.jpg", "Vrushali 1.png", "Vrushali 2.png"], "books": ["Maggada Mane - ಮಗ್ಗದ ಮನೆ.jpeg", "Rubics Cube - ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್.jpeg", "ಅಂಚೆ ಅಣ್ಣ - ರಂಗ ಚಂದ್ರಣ್ಣ .png"], "gallery": ["K.V. Subbanna Award by the Shivamogga Karnataka Sangha for his remarkable 2025 play, 'Sharmishthe'!.png", "K.V. Subbanna Award.png", "ಶ್ರೀ ವಿಜಯ ದತ್ತಿ ಪುರಸ್ಕಾರ.png"], "hero": ["1.jpg", "2.png"]};
+var NORMRE=/[^\p{L}\p{M}\p{N}]+/gu;
+function nrm(x){return String(x).toLowerCase().replace(/\.[a-z0-9]+$/,'').replace(NORMRE,'')}
+function nat(a,b){return a.localeCompare(b,undefined,{numeric:true,sensitivity:'base'})}
+var APAL=[['#6A1B34','#27101c'],['#1F4D3A','#0b1f17'],['#2c2a6b','#120f2e'],['#8a3a1c','#2a1208'],['#7a2a4f','#2a0d1e'],['#34507a','#0f1a2e']],AMOT=['mask','bands','trees','butterfly'];
+function parseTitle(fn){
+ var base=fn.replace(/\.[A-Za-z0-9]+$/,'').replace(/\s*\d+\s*$/,'').trim(),parts=base.split(/\s+-\s+/),lat='',kn='';
+ parts.forEach(function(p){if(/[ಀ-೿]/.test(p))kn=kn||p.trim();else if(/[A-Za-z]/.test(p))lat=lat||p.trim()});
+ return {base:base,t:{kn:kn||lat||base,en:lat||kn||base}};
+}
+function distribute(arr,dir,files,kind){
+ for(var i=arr.length-1;i>=0;i--)if(arr[i].auto)arr.splice(i,1);
+ arr.forEach(function(it){it.imgs=[];(it.extra||[]).forEach(function(x){it.imgs.push('images/'+x)})});
+ var autos={};
+ files.slice().sort(nat).forEach(function(f){
+  var n=nrm(f),hit=null;
+  arr.forEach(function(it){if(hit||it.auto)return;if((it.mt||[it.id]).some(function(t){t=nrm(t);return t&&n.indexOf(t)>=0}))hit=it});
+  var path='images/'+dir+'/'+f;
+  if(hit){if(hit.imgs.indexOf(path)<0)hit.imgs.push(path);return}
+  var pt=parseTitle(f),key=nrm(pt.base.replace(/\s*\d+\s*$/,''));
+  if(!autos[key]){var k=Object.keys(autos).length,pal=APAL[k%APAL.length],o={id:'auto-'+key,auto:true,imgs:[],t:pt.t,lines:[pt.t.kn],brief:{kn:'',en:''},chips:[],meta:[]};
+   if(kind==='gallery'){o.cat=/award|puraskar|prashasti|ಪ್ರಶಸ್ತಿ|ಪುರಸ್ಕಾರ/i.test(f)?'award':'stage';o.c=[pal[0],pal[1],'#F3D99A'];o.mt=['zz-none'];o.s={kn:'',en:''}}
+   else o.art={m:AMOT[k%AMOT.length],c:[pal[0],pal[1],'#F3D99A']};
+   autos[key]=o;arr.push(o)}
+  autos[key].imgs.push(path);
+ });
+}
+function heroBuild(){
+ var hero=document.querySelector('.hero'),fig=document.getElementById('hdp');if(!fig)return;
+ var fs=(MAN.hero||[]).slice().sort(nat);
+ if(!fs.length){hero.classList.add('nohdp');fig.hidden=true;return}
+ hero.classList.remove('nohdp');fig.hidden=false;
+ var h=fs.map(function(f,i){return '<img class="'+(i?'':'on')+'" src="'+esc(encodeURI('images/gallery/Belur Raghunandan/'+f))+'" alt="'+(i?'':'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ (Dr. Beluru Raghunandan)')+'" decoding="async"'+(i?' loading="lazy"':'')+' onerror="this.remove()">'}).join('');
+ fig.querySelector('.hframe').innerHTML=fs.length>1?'<span class="ssl" data-iv="4800">'+h+'</span>':h;
+}
+function applyManifest(m){
+ MAN=m;distribute(PLAYS,'plays',m.plays||[],'play');distribute(BOOKS,'Books',m.books||[],'book');distribute(GALLERY,'gallery',m.gallery||[],'gallery');heroBuild();
+}
+function ghls(dir,fallback){
+ return fetch('https://api.github.com/repos/ShrinivasaPH/belurraghunandan/contents/'+encodeURI('images/'+dir)).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(a){
+  if(!Array.isArray(a))throw 0;return a.filter(function(x){return x.type==='file'&&/\.(jpe?g|png|webp|gif|avif)$/i.test(x.name)}).map(function(x){return x.name.normalize('NFC')})}).catch(function(){return fallback});
+}
+function refreshManifest(){
+ if(!/^https?:$/.test(location.protocol)||!window.fetch)return;
+ Promise.all([ghls('plays',MAN.plays),ghls('Books',MAN.books),ghls('gallery',MAN.gallery),ghls('gallery/Belur Raghunandan',MAN.hero)]).then(function(r){
+  var m={plays:r[0],books:r[1],gallery:r[2],hero:r[3]};
+  if(JSON.stringify(m)!==JSON.stringify(MAN)){applyManifest(m);setLang(lang)}
+ });
+}
+/* alternate numbered pictures of the same item as a slideshow */
+setInterval(function(){
+ if(document.hidden||rm.matches)return;var now=Date.now();
+ document.querySelectorAll('.ssl').forEach(function(g){
+  if(!g.getClientRects().length)return;
+  var iv=+g.dataset.iv||3200,last=+g.dataset.l||0;
+  if(!last){g.dataset.l=now-Math.random()*iv*.7;return}
+  var im=g.querySelectorAll('img');if(!im.length)return;
+  var cur=-1;im.forEach(function(x,i){if(x.classList.contains('on'))cur=i});
+  if(now-last<iv&&cur>=0)return;
+  if(cur>=0)im[cur].classList.remove('on');
+  im[(cur+1)%im.length].classList.add('on');g.dataset.l=now;
+ });
+},600);
 /* ---------- language (static text is switched by the page's own toggle) ---------- */
 function setLang(l){
  lang=l;
@@ -1461,7 +1575,9 @@ function setLang(l){
 }
 $('#bk').addEventListener('click',function(){setLang('kn')});$('#be').addEventListener('click',function(){setLang('en')});
 if(SONGS.length){$('#playlist').hidden=false;$('#nav-playlist').hidden=false;mwInit()}
+applyManifest(MAN);
 setLang('kn');
+(window.requestIdleCallback||function(f){setTimeout(f,1500)})(refreshManifest);
 })();
 </script>
 <script>
