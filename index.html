@@ -503,6 +503,8 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 .hub .sl.pkon .pbr i{width:100%;transition:width 3s linear}
 .vsec.on{animation:vin .22s ease-out}
 @keyframes vin{from{opacity:0}to{opacity:1}}
+#shelf-plays .poster img.ov{object-fit:contain;background:#14101c}
+
 .hub .sc small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .ssl{position:absolute;inset:0;display:block}
 .ssl img.ov,.ssl>img{opacity:0;transition:opacity .9s ease}
@@ -1502,7 +1504,7 @@ function hubCaps(){Object.keys(HUBS).forEach(hubBuild)}
  if(!rm.matches)keys.forEach(function(k,i){setTimeout(function(){HT[k]=setInterval(function(){hubStep(k)},3800)},i*900)});
 })();
 /* ---------- image discovery: every picture dropped into the repo folders is picked up ---------- */
-var MAN={"plays": ["Akkai.jpg", "Ameer Bai Karnataki.jpg", "Chitte.jpg", "Darpana Sundari.jpg", "Doll House.jpg", "maatha.jpg", "Mohana Tarangini 1.jpg", "Mohana Tarangini 2.jpg", "Nadaleele 1.jpg", "Nadaleele 2.jpg", "Nagasampige - ನಾಗಸಂಪಿಗೆ .jpg", "Panchagavya - ಪಂಚಗವ್ಯ 1.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 2.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 3.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 4.png", "Shaswatha Parihara.jpg", "timmakka.jpg", "Vrushali 1.jpg", "Vrushali 2.jpg"], "books": ["Maggada Mane - ಮಗ್ಗದ ಮನೆ.jpg", "Rubics Cube - ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್.jpg", "ಅಂಚೆ ಅಣ್ಣ - ರಂಗ ಚಂದ್ರಣ್ಣ .jpg"], "gallery": ["K.V. Subbanna Award by the Shivamogga Karnataka Sangha for his remarkable 2025 play, 'Sharmishthe'!.jpg", "K.V. Subbanna Award.jpg", "ಶ್ರೀ ವಿಜಯ ದತ್ತಿ ಪುರಸ್ಕಾರ.jpg"], "hero": ["1.jpg", "2.jpg"]};
+var MAN={"plays": ["Akkai.jpg", "Ameer Bai Karnataki.jpg", "Chitte.jpg", "Darpana Sundari.jpg", "Doll House.jpg", "maatha.jpg", "Mohana Tarangini 1.jpg", "Mohana Tarangini 2.jpg", "Nadaleele 1.jpg", "Nadaleele 2.jpg", "Nagasampige - ನಾಗಸಂಪಿಗೆ .jpg", "Panchagavya - ಪಂಚಗವ್ಯ 1.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 2.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 3.jpg", "Panchagavya - ಪಂಚಗವ್ಯ 4.png", "Shaswatha Parihara.jpg", "timmakka.jpg", "Vrushali 1.jpg", "Vrushali 2.jpg"], "books": ["Maggada Mane - ಮಗ್ಗದ ಮನೆ.jpg", "Rubics Cube - ರೂಬಿಕ್ಸ್ ಕ್ಯೂಬ್.jpg", "ಅಂಚೆ ಅಣ್ಣ - ರಂಗ ಚಂದ್ರಣ್ಣ .jpg"], "gallery": ["K.V. Subbanna Award by the Shivamogga Karnataka Sangha for his remarkable 2025 play, 'Sharmishthe'!.jpg", "K.V. Subbanna Award.jpg", "ಶ್ರೀ ವಿಜಯ ದತ್ತಿ ಪುರಸ್ಕಾರ.jpg"], "hero": ["1.jpg"]};
 window.ifx=function(im){var m=im.src.match(/\.(jpe?g|png)(?=$|\?)/i),t=(im.dataset.tr||'').split(',').filter(Boolean);if(!m){im.remove();return}t.push(m[1].toLowerCase());im.dataset.tr=t.join(',');var nx=['jpg','png','jpeg'].filter(function(e){return t.indexOf(e)<0})[0];if(!nx){im.remove();return}im.src=im.src.replace(/\.(jpe?g|png)(?=$|\?)/i,'.'+nx)};
 var NORMRE=/[^\p{L}\p{M}\p{N}]+/gu;
 function nrm(x){return String(x).toLowerCase().replace(/\.[a-z0-9]+$/,'').replace(NORMRE,'')}
