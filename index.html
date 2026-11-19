@@ -503,6 +503,13 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 .hub .sl.pkon .pbr i{width:100%;transition:width 3s linear}
 .vsec.on{animation:vin .22s ease-out}
 @keyframes vin{from{opacity:0}to{opacity:1}}
+.hero{min-height:clamp(19rem,40svh,26rem);padding:3rem 1.2rem 2rem}
+.hero .mask{width:clamp(44px,5.5vw,76px);margin-bottom:.6rem}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem)}
+.hero p{font-size:1.1rem}
+@media (max-width:760px){.hero{min-height:clamp(18rem,42svh,23rem)}}
+@media (max-height:500px) and (orientation:landscape){.hero{min-height:auto;padding:3.5rem 1rem 2rem}}
+
 .hub .kb.fr-plays,.hub .kb.fr-books{inset:auto;left:50%;top:8%;height:42%;width:auto;max-width:88%;aspect-ratio:2/3;transform:translateX(-50%)}
 .hub .kb.fr-plays img,.hub .kb.fr-books img{width:100%;height:100%;object-fit:cover}
 .hub .sl.on .kb.fr-plays,.hub .sl.on .kb.fr-books{animation:none}
@@ -540,6 +547,17 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
   </div>
 </div>
 
+<section id="explore" style="padding-top:1.4rem;text-align:center">
+  <h2 data-kn="ಕಲಾ ಲೋಕ" data-en="His World of Art" style="display:inline-block">ಕಲಾ ಲೋಕ</h2>
+  <p style="margin:0 auto" data-kn="ರಂಗಭೂಮಿ, ಸಾಹಿತ್ಯ, ಸಂಗೀತ ಮತ್ತು ಕ್ಷಣಗಳ ಒಳಗೆ ಇಣುಕಿ ನೋಡಿ." data-en="Step inside his theatre, his books, his songs and his moments.">ರಂಗಭೂಮಿ, ಸಾಹಿತ್ಯ, ಸಂಗೀತ ಮತ್ತು ಕ್ಷಣಗಳ ಒಳಗೆ ಇಣುಕಿ ನೋಡಿ.</p>
+  <div class="hub">
+    <a class="hc c-plays" href="#plays"><div class="hs" data-s="plays"></div><div class="ht"><b data-kn="ನಾಟಕಗಳು" data-en="Plays">ನಾಟಕಗಳು</b><span data-kn="ಪೋಸ್ಟರ್ ಮತ್ತು ವಿವರ" data-en="Posters and details">ಪೋಸ್ಟರ್ ಮತ್ತು ವಿವರ</span><i aria-hidden="true">→</i></div></a>
+    <a class="hc c-books" href="#books"><div class="hs" data-s="books"></div><div class="ht"><b data-kn="ಪುಸ್ತಕಗಳು" data-en="Books">ಪುಸ್ತಕಗಳು</b><span data-kn="ಗ್ರಂಥಾಲಯ" data-en="The library">ಗ್ರಂಥಾಲಯ</span><i aria-hidden="true">→</i></div></a>
+    <a class="hc c-music" href="#playlist" id="hub-playlist"><div class="hs" data-s="music"></div><div class="ht"><b data-kn="ಹಾಡುಗಳು" data-en="Playlist">ಹಾಡುಗಳು</b><span data-kn="ಸಂಗೀತ ಲೋಕ" data-en="Music world">ಸಂಗೀತ ಲೋಕ</span><i aria-hidden="true">→</i></div></a>
+    <a class="hc c-gal" href="#gallery"><div class="hs" data-s="gallery"></div><div class="ht"><b data-kn="ಚಿತ್ರಗಳು" data-en="Gallery">ಚಿತ್ರಗಳು</b><span data-kn="ಕ್ಷಣಗಳು ಮತ್ತು ವಿಡಿಯೋಗಳು" data-en="Moments and videos">ಕ್ಷಣಗಳು ಮತ್ತು ವಿಡಿಯೋಗಳು</span><i aria-hidden="true">→</i></div></a>
+  </div>
+</section>
+
 <section id="about">
   <h2 data-en="About">ಪರಿಚಯ</h2>
   <figure class="portrait"><div class="arch"><img src="images/beluru-raghunandan.jpg" alt="ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್ (Dr. Beluru Raghunandan)" loading="lazy" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="mono" aria-hidden="true">ರ</span></div><figcaption data-en="Dr. Beluru Raghunandan">ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್</figcaption></figure>
@@ -562,16 +580,6 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
   </ul>
 </section>
 
-<section id="explore" style="padding-top:1rem;text-align:center">
-  <h2 data-kn="ಅವರ ಕಲಾ ಲೋಕ" data-en="His World of Art" style="display:inline-block">ಅವರ ಕಲಾ ಲೋಕ</h2>
-  <p style="margin:0 auto" data-kn="ರಂಗಭೂಮಿ, ಸಾಹಿತ್ಯ, ಸಂಗೀತ ಮತ್ತು ಕ್ಷಣಗಳ ಒಳಗೆ ಇಣುಕಿ ನೋಡಿ." data-en="Step inside his theatre, his books, his songs and his moments.">ರಂಗಭೂಮಿ, ಸಾಹಿತ್ಯ, ಸಂಗೀತ ಮತ್ತು ಕ್ಷಣಗಳ ಒಳಗೆ ಇಣುಕಿ ನೋಡಿ.</p>
-  <div class="hub">
-    <a class="hc c-plays" href="#plays"><div class="hs" data-s="plays"></div><div class="ht"><b data-kn="ನಾಟಕಗಳು" data-en="Plays">ನಾಟಕಗಳು</b><span data-kn="ಪೋಸ್ಟರ್ ಮತ್ತು ವಿವರ" data-en="Posters and details">ಪೋಸ್ಟರ್ ಮತ್ತು ವಿವರ</span><i aria-hidden="true">→</i></div></a>
-    <a class="hc c-books" href="#books"><div class="hs" data-s="books"></div><div class="ht"><b data-kn="ಪುಸ್ತಕಗಳು" data-en="Books">ಪುಸ್ತಕಗಳು</b><span data-kn="ಗ್ರಂಥಾಲಯ" data-en="The library">ಗ್ರಂಥಾಲಯ</span><i aria-hidden="true">→</i></div></a>
-    <a class="hc c-music" href="#playlist" id="hub-playlist"><div class="hs" data-s="music"></div><div class="ht"><b data-kn="ಹಾಡುಗಳು" data-en="Playlist">ಹಾಡುಗಳು</b><span data-kn="ಸಂಗೀತ ಲೋಕ" data-en="Music world">ಸಂಗೀತ ಲೋಕ</span><i aria-hidden="true">→</i></div></a>
-    <a class="hc c-gal" href="#gallery"><div class="hs" data-s="gallery"></div><div class="ht"><b data-kn="ಚಿತ್ರಗಳು" data-en="Gallery">ಚಿತ್ರಗಳು</b><span data-kn="ಕ್ಷಣಗಳು ಮತ್ತು ವಿಡಿಯೋಗಳು" data-en="Moments and videos">ಕ್ಷಣಗಳು ಮತ್ತು ವಿಡಿಯೋಗಳು</span><i aria-hidden="true">→</i></div></a>
-  </div>
-</section>
 
 <section id="plays" class="vsec" style="padding-top:1rem">
   <h2 data-kn="ನಾಟಕಗಳು" data-en="Plays">ನಾಟಕಗಳು</h2>
