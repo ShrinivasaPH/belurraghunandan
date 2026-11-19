@@ -1539,7 +1539,7 @@ function heroBuild(){
  fig.querySelector('.hframe').innerHTML=fs.length>1?'<span class="ssl" data-iv="4800">'+h+'</span>':h;
 }
 function applyManifest(m){
- MAN=m;distribute(PLAYS,'plays',m.plays||[],'play');distribute(BOOKS,'Books',m.books||[],'book');distribute(GALLERY,'gallery',m.gallery||[],'gallery');heroBuild();
+ MAN=m;distribute(PLAYS,'plays',m.plays||[],'play');distribute(BOOKS,'Books',m.books||[],'book');BOOKS.map(function(b,i){return [b,i]}).sort(function(x,y){return (hasImg(y[0])-hasImg(x[0]))||(x[1]-y[1])}).forEach(function(x,i){BOOKS[i]=x[0]});distribute(GALLERY,'gallery',m.gallery||[],'gallery');heroBuild();
 }
 function ghls(dir,fallback){
  return fetch('https://api.github.com/repos/ShrinivasaPH/belurraghunandan/contents/'+encodeURI('images/'+dir)).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(a){
