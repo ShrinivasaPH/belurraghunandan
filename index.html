@@ -503,6 +503,27 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 .hub .sl.pkon .pbr i{width:100%;transition:width 3s linear}
 .vsec.on{animation:vin .22s ease-out}
 @keyframes vin{from{opacity:0}to{opacity:1}}
+.hero{border-bottom:4px solid var(--brass);box-shadow:0 6px 0 -1px var(--wine2),0 7px 0 0 var(--brass)}
+.hedge{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.6rem auto 0;max-width:min(560px,86%);color:var(--brass)}
+.hedge span{flex:1;height:7px;border-top:1px solid currentColor;border-bottom:1px solid currentColor;opacity:.85}
+.hedge svg{width:2.1rem;height:2.1rem;flex:none}
+@media (max-width:760px){body .hero{padding-bottom:5.6rem}}
+
+.hero{padding-bottom:5rem}
+.hero .in{z-index:2}
+.floor{position:absolute;left:0;right:0;bottom:0;height:3.6rem;z-index:1;pointer-events:none;
+ background:
+  linear-gradient(#0000 calc(100% - .7rem),#4A1124 calc(100% - .7rem)),
+  repeating-linear-gradient(90deg,#00000055 0 1px,#0000 1px 72px),
+  linear-gradient(#4b2e1e,#1c110b);
+ border-bottom:0;box-shadow:0 -2.2rem 3.2rem -1rem #ffd98a2e}
+.floor::before{content:"";position:absolute;left:0;right:0;top:0;height:11px;
+ background:radial-gradient(circle at 50% 100%,#fff1c9 0 2px,#ffd98a88 3px,#0000 8px) 0 0/44px 11px repeat-x;filter:drop-shadow(0 -3px 5px #ffd98a99)}
+.floor::after{content:"";position:absolute;left:0;right:0;bottom:.7rem;height:2px;background:linear-gradient(90deg,#0000,#B38A3C 12%,#F3D99A 50%,#B38A3C 88%,#0000)}
+.hero .curtain{z-index:3}
+@media (max-width:760px){.floor{height:3rem}.hero{padding-bottom:4.2rem}.floor::before{background-size:36px 11px}}
+@media (max-height:500px) and (orientation:landscape){.hero{padding-bottom:3.6rem}}
+
 #shelf-plays .poster img.ov{object-fit:contain;background:#14101c}
 
 .hub .sc small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
@@ -557,7 +578,7 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
 </header>
 
 <div class="hero" id="top">
-  <div class="valance"></div><div class="curtain l"></div><div class="curtain r"></div>
+  <div class="valance"></div><div class="curtain l"></div><div class="curtain r"></div><div class="floor" aria-hidden="true"></div>
   <div class="in">
     <figure class="hdp" id="hdp" hidden><div class="hframe"></div></figure>
     <div class="htx">
@@ -568,6 +589,8 @@ body.view>*:not(header):not(footer):not(.vsec):not(#top-btn):not(#glb):not(#npf)
       </div>
   </div>
 </div>
+
+<div class="hedge" aria-hidden="true"><span></span><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M8 10c10 4 38 4 48 0 2 24-6 44-24 46C14 54 6 34 8 10z"/><path d="M19 26c3-2 7-2 9 1M36 27c2-3 6-3 9-1M22 40c6 6 14 6 20 0"/></svg><span></span></div>
 
 <section id="explore" style="padding-top:1.4rem;text-align:center">
   <h2 data-kn="ಕಲಾ ಲೋಕ" data-en="His World of Art" style="display:inline-block">ಕಲಾ ಲೋಕ</h2>
